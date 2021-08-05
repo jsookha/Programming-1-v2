@@ -1,0 +1,69 @@
+/*
+Program:	2017 Past Paper - Practical
+Programmer:	J.Sookha
+Description: 	
+*/
+
+package tennisplayers; 
+
+import java.util.Scanner; 
+
+public class TennisPlayers{
+
+	static int intCount1, intCount2, intCount3; 
+	static int intMatchCount; 
+
+	static int intWhichPlayer; 
+
+	public static void main(String[] args){
+		// reading in value 
+		// increment counters 
+		// print when done 
+		
+		Scanner sc = new Scanner(System.in);
+		
+		intCount1 = 0;
+		intCount2 = 0;
+		intCount3 = 0;
+		intMatchCount = 1;
+
+		String strDisplayQuestion; 
+		
+		strDisplayQuestion = "Please enter a 1, 2 or 3 for the winning player: \n" + 
+			             "(1) Novak Djokovic \n" + 
+				     "(2) Andy Murray \n" + 
+				     "(3) Roger Federer \n"; 		
+
+		System.out.println(strDisplayQuestion);
+		System.out.println("Enter the player who won match " + intMatchCount + ":");
+		
+		intWhichPlayer = sc.nextInt();
+
+		while(intWhichPlayer != 0){
+			if (intWhichPlayer == 1)
+				intCount1 = intCount1 + 1;
+
+			if (intWhichPlayer == 2)
+				intCount2 = intCount2 + 1;
+
+			if (intWhichPlayer == 3)
+				intCount3 = intCount3 + 1;
+
+			intMatchCount = intMatchCount + 1; 		
+			System.out.println("Enter the player who won match " + intMatchCount + ":");
+		
+			intWhichPlayer = sc.nextInt();	
+		}		
+
+		String strAnswer; 
+
+		strAnswer = "NOVAK DJOKOVIC: \t" + intCount1 + "\n" + 
+			    "ANDY MURRAY: \t" + intCount2 + "\n" + 
+			    "ROGER FEDERER: \t" + intCount3 + "\n" + 
+			    "---------------------------------------- \n" + 
+			    "GAME COUNT: " + intMatchCount;  
+
+		System.out.println(strAnswer);
+	}
+
+}

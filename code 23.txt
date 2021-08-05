@@ -1,0 +1,41 @@
+while...loop
+------------- 
+int count = 1;
+while (count < 11) {
+	System.out.println("Count is: " + count);
+        count++;
+}
+
+//*******************************************************************************
+
+do...while
+-----------
+int count = 1;
+do {
+	System.out.println("Count is: " + count);
+        count++;
+} while (count < 11);
+
+//*******************************************************************************
+
+for...loop 
+-----------
+for(int i=1; i<11; i++){
+	System.out.println("Count is: " + i);
+}
+
+
+
+Start 
+1. c = 0
+2. s = 0
+ 
+3. for c = 1 to 30 step 1 
+	Read Age	
+	s = s + Age
+
+4. Avg = s / 30
+
+5. Print Avg
+
+6. End 

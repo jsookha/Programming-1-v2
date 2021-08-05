@@ -1,0 +1,85 @@
+/*
+Program: 	Array - enter values
+Programmer:	J.Sookha
+Description:	going to be reading in values into an array, but if 
+		its not the right data type - we must repeat the 
+		request to re-enter the value 
+*/
+package verifyinginput; 
+
+import java.util.Scanner; 
+import java.util.InputMismatchException;
+
+public class VerifyingInput
+{
+  static int[] intNumbers = new int[10];
+  static int intCounter; 
+  
+  public static void main(String[] args)
+  {
+  	  entervalues();
+	  entervaluesagain();
+  }
+  
+  public static void entervalues()
+  {
+    Scanner sc = new Scanner(System.in);
+    
+    // just to be different - using a while loop to enter the values into the array 
+    intCounter = 0; 
+    while (intCounter <= 9)
+    {
+    	System.out.print("Enter a number for cell " + intCounter);
+      	intNumbers[intCounter] = sc.nextInt();
+
+      	intCounter = intCounter + 1; 
+    }
+  }
+
+    //********************************************************************************
+    // the above code does what we have been experimenting with for a while now 
+    // but we need to work out - what if the user does not enter a valid number 
+    // -- if they enter a string/char by mistake - how do we take notice of it and 
+    // do something because of it... 
+    //********************************************************************************
+
+  public static void entervaluesagain()
+  {
+    // same code as before but with the added extra now 
+
+    Scanner sc = new Scanner(System.in);
+    
+    intCounter = 0; 
+    while (intCounter <= 9)
+    {
+	try
+        {
+            System.out.print("Enter a number for cell " + intCounter);
+            intNumbers[intCounter]  = sc.nextInt();
+        }
+        catch (InputMismatchException ime)
+        {
+           System.err.println("Incorrect entry.");
+	   
+	   // reading in the value again
+	   System.out.print("Enter a number for cell " + intCounter);
+           intNumbers[intCounter]  = sc.nextInt(); 
+        }
+    	
+      	intCounter = intCounter + 1; 
+    }
+  }
+}
+
+/*
+ got the link to the code above from 
+ https://www.reddit.com/r/javaexamples/comments/336epj/getting_input_from_the_console_validating_and/
+
+ take note of the code - its not perfect - just an idea - a possbility 
+ read through this code and do a little of your own research from the link provided and research 
+ into the code 
+
+ remember that the while loop used in the above code is mainly for the running through the cells 
+ in the array ... you will notice why I am saying this - when you visit the link and see that a 
+ while loop is used for a different purpose 
+*/

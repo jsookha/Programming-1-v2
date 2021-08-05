@@ -1,0 +1,170 @@
+
+import java.lang.Math; 
+import java.util.Scanner; 
+
+public class UsingArrays
+{
+  public static void main(String[] args)
+  {
+    //declaring arrays is not like a normal variable declaration - take note of the right-hand side 
+    int[] intNumber = new int[10]; //the 10 is the number of cells - remember the index is from 0 to 9
+    
+    
+    //------------------------------------------------------------------------------------------------------
+    int[] intarrOtherNumbers; 
+    // can declare the variable like this ... but we still need to do right hand side 
+    // before we can use the array ...
+    // arr is just another prefix to consider when naming an array 
+    
+    intarrOtherNumbers = new int[5]; 
+    
+    
+	// accessing the cells is quite simple - we need to remember the index is now important 
+    // below - I am just placing values into the array 
+    intarrOtherNumbers[0] = 1; //first cell 
+    intarrOtherNumbers[1] = 2; 
+    intarrOtherNumbers[2] = 3; 
+    intarrOtherNumbers[3] = 4; 
+    intarrOtherNumbers[4] = 5; //last cell 
+    // intarrOtherNumbers[5] = 6; //this line is wrong - cell 5 does not exist - 
+    // trying to refer to a cell that does not exist will cause this error - Index out of bounds exception
+    
+    // if I want to print the values from the array - same like above 
+    // I need to refer to the cells by using the index 
+    
+    System.out.println("Value in cell [0]: " + intarrOtherNumbers[0] + "\n" +
+                       "Value in cell [1]: " + intarrOtherNumbers[1] + "\n" + 
+                       "Value in cell [2]: " + intarrOtherNumbers[2] + "\n" + 
+                       "Value in cell [3]: " + intarrOtherNumbers[3] + "\n" +
+                       "Value in cell [4]: " + intarrOtherNumbers[4]);
+    
+    System.out.println();
+    // now please take note - the code above may look simple and easy - but it is not the most efficient
+    // imagine the array intNumber declared there on top ... 
+    // 10 cells would mean that I have to repeat the line 10 times to access each cell 
+    // So I need to find a better way to access the cells - the key is the index 
+	//------------------------------------------------------------------------------------------------------
+    
+    // Now I'm going to access and use intNumber - but will try to be more efficient with it 
+    // using a for loop is quite the nice loop to use 
+    // a while...loop and do...while loop is also possible - but there might be extra work to handle the values 
+    // in the array 
+    
+    // for loops are nice because the array is of a set size - the counter in the loop 
+    // can now be used to also reference the cell in the array - so count the number of times the loop 
+    // will execute and also be as the index for the array 
+    
+    // the example below - I could have used the Scanner or JOptionPane to read in the values - but 
+    // will just load some numbers myself 
+    
+    int intCount; 
+    
+    for (intCount = 0; intCount <= 9; intCount++){
+    	intNumber[intCount] = intCount + 1; // manually loading the numbers from 1 to 10 in the array	
+    }
+    // the above loop is much more simpler and more efficient 
+    // will show the code to use a Scanner to load the values ... but will comment it out for the rest of the program
+    /*
+    Scanner sc = new Scanner(System.in);
+    
+    for (intCount = 0; intCount <= 9; intCount++){
+      	System.out.print("Please enter the number for cell [" + intCount + "] : ");
+    	intNumber[intCount] = sc.nextInt();
+    }
+    */
+    
+    // Now to print the values 
+    for (intCount = 0; intCount <= 9; intCount++){
+    	System.out.println("Cell [" + intCount + "]: " + intNumber[intCount]);
+    }
+    
+    // Using arrays to store multiple values of the same data type is nice 
+    // but what is purpose - so things like calculations, searching and sorting  
+    // come into this story ... calculations like sum and average are common 
+  	
+    int intSum;
+    double dblAverage; 
+    
+    intSum = 0; // always initialize 
+    
+    for (intCount = 0; intCount <= 9; intCount++){
+    	intSum = intSum + intNumber[intCount]; 
+    }
+    
+    dblAverage = intSum / 10; 
+    System.out.print("The sum of the 10 numbers is " + intSum + " and the average is " + dblAverage);
+    System.out.println();
+    
+    // take note of the line printed - something interesting was brought to my attention ... 
+    // intSum / 10 - would be 55 / 10 - which is equal to 5.5 
+    // but the printed line only shows 5.0 
+    // I actually forgot about this - 
+    // dblAverage is equal to the answer from the expression on the right hand side 
+    // intSum / 10 is dividing and we are expecting a floating point/double answer 
+    // we do get that - but for some reason Java takes this as an Integer expression 
+    // so instead of 5.5 - the expression gets the answer of 5 
+    // and since the value is then saved in dblAverage - the value is now 5.0 
+    // so how would we fix this ? 
+    
+    double dblSum, dblAvg; // make sum a double and not an integer - even though you are accumulating integers 
+    dblSum = 0; 
+    for (intCount = 0; intCount <= 9; intCount++){
+    	dblSum = dblSum + intNumber[intCount];
+    }
+    dblAvg = dblSum / 10; 
+    System.out.print("The sum of the 10 numbers is " + dblSum + " and the average is " + dblAvg);
+    // remember the other code about DecimalFormat - we could use that here to make the display a little better 
+  	System.out.println();
+    //------------------------------------------------------------------------------------------------------
+   
+    // Now - High and Low ... another good question to ask in a test or exam 
+    // We've spoken about this - but now with arrays - the logic is the same - but the code will be a little different 
+    int intHigh, intLow; 
+    
+    intHigh = -1; 
+    intLow = 999; 
+    
+    for (intCount = 0; intCount <= 9; intCount++){
+    	if (intNumber[intCount] > intHigh)
+          intHigh = intNumber[intCount];
+      
+      	if (intNumber[intCount] < intLow)
+          intLow = intNumber[intCount];
+    }
+    //take note that the if...then statements are meant to be separate - do not combine them with an else 
+    
+    System.out.println("The highest number in the array is " + intHigh + " and the lowest number is " + intLow);
+    System.out.println();
+    //-------------------------------------------------------------------------------------------------------
+    
+    // Another interesting concept with high and low - is not only figuring out what is the highest and lowest 
+    // number - but also working out in which cells is the numbers - this will help in the future test or exams 
+    // think about this carefully - its not difficult - its just a little extra thinking ... 
+    
+    int intHigh1, intHigh1Index; // just made new variables to be different from the one above  
+    int intLow1, intLow1Index;   // also created 2 new variables to store the index of the highest & lowest number 
+    
+    intHigh1 = -1; 
+    intLow1 = 999; 
+    
+    intHigh1Index = -1; 
+    intLow1Index = -1;
+    
+    for (intCount = 0; intCount <= 9; intCount++){
+      if (intNumber[intCount] > intHigh1){
+      		intHigh1 = intNumber[intCount];
+          	intHigh1Index = intCount; //saving the index when I find that highest value
+      }
+      if (intNumber[intCount] < intLow1){
+          	intLow1 = intNumber[intCount];
+           	intLow1Index = intCount; //saving the index when I find the lowest value
+      }
+    }
+    
+    System.out.println("The highest number in the array is " + intHigh1 + " in cell [" + intHigh1Index + "] \n" +  
+                       "The lowest number in the array is " + intLow1 + " in cell [" + intLow1Index + "]");
+    
+    
+  }
+}
+

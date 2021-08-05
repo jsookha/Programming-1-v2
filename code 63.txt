@@ -1,0 +1,75 @@
+
+public class SequentialSearchParallelArrays
+{
+  static String[] strCities = new String[4]; 
+  static int intPrice = new int[4]; 
+  static int intCount; 
+  
+  public static void main(String[] args)
+  {
+  	loadArray();
+    
+    String strSearch; 
+    // strSearch = JOptionPane,showInputDialog(null, "Which city do you wish to travel to from Joburg?");
+    strSearch = "George"; 
+   
+    searchArray(strSearch); 
+    
+  }
+  
+  public static void searchArray(String strS)
+  {
+    int intFlag; 
+    intFlag = 0; 
+    int intFoundIndex; 
+    
+    for (intCount = 0; intCount <= 3; intCount++)
+    {
+      if (strS.equals(strCities[intCount]))
+      {
+        //System.out.println("The price to go to " + strCities[intCount] + " is " + intPrice[intCount]);
+        intFlag = 1;
+        intFoundIndex = intCount; 
+      }
+    }
+    if (intFlag == 0)
+      System.out.println("The city you want to go to does not exist in our list");
+    else 
+      System.out.println("The price to go to " + strCities[intFoundIndex] + " is " + intPrice[intFoundIndex]);
+  }
+  
+  public static void loadArray()
+  {
+  	/*
+    Cities			Price
+    Durban			480		0
+    Cape Town			700		1
+    Bloemfontein		400		2
+    George			800 	3
+    */
+    /*
+    for (intCount = 0; intCount <= 3; intCount++)
+    {
+      strCities[intCount] = JOptionPane.showInputDialog(null, "Please enter the city");
+      intPrice[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the price");
+    }
+    */
+    strCities[0] = "Durban";
+    strCities[1] = "Cape Town";
+    strCities[2] = "Bloemfontein";
+    strCities[3] = "George";
+    
+    intPrice[0] = 480;
+    intPrice[1] = 700; 
+    intPrice[2] = 400; 
+    intPrice[3] = 800; 
+  }
+  
+  public static void printArray()
+  {
+    
+  }
+  
+  
+}
+

@@ -1,0 +1,53 @@
+package testscorestatistics;
+
+import java.util.Scanner; 
+
+public class TestScoreStatistics{
+	public static void main (String[] args){
+		Scanner sc = new Scanner(System.in);
+		
+		int intScore;
+		int intCount; 
+		int intHigh, intLow;
+		double dblAvg; 
+		int intSum; 
+
+		System.out.print("Enter Score: "); 
+		intScore = sc.nextInt();
+		
+		intSum = 0; 
+		intHigh = -1; 
+		intLow = 200; 
+		intCount = 0; 
+
+		while (intScore != 999){
+			if ((intScore < 0) || (intScore > 100)){
+				System.out.println("Incorrect score entered");
+			}
+			else {
+				//sum for the average
+
+				intSum = intSum + intScore; 
+				intCount = intCount + 1; 
+
+				//calc if high 
+				
+				if (intScore > intHigh)
+					intHigh = intScore;
+				
+				//calc if low
+				
+				if (intScore < intLow)
+					intLow = intScore;
+			}
+			
+			System.out.print("Enter Score: "); 
+			intScore = sc.nextInt();		 			
+		}
+		dblAvg = intSum / intCount;
+		
+		System.out.println("The Average of " + intCount + " students score is " + dblAvg);
+		System.out.println("The highest score is " + intHigh);
+		System.out.println("The lowest score is " + intLow);
+	}
+}

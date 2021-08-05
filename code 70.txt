@@ -1,0 +1,131 @@
+/*
+Program Question 5 - 2017 Past paper 
+Programming - J.Sookha 
+Description 
+*/
+
+package stockcontrol; 
+
+import javax.swing.JOptionPane; 
+
+public class StockControl{
+	
+	static int[] intProductID; 
+	static String[] strProductName; 
+	static double[] dblProductPrice; 
+
+	static String strMainquestion; 
+	static int intMainAnswer;
+	static int intCounter, intFlag, intFoundIndex; 	
+
+	static int intSearch; 
+	static String strSearch; 
+	static int intResponse;
+
+	
+	public static void main(String[] args){
+		loadArray();
+		
+		strMainQuestion = "Enter (1) to search for product details \n" + 
+				  "Enter (2) to display all product details in stock. \n" + 
+				  "Enter any other key to exit."; 
+
+		strMainAnswer = JOptionPane.showInputDialog(null, strMainQuestion, "Input");
+		intMainAnswer = Integer.parseInt(strMainAnswer);
+
+		while ((intMainAnswer == 1) || (intMainAnswer == 2)){
+			if (intMainAnswer == 1){
+				SearchProduct();
+			}
+			if (intMainAnswer == 2){
+				PrintDetails();
+			}
+			
+			strMainAnswer = JOptionPane.showInputDialog(null, strMainQuestion);
+			intMainAnswer = Integer.parseInt(strMainAnswer, "Input");
+		} 		
+ 
+	}
+
+	public static void SearchProduct(){
+
+		// We must allow the user to want to search again - so all this code is going to be 
+		// inside a do while loop 
+
+		
+		do{
+			intFlag = 0; 
+			intFoundIndex = -1; 
+			String strDisplayFound = ""; 
+
+			strSearch = JOptionPane.showInputDialog(null,"Enter in the Product ID");
+			intSearch = Integer.parseInt(strSearch); 
+		
+			for (intCounter = 0; intCounter <= 2; intCounter++){
+				if (intProductID[intCounter] == intSearch){
+					intFlag = 1; 
+					intFoundIndex = intCounter; 
+				}
+			}
+			if (intFlag == 0){
+				JOptionPane.showMessageDialog(null, "The requested Product ID does not exist", "Search Product");
+			}
+			else{
+				strDisplayFound = "PRODUCT ID: " + intProductID[intFoundIndex] + "\n" + 			
+					          "PRODUCT: " + strProductName[intFoundIndex] + "\n" +
+						  "PRICE: " + dblProductPrice[intFoundIndex]; 
+				JOptionPane.showMessageDialog(null, strDisplayFound, "Search Display");
+			}
+			//--------ASK TO PERFORM THE SEARCH AGAIN--------
+			intResponse = JOptionPane.showConfirmDialog(null, "Would you like to search for more products?", "Confirm - More Search?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		}while (intResponse == JOptionPane.YES_OPTION);
+			
+	} 	
+	public static void PrintDetails(){
+		
+		// Please note that my style in the print out might not look nice 
+		// You can consider using String.format() to make the display look better .. 
+		// and import java.text.NumberFormat to consider formatting the price properly 
+
+		String strDisplayALL; 
+		int intProductCount = 0; 
+
+		strDisplayALL = "ID \t PRODUCT \t PRICE \n" + 
+				"-----------------------\n"; 
+		for (intCounter =0; intCounter <= 2; intCounter++){
+			strDisplayALL = strDisplayALL + 
+					intProductID[intCounter] + "\t" + 
+					strProductName[intCounter] + "\t" +
+					"R " + dblProductPrice[intCounter] + "\n";
+
+			intProductCount = intProductCount + 1; 
+		}
+		strDisplayALL = strDisplayALL + "\n PRODUCT COUNT:" + intProductCount; 
+ 
+		JOptionPane.showMessageDialog(null, strDisplayALL, "Stock Report");
+	
+	}
+	public static void loadArray(){
+
+
+		intProductID = new int[]{101,102,103};
+		strProductName = new String[]{"ACER Laptop","HP Laptop","DELL Laptop"};
+		dblProductPrice = new double[]{5500.00, 5200.00, 3100.00};
+
+		/*	
+		The long way of loading the values - one-by-one ... as compared to the version above ... 
+
+		intProductID[0] = 101;
+		intProductID[1] = 102;
+		intProductID[2] = 103;
+		
+		strProductName[0] = "ACER Laptop"; 
+		strProductName[1] = "HP Laptop"; 
+		strProductName[2] = "DELL Laptop"; 
+		
+		dblProductPrice[0] = "5500.00;
+		dblProductPrice[1] = "5200.00;
+		dblProductPrice[2] = "3100.00;
+		*/
+	}	
+}

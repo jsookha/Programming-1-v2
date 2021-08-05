@@ -1,0 +1,123 @@
+package questionone; 
+
+public class Details{
+	
+	// private fields 
+	private String strID;
+	private String strFname; 
+	private String strLname; 
+	private double dblSalary; 
+	private double dblUpdated;
+
+	// get & set methods 
+	
+	public String getID(){
+	
+		return strID; 
+	}
+
+	public void setID(String strNewID){
+		strID = strNewID; 
+	}
+
+	public double getSalary(){
+		return dblSalary; 
+	}
+
+	public void setSalary(double dblNewSalary){
+		dblSalary = dblNewSalary; 
+	}
+
+	// constructors 
+
+	// methods (other) 
+	public double getUpdatedSalary(){
+		dblUpdated = dblSalary + ( dblSalary * 0.1);
+		return dblUpdated;
+	}
+}
+//----------------------------------------------------------------------------------------------
+package questionone; 
+
+public class questionone{
+		
+	public static Details emp1 = new Details(); 
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+	
+		
+		System.out.print("Please enter the ID : ");
+		emp1.setID(sc.next());
+
+		// x 3 more times for the other things 
+		
+		PrintDetails();
+	
+		System.out.print("Would you like Sal deduc enter 1 or ");
+		int intResponse; 
+		intResponse = sc.nextInt();
+
+		if (intResponse == 1) 
+			SalaryDeductions();
+				
+	}
+	
+	public static void PrintDetails(){
+		System.out.print("ID		:	" + emp1.getID());
+		System.out.print("Firstname	:	" + emp1.getFname());
+		System.out.print("Lastname	:	" + emp1.getLname());
+		System.out.print("Salary	:	" + emp1.getSalary());
+	
+		System.out.print("Increased Sal	:	" + emp1.getUpdatedSalary());
+
+		double dblIncAmt = emp1.getUpdatedSalary() - emp1.getSalary();
+
+		System.out.print("Inc Amount	:	" + dblIncAmt);
+	}
+	
+	public static void SalaryDeductions(){
+		double dblNewSalary = emp1.getUpdatedSalary();
+
+		double dblTax = dblNewSalary * 0.1;
+		double dblMedical = dblNewSalary * 0.25; 
+
+
+		double dblNetSal = dblNewSalary - (dblTax + dblMedical + dfdf + dfdf);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

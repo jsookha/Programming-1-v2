@@ -1,0 +1,154 @@
+import javax.swing.JOptionPane; 
+import java.text.DecimalFormat; 
+
+public class Code64Homework{
+	static String[] strStudents = new String[5]; 
+	static int[] intTest1 = new int[5]; 
+	static int[] intTest2 = new int[5]; 
+	static int[] intAssign1 = new int[5]; 
+	static double[] dblSemester = new double[5]; 
+	
+	static int intCounter; 
+
+	static DecimalFormat df = new DecimalFormat(".00%");
+
+	public static void main(Strin[] args){
+		loadArrays();
+		CalcSemester();
+		PrintAllStudents();
+
+		SequentialSearch();
+
+		HighMarks();
+	}
+	
+	public static void HighMarks(){
+		int intHigh1, intHigh2, intHighA; 
+		int intHInd1, intHInd2, intHIndA; 
+		
+		intHigh1 = -1; 
+		intHigh2 = -1; 
+		intHighA = -1; 
+
+		intHInd1 = -1; 
+		intHInd2 = -1; 
+		intHIndA = -1; 
+
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+			if (intTest1[intCounter] > intHigh1){
+				intHigh1 = intTest1[intCounter];
+				intHInd1 = intCounter; 
+			}
+			
+			if (intTest2[intCounter] > intHigh2){
+				intHigh2 = intTest2[intCounter];
+				intHInd2 = intCounter; 
+			}
+
+			if (intAssign1[intCounter] > intHighA){
+				intHighA = intAssign1[intCounter];
+				intHIndA = intCounter; 
+			}
+		}
+
+		JOptionPane.showMessageDialog(null, "Highest Marks \n" + 
+							"Test 1 " + strStudents[intHInd1] + intHigh1 + "\n" + 
+							"Test 2 " + strStudents[intHInd2] + intHigh2 + "\n" +
+							"Assignment 1 " + strStudents[intHIndA] + intHighA);
+				
+	}
+
+	public static void SequentialSearch(){
+		String strSearch; 
+
+		int intFlag; 
+		intFlag = 0; 
+
+		int intFoundIndex; 
+		intFoundIndex = -1; 
+
+		strSearch = JOptionPane.showInputDialog(null, "Please enter the students name you are looking for? ");
+		
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+			if (strStudents[intCounter].equals(strSearch)){
+				intFoundIndex = intCounter; 
+				intFlag = 1; 
+				intCounter = 10; //force the loop to exit - my way  
+			}
+		}
+		if (intFlag == 0){
+			JOptionPane.showMessageDialog(null,"The name you want does not exist");
+		}
+		else{
+			JOptionPane.showMessageDialog(null, strStudents[intFoundIndex] + 
+					df.format(intTest1[intFoundIndex]) + 
+					df.format(intTest2[intFoundIndex]) + 
+					df.format(intAssign1[intFoundIndex]) + 
+					df.format(dblSemester[intFoundIndex]));
+		
+		}
+	}	
+	public static void PrintAllStudents(){
+		String strAnswer; 
+		strAnswer = ""; 
+
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+		   	strAnswer = strAnswer + 
+					strStudents[intCounter] + 
+					df.format(intTest1[intCounter]) + 
+					df.format(intTest2[intCounter]) + 
+					df.format(intAssign1[intCounter]) + 
+					df.format(dblSemester[intCounter]) + "\n";
+			//String.Format("Name %1"
+		}	
+		
+	}
+
+	public static void CalcSemester(){
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+		   dblSemester[intCounter] = (intTest1[intCounter] * 0.25) + (intTest2[intCounter] * 0.25) + (intAssign1[intCounter] * 0.5);
+		}	
+	}
+	
+	public static void loadArrays(){
+		strStudents[0] = "Jack"; 
+		strStudents[1] = "Joe";
+		strStudents[2] = "Jane";
+		strStudents[3] = "John";
+		strStudents[4] = "Jake";
+
+		intTest1[0] = 54; 
+		intTest1[1] = 89;
+		intTest1[2] = 51;
+		intTest1[3] = 18;
+		intTest1[4] = 72;
+
+		intTest2[0] = 58;
+		intTest2[1] = 47;
+		intTest2[2] = 70;	
+		intTest2[3] = 100;
+		intTest2[4] = 20;
+
+		intAssign1[0] = 86;
+		intAssign1[1] = 74;
+		intAssign1[2] = 33;
+		intAssign1[3] = 75;
+		intAssign1[4] = 63;
+		
+		// -- asking the user for the values instead of above 
+		/*
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+			strStudents[intCounter] = JOptionPane.showInputDialog(null, "Enter student name" + (intCounter + 1)); 
+			
+			intTest1[intCounter] = Integer.parseInt(JOptionPane.showInputDialog(null, 
+								"Enter Test 1 mark for " + strStudents[intCounter]); 
+
+			intTest2[intCounter] = Integer.parseInt(JOptionPane.showInputDialog(null, 
+								"Enter Test 2 mark for " + strStudents[intCounter]);
+
+			intAssign1[intCounter] = Integer.parseInt(JOptionPane.showInputDialog(null, 			
+								"Enter Assignment mark for " + strStudents[intCounter]);
+		}		
+		*/		
+	}
+}

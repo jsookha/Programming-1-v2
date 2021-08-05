@@ -1,0 +1,91 @@
+import java.lang.Math; 
+import java.text.DecimalFormat; //One method requires us to import this class for the formatting of the number 
+
+
+public class FormattingNumbers
+{
+  
+  public static void main(String[] args)
+  {
+    	DecimalFormat df2 = new DecimalFormat(".##"); // instantiating the format of the value to be displayed	
+
+    	// take note that each # (pound) symbol is for the number of decimal places - so 2 of # is 2 decimal places (".##")
+    	// but there is something to note - the # symbol is saying we must place a number here - but it is optional 
+    	// so if the number is 123.40 - then only this will be printed - 123.4 dropped the trailing zero 
+    	// so if I want to force the 2 decimal places - look at the format in the df4 pattern below
+    	
+    	
+    	DecimalFormat df3 = new DecimalFormat("R# ### ###.##"); // another pattern 
+    	
+    	DecimalFormat df4 = new DecimalFormat(".00");
+    	//---------------------------------------------------------------------------------
+    	/*
+        Examples 
+
+		Value 	123456.789	
+        Pattern	###,###.###	
+        Output	123,456.789	
+        The pound sign (#) denotes a digit, the comma is a placeholder for the grouping separator, and the period is 
+        a placeholder for the decimal separator.
+
+		Value	123456.789	
+        Pattern	###.##	
+        Output	123456.79	
+        The value has three digits to the right of the decimal point, but the pattern has only two. The format method 
+        handles this by rounding up.
+
+		Value	123.78	
+        Pattern	000000.000	
+        Output	000123.780	
+        The pattern specifies leading and trailing zeros, because the 0 character is used instead of the pound sign (#).
+
+		Value	12345.67	
+        Pattern	$###,###.###	
+        $12,345.67	
+        The first character in the pattern is the dollar sign ($). Note that it immediately precedes the leftmost digit 
+        in the formatted output.
+        */
+		//---------------------------------------------------------------------------------
+		
+    	double dblSal = 10000;
+    	double dblIncSal;
+    	double dblIncAmount;
+    	
+    	dblIncAmount = dblSal * 0.1; 
+    	dblIncSal = dblIncAmount + dblSal; 
+    
+		System.out.println("Original display : R" + dblSal);
+    	System.out.println("");
+    	//---------------------------------------------------------------------------------
+		System.out.println("Salary formatted : " + df2.format(dblSal));
+    	System.out.println("Increase amount formatted : " + df2.format(dblIncAmount));
+    	System.out.println("Increased Salary formatted : " + df2.format(dblIncSal));
+    	System.out.println("");
+    	//---------------------------------------------------------------------------------
+    	
+		System.out.println("Salary formatted : " + df4.format(dblSal));
+    	System.out.println("Increase amount formatted : " + df4.format(dblIncAmount));
+    	System.out.println("Increased Salary formatted : " + df4.format(dblIncSal));
+    	System.out.println("");
+    	//---------------------------------------------------------------------------------
+    	// Take note of the pattern used above and then look at the output once again
+    	// 
+    	System.out.println("Salary formatted with the currency : " + df3.format(dblSal));
+    	System.out.println("Increase amount formatted with the currency : " + df3.format(dblIncAmount));
+    	System.out.println("Increased Salary formatted with the currency : " + df3.format(dblIncSal));
+    	System.out.println("");
+    	//---------------------------------------------------------------------------------
+    	
+    	// Instead of using the above version (DecimalFormat) - we can also use a special function in the String class 
+    	// called "format"
+    
+    	// This works in a similar manner - take note of the code below 
+    	// String.format("... %.2f", input) // the %.2f is like a placeholder in the string that is to be printed. 
+    	// Then when you put the comma (, input - it is us stating that the variable input must be placed in that placeholder 
+    	System.out.println(String.format("Salary formatted : %.2f" , dblSal));
+    	System.out.println(String.format("Increase amount formatted : %.2f" , dblIncAmount));
+    	System.out.println(String.format("Increased Salary formatted : %.2f" , dblIncSal));
+  }
+}
+
+

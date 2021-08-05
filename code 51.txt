@@ -1,0 +1,39 @@
+package usingarrays; 
+
+import javax.swing.JOptionPane; 
+
+public class UsingArrays{
+	public static void main(String[] args){
+	
+		int[] intN = new int[10]; 
+
+		String[] strNames = new String[]{"Jack", "Jane", "Joe"}; 
+
+		System.out.println(strNames[0]);
+		System.out.println(strNames[1]);
+		System.out.println(strNames[2]);
+		
+		// System.out.println(strNames[3]); //error Index out of bounds ?? 
+
+		int intCount; 
+		int intSum; 
+		double dblAverage; 
+
+		intSum = 0; 
+
+		for(intCount = 0; intCount <= 9; intCount++){
+			
+			intN[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter number " + intCount + ":"));
+			
+			System.out.println(intN[intCount]);
+
+			intSum = intSum + intN[intCount];
+		}
+		
+		System.out.println("The sum is " + intSum);
+
+		dblAverage = intSum / 10; 
+		
+		System.out.println("The average is " + dblAverage);		
+	}
+]

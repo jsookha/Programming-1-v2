@@ -1,0 +1,27 @@
+package practicetest2015; 
+
+import java.util.Scanner; 
+
+public class WeeklyPay
+{
+	static int intTotalHours;
+	static double dblRate; 
+
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter rte >>");
+		dblRate = sc.nextDouble();
+		System.out.print("Enter hours >>");
+		intTotalHours = sc.nextInt();
+	
+		system.out.print("an emp R" + dblRate + "per hour \n and works " + intTotalhourws + "\n earns R" + Pay(intTotalHours, dblRate) + "in a week"); 	
+	}
+	
+	public static double Pay(int intH, double dblR)
+	{
+		return intH * dblR;
+	}
+}
+
+******************************************************8

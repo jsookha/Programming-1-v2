@@ -1,0 +1,64 @@
+/*
+Program: 	loop structure - while loop  
+Programmer: 	J.Sookha 
+Description: 	while loop to repeat code - the logic is quite important 
+		here - take note of what code is placed in what order  
+*/
+
+package whileloop; 
+
+import javax.swing.JOptionPane; 
+
+public class WhileLoop
+{
+	public static void main(String[] args)
+	{
+		
+		String strAge;
+		int intAge;	
+		
+		double dblAverage, dblSum; 
+		int intCount; 
+	
+		
+		intCount = 0; 
+		dblSum = 0; 
+
+
+		strAge = JOptionPane.showInputDialog(null,"Please enter the age <enter 999 to stop>");
+		intAge = Integer.parseInt(strAge);	
+
+		while (intAge != 999)
+		{
+
+			intCount = intCount + 1; 
+			dblSum = dblSum + intAge; 
+
+			strAge = JOptionPane.showInputDialog(null,"Please enter the age <enter 999 to stop>");
+			intAge = Integer.parseInt(strAge);
+		}	
+		
+		if (intCount == 0)
+		{
+			System.out.println("The Average is nothing");		
+		}
+		else 
+		{
+			dblAverage = dblSum / intCount;
+			System.out.println("The Average is " + dblAverage);		 	
+		}
+	}
+}
+
+//3 different kinds of loops - While loop, Repeat..Until loop and For loop 
+
+// incrementing - adding by a constant -- intCount = intCount + 1 -- 1 is that constant 
+
+// accumulating - adding by aq value  -- dblSum = dblSum + intAge -- intAge is that value 
+
+//initialize what ??? inc acc 
+
+// while (intAge != 999) // loop is based on a sentinel value that will decide if it must end or not 
+// while (intCount <= 30) // loop is based on an indicator - same concept as above with a different purpose 
+// while (blnFlag == true) // loop is based on a flag - a value that will decide to continue or not 
+		

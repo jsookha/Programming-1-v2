@@ -1,0 +1,59 @@
+/*
+Program: 	Classes - properties using a get and set method 
+Programmer: 	J.Sookha 
+Description: 	the class contains the get and set method 
+		this concept mimics the idea of a property that can
+		take a value and give back what it contains 
+		
+		similar in logic to the following psuedocode 
+		amount = 55 & 
+		Print amount 
+*/
+
+//*************************************************************
+// this code would be in a new class file
+
+public class SimpleGetterAndSetter {
+    private int number;
+ 
+    public int getNumber() {
+        return this.number;
+    }
+ 
+    public void setNumber(int num) {
+        this.number = num;
+    }
+}
+
+//*************************************************************
+// the following code would be in the main method 
+
+SimpleGetterAndSetter obj = new SimpleGetterAndSetter();
+obj.number = 10;    // compile error, since number is private
+int num = obj.number; // same as above
+
+//*************************************************************
+
+SimpleGetterAndSetter obj = new SimpleGetterAndSetter();
+ 
+obj.setNumber(10);  // OK
+int num = obj.getNumber();  // fine
+
+//*************************************************************
+
+
+// the following information would list the idea that in a class - if we 
+// are to use this concept of properties - then each variable declared would require 
+// a corresponding get and set method 
+// -- 
+// take note of the last one - can have other methods as well - for whatever purpose it 
+// may serve 
+
+Variable Declaration 		Getter method		Setter method
+----------------------------------------------------------------------------------------
+int quantity			int getQuantity()	void setQuantity(int qty)
+string firstName		String getFirstName()	void setFirstName(String fname)
+Date birthday			Date getBirthday()	void setBirthday(Date bornDate)
+boolean rich			boolean isRich()	void setRich(Boolean rich)
+				boolean getRich()
+

@@ -1,0 +1,24 @@
+package perfectnumber; 
+
+public class perfectnumber{
+	public static void main (String[] args){
+		
+		int intCount1, intCount2; 
+		int intSum; 
+		
+		for (intCount1 = 1; intCount1 <= 1000; intCount1++){
+			intSum = 0;			
+			for (intCount2 = 1; intCount2 <= (intCount1 / 2); intCount2++){
+				if (intCount1 % intCount2 == 0){
+					intSum = intSum + intCount2; 
+				} 
+			} 
+			if (intSum == intCount1){
+				System.out.println(intCount1 + " is a perfect number" + " the sum is " + intSum);
+			}
+			else{
+				System.out.println(intCount1 + " is NOT a perfect number" + " the sum is " + intSum);	
+			} 
+		}
+	}
+}

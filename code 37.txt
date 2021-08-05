@@ -1,0 +1,39 @@
+package diagonalos;
+
+public class diagonalos{
+	public static void main(String[] args){
+		
+		String strAnswer, strGap; 
+		
+		strAnswer = "o";
+		strGap = "*";  
+
+		System.out.println(strAnswer);
+
+		for (int intCount = 2; intCount <= 10; intCount++){
+			strAnswer = strGap + strAnswer;
+			System.out.println(strAnswer);	 
+		}
+		
+	}
+}
+
+answer = "o"
+answer = " " + answer
+answer = " " + " 0"
+	 " " + "  O"
+o
+ o
+  o
+   o
+    o
+     o
+      o
+       o
+
+for i = 1 to 10 
+	strPrint = strPrint + + " " + " o"
+	
+	Println strPrint  
+end for 
+

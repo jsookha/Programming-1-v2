@@ -1,0 +1,80 @@
+
+public class SequentialSearchArray
+{
+  static int[] intNumbers = new int[10]; 
+  static int intCounter; 
+  
+  public static void main(String[] args)
+  {
+  	  	loadArray();
+    	printArray();
+    
+  		int intSearch; 
+    	
+    	//intSearch = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the number you wish to search"));
+  		intSearch = 6; 
+    
+    	searchArray(intSearch);
+  }
+  
+  public static void searchArray(int intS)
+  {
+    int intFlag; 
+    intFlag = 0; // 0 to me - means that the value is not found 
+    for (intCounter = 0; intCounter <= 9; intCounter++)
+    {
+      if (intNumbers[intCounter] == intS)
+      {
+        System.out.println("The number was found at cell " + intCounter);
+        intFlag = 1; // flag changed because I found the value
+        intCounter = 11; //break; // interesting code to add if the values you are looking for are unique  
+      }
+      /*else 
+      {
+         System.out.println("The number was not found");
+      }
+      */
+    }
+    
+    if (intFlag == 0)
+      System.out.println("The number was not found");
+  }
+  
+  public static void loadArray()
+  {
+    intNumbers[0] = 1;
+    intNumbers[1] = 2;
+    intNumbers[2] = 3; // 6;
+    intNumbers[3] = 4;
+    intNumbers[4] = 5;
+    intNumbers[5] = 6;
+    intNumbers[6] = 7;
+    intNumbers[7] = 8;
+    intNumbers[8] = 9;
+    intNumbers[9] = 10;
+    /*
+    for (intCounter = 0; intCounter <= 9; intCounter++)
+    {
+      intNumbers[intCounter] = intCounter + 1; 
+    }
+    */
+    
+    /*
+    for (intCounter = 0; intCounter <= 9; intCounter++)
+    {
+      intNumbers[intCounter] = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter number"));
+    }
+    */
+  }
+  
+  public static void printArray()
+  {
+    for (intCounter = 0; intCounter <= 9; intCounter++)
+    {
+      System.out.println("Cell " + intCounter + " is : " + intNumbers[intCounter]); 
+    }
+  }
+  
+  
+}
+

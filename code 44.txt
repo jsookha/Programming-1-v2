@@ -1,0 +1,59 @@
+package comparestring; 
+
+import java.util.Scanner; 
+
+public class CompareString{
+	public static void main (String[] args){
+	
+		char chr1; 
+		
+		chr1 = 'A'; 
+
+		//if (chr1.isUpperCase())
+
+		if (Character.isUpperCase(chr1))
+			System.out.println("This is UPPERCASE");
+		
+		System.out.println("The lowercase version of " + chr1 + " is - " + Character.toLowerCase(chr1)); 
+		
+	}
+}
+
+/*
+	char chr1, chr2; 
+
+	chr1 = 'A'; 
+	chr2 = 'A'; 
+	if (chr1 == chr2)
+		System.out.println("They are the same");
+
+	String strWord1, strWord2; 
+
+	strWord1 = "ping";
+	strWord2 = "ping";
+	if (strWord1 == strWord2)
+		System.out.println("They are the same");
+	//***************************************************************
+	String strName1, strName2; 
+	
+	strName1 = "Joe";
+	Scanner sc = new Scanner(System.in);
+	System.out.print ("Enter name: ");
+	strName2 = sc.next();
+
+	if (strName1 == strName2)
+		System.out.println("They are the same");
+	else 
+		System.out.println("They are NOT the same");
+	//***************************************************************		
+	String strName1, strName2; 
+	
+	strName1 = "Joe";
+	Scanner sc = new Scanner(System.in);
+	System.out.print ("Enter name: ");
+	strName2 = sc.next();
+	if (strName1.equals(strName2))
+		System.out.println("They are the same");
+	else 
+		System.out.println("They are NOT the same");
+*/

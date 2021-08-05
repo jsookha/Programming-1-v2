@@ -1,0 +1,32 @@
+package factors; 
+
+import java.util.Scanner; 
+
+public class factors{
+	public static void main(String[] args){
+		
+		int intCount; 
+		int intNumber; 
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter number: ");
+		intNumber = sc.nextInt();
+		 
+		int intNewNumber = intNumber / 2; 
+		 
+		for (intCount = 1; intCount <= intNewNumber; intCount++){
+			if (factor(intCount, intNumber) == true)
+				System.out.println(intCount);
+									
+		}
+		System.out.println(intNumber);		
+	}
+
+	public boolean factor(int intNumber, int intThisNumber){
+		if (intThisNumber % intNumber == 0)
+			return true;
+		else 
+			return false;
+	}
+}

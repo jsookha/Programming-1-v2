@@ -1,0 +1,42 @@
+
+import java.lang.Math; 
+
+public class EmployeeSalaries
+{
+  public static void main(String[] args)
+  {
+    
+}
+
+public class Employee
+{
+  private String strName;
+  private int intHours;
+  private double dblRate; 
+  
+  public Employee(String strNewName, int intNewHours, double dblNewRate)
+  {
+    strName = strNewName; 
+    intHours = intNewHours; 
+    dblRate = dblNewRate; 
+  }
+  
+  public String getName()
+  {
+    return strName;
+  }
+  
+  public int getHours()
+  {
+    return intHours;
+  }
+  
+  public double getRate()
+  {
+    return dblRate; 
+  }
+  //-------------------------------------------------------------------------
+  // normal pay or overtime pay 
+pay / overtime 
+  
+}

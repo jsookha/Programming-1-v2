@@ -1,0 +1,55 @@
+package comparestrings; 
+
+import java.util.Scanner; 
+
+public class CompareStrings
+{
+	public static void main(String[] args){
+		String strName1, strName2; 
+		Scanner sc = new Scanner(System.in);
+
+		strName1 = "Jennifer";
+		// strName1 = "John";
+ 
+		System.out.print("Enter name: "); 
+		strName2 = sc.next();
+
+		// if (strName1.equals(strName2))
+		
+		if (strName1.compareTo(strName2) == 0){
+			System.out.println("Its the same"); 
+		}
+
+		if (strName1.compareTo(strName2) < 0){
+			System.out.println("1st " + strName1 + " 2nd " + strName2);
+		}
+	
+		if (strName1.compareTo(strName2) > 0){
+			System.out.println("1st " + strName2 + " 2nd " + strName1);
+		}
+
+		
+		int intGap; 
+		intGap = strName1.compareTo(strName2);
+
+		System.out.println("The gap between that character is " + intGap);
+
+		int intLength1; 
+		intLength1 = strName1.length(); 
+
+		System.out.println("The length of the 1st name is " + intLength);
+		
+		int intIndex; 
+		intIndex = strName1.indexOf('e');
+
+		System.out.println("e exists here at position " + intIndex); 
+		
+		int intCount2 = 0; 
+		for (int intCount = 0; intCount <= (strName1.length() - 1); intCount++){
+			if (strName1.charAt(intCount) == 'e')
+				intCount2++; 
+		}	
+		System.out.println("The number of e characters in the string is " + intCount2); 		
+
+	}	
+}

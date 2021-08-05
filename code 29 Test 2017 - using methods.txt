@@ -1,0 +1,91 @@
+package practicetest2017; 
+
+import java.util.Scanner; 
+
+public class practicetest2017
+{
+		static int intNumberofStudents; 
+		static int intCount; 
+		static Scanner sc = new Scanner(System.in);
+
+		static String strName; 
+		static int intMark; 
+
+		static String strLowestName; 
+		static int intLowestMark; 		
+		
+	public static void main(String[] args)
+	{
+		NumberofStudents();	
+	
+		intCount = 1;  //initializing the count to 1 to start counting the number of students 
+
+		strLowestName = "";
+		intLowestMark = 999; 
+
+		while (intCount <= intNumberofStudents)
+		{	
+			//details for each of those students - name and mark 
+			System.out.print("Enter student name " + intCount + " >> ");
+			strName = sc.next();
+			System.out.print("Please enter the result for: " + strName + " >> ");
+			intMark = sc.nextInt();
+	
+			DecideLowest(strName, intMark); 
+			intCount = intCount + 1; 	
+		}
+
+		PrintLowestDetails(); 
+	}
+	
+	public static void PrintLowestDetails()
+	{
+		//display the student with the lowest result
+		System.out.println("STUDENT WITH THE LOWEST RESULT:");
+		System.out.println("");
+		System.out.println(strLowestName + " - " + intLowestMark + "%");
+	}
+
+	public static void NumberofStudents()
+	{
+		//number of students
+		System.out.print("Please enter the amount of students to be analysed >> ");
+		intNumberofStudents = sc.nextInt();
+	}
+		
+	public static void DecideLowest(String strLName, int intLMark)
+	{				
+		if (intLMark < intLowestMark) //deciding if this student entered has the lowest mark 
+		{
+			strLowestName = strLName;
+			intLowestMark = intLMark; 
+		}	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

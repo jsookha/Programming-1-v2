@@ -1,0 +1,133 @@
+package question6; 
+
+//remember to import the correct 'classes' needed for your program
+// import javax.swing.JOptionPane;
+// import java.lang.Math; 
+
+import java.util.Scanner; //needed for reading in the values
+
+
+public class question6
+{
+ 
+
+   public static void main(String[] args)
+   {     
+      //declaring the global variables here 
+      int intHours, intSkill;
+      double dblPayRate; 
+      double dblRegularPay, dblOvertimePay, dblTotalPay; 
+      int intInsuranceOption;
+      String strInsurance; 
+      double dblInsuranceAmount; 
+      String strRetirementChoice; 
+      double dblRetirementAmount; 
+      double dblDeductions; 
+      double dblNewTotalPay; 
+
+      // TotalPay is the Gross Pay in the story, NewTotalPay is the Net Pay
+      // Just did not mention it while discussing the pseudo code ... 
+      
+      //initializing the variables that will be used in calculations
+      dblPayRate = 0;
+      dblRegularPay = 0; 
+      dblOvertimePay = 0; 
+      dblInsuranceAmount = 0;
+      dblRetirementAmount = 0;
+      dblDeductions = 0; 
+      dblNewTotalPay = 0; 
+
+      Scanner sc = new Scanner(System.in); //creating an instance of the Scanner class
+
+      System.out.print("Please enter the number of hours worked: ");
+      intHours = sc.nextInt(); //reading in the number of hours
+      System.out.print("Please enter the employee skill level  : ");
+      intSkill = sc.nextInt(); //reading in the skill level 
+       
+      // deciding on the payrate based on the skill level 
+      if (intSkill == 1)
+      {
+         dblPayRate = 17;
+      }
+      else 
+      {
+         if (intSkill == 2)
+	 {
+	    dblPayRate = 20;
+	 }
+	 else 
+	 {
+	    dblPayRate = 22;
+	 }
+      }
+      
+      //calculating the pay of the employee 
+      if (intHours > 40)
+      {
+         dblRegularPay = 40 * dblPayRate;
+	 dblOvertimePay = (intHours - 40) * dblPayRate * 1.5; 
+      } 
+      else 
+      {
+         dblRegularPay = intHours * dblPayRate; 
+      }
+      
+      dblTotalPay = dblRegularPay + dblOvertimePay; 
+
+      //printing out the basic information calculated above 
+      System.out.println("Number of hours worked: " + intHours);
+      System.out.println("Skill level:            " + intSkill);
+      System.out.println("PayRate based on skill: " + dblPayrate);
+      System.out.println("Regular pay           : " + dblRegularPay);
+      System.out.println("Overtime pay          : " + dblOvertimePay);
+      System.out.println("Total pay (gross)     : " + dblTotalPay);
+
+      if ((intSkill == 2) || (intSkill == 3))
+      {
+         System.out.println("Based on your skill level, please type the number of the corresponding skill level");
+	 System.out.println("1 - Medical");
+	 System.out.println("2 - Dental");
+ 	 System.out.println("3 - Long-term Disability");
+	 System.out.print("Please enter your choice: ");
+	 intInsuranceOption = sc.nextInt();
+	 if (intInsuranceOption == 1)
+	 {
+	    strInsurance = "Medical Insurance"; 
+	    dblInsuranceAmount = 32.50;
+	 }
+	 if (intInsuranceOption == 2)
+	 {
+	    strInsurance = "Dental Insurance"; 
+	    dblInsuranceAmount = 20;
+	 }
+	 if (intInsuranceOption == 3)
+	 {
+	    strInsurance = "Long-term Disability Insurance"; 
+	    dblInsuranceAmount = 10;
+	 }
+	 // remember that issue about the concern about 
+	 if (intSkill == 3)
+	 {
+	    System.out.print("Would you like a retirment plan - type yes or no: ");
+	    strRetirementChoice = sc.next();
+	    if (strRetirementChoice == "y") 
+	    {
+	       dblRetirementAmount = dblTotalPay * 0.03;
+	    }
+
+	 dblDeductions = dblInsuranceAmount + dblRetirementAmount;
+	 if (dblDeductions > dblTotalPay)
+	 {
+	    System.out.println("Error - Deductions greater than Gross Pay");
+	 }
+	 else
+	 {
+	    dblNewTotalPay = dblTotalPay - dblDeductions;
+	    System.out.println("Insurance choice: " + strInsurance + " with a weekly amount of " + dblInsuranceAmount);
+	    System.out.println("If on Skill level 3 - Retirement Amount " + dblRetirementAmount);
+	    System.out.println("Total deductions amount : " + dblDeductions);
+	    System.out.println("New pay amount (net pay): " + dblNewTotalPay);
+	 }
+      }
+   }
+}

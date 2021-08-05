@@ -1,0 +1,71 @@
+package aboutstrings;
+
+import java.util.Scanner; 
+
+public class aboutstrings{
+	public static void main(String[] args){
+		
+		String strName1; 
+		String strName2; 
+
+		Scanner sc = new Scanner(System.in);
+
+		strName1 = "John";
+		strName1 = "Jennifer"; 
+		
+		System.out.print("Enter name: ");
+		strName2 = sc.next(); 
+		
+		if (strName1.equals(strName2)){
+			System.out.println("Same names");
+		}
+		else {
+			System.out.println("NOT the same name");
+			System.out.println(strName1 + " " + strName2);
+		}
+	}
+}
+
+/*
+	String strName = "Jack"; 
+
+	clsStudent stud1 = new clsStudent(); 
+	
+	String strName = new String();
+	String strName2 = new String("John"); 
+
+	String strAnswer; 
+
+	strAnswer = "Something "; 
+	//***********************************************************
+	String strName1; 
+	String strName2; 
+
+	strName1 = "John";
+	strName2 = "John"; 
+	
+	if (strName1 == strName2){
+		System.out.println("Same names");
+	}
+	else {
+		System.out.println("NOT the same name");
+	}
+	//***********************************************************
+		String strName1; 
+		String strName2; 
+
+		Scanner sc = new Scanner(System.in);
+
+		strName1 = "John";
+		
+		System.out.print("Enter name: ");
+		strName2 = sc.next(); 
+		
+		if (strName1 == strName2){
+			System.out.println("Same names");
+		}
+		else {
+			System.out.println("NOT the same name");
+			System.out.println(strName1 + " " + strName2);
+		}
+*/

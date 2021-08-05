@@ -1,0 +1,36 @@
+import java.lang.Math; 
+import java.util.Random; 
+
+public class RandomNumbers
+{
+  public static void main(String[] args)
+  {
+    double dblRandomNumber = Math.random();
+    System.out.println("Random number chosen : " + dblRandomNumber);
+    System.out.println();
+    
+    // dblRandomNumber will choose a number between greater than 0 and less than 1 
+    // In maths - random was always meant to be this - a floating point number (not an integer)
+    
+    //-----------------------------------------------------------------------------------------
+    // in that expression - the 1 and the 3 that is used is the range - from 1 to 3 (both inclusive of those numbers)
+    int intNumber;
+    for (int intCount = 1; intCount <= 10; intCount++) //loop is just giving me 10 numbers - its obvious that numbers will be repeated because the range is from 1 to 3
+    {
+      intNumber = (int)(Math.random()*((3-1)+1))+1; //choosing a random number between 1 and 3 
+      System.out.print(intNumber + " "); //just printing 
+    }
+    //-----------------------------------------------------------------------------------------
+    System.out.println();
+    
+    // try to get a 3 digit number should not be too difficult
+    int intThreeDigitNumber; 
+    
+    for (int intCount = 1; intCount <= 10; intCount++) //loop is just giving me 10 numbers - wanted to see if they are different
+    {
+      intThreeDigitNumber = (int)(Math.random() * 1000) ; //remember Math.Random is function that gives you a double - and we want an integer & 3 digits would be multiplied by 1000
+      System.out.print(intThreeDigitNumber + " "); //just printing
+    }
+  }
+}
+

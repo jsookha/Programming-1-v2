@@ -1,0 +1,153 @@
+public class Student {
+
+   //private fields - serving the purpose of properties of the class - attributes 
+   // but officially these variables cannot be "seen" by the otherside 
+   // So the methods are here to place values into them and read values from them
+
+   //##################################### 	
+   private String strName;
+   public String getName() 
+   {
+      return strName;
+   }
+   public void setName(String strNewName) 
+   {
+      strName = strNewName;
+   }
+   //#####################################
+   private String strIDNum;
+   public String getIdNum() 
+   {
+      return strIDNum;
+   }
+   public void setIdNum( String strNewId) 
+   {
+      strIDNum = strNewId;
+   }
+   //#####################################
+   private int intAge;
+   public int getAge() 
+   {
+      return intAge;
+   }
+   public void setAge( int intNewAge) 
+   {
+      intAge = intNewAge;
+   }
+   //#####################################
+   private int intMark;	
+   public int getMark() 
+   {
+      return intMark;
+   }
+   public void setMark( int intNewMark) 
+   {
+      intMark = intNewMark;
+   }
+   //===================================================================================
+   //constructors
+   public Student()
+   {
+	//empty constructor - refers to the fact that there are no parameters in this 
+	//version when the object is created /
+	//also means that even though there are no parameters, there can still be code 
+	//here in the block ... maybe needed to set some stuff up
+   }
+
+   public Student(String strN, String strID, int intThisAge, int intThisMark)
+   {
+	strName = strN;
+	strIDNum = strID;
+	intAge = intThisAge;
+	intMark = intThisMark;
+   }
+   //===================================================================================
+   //other methods
+   public String PassOrNot(int intThisMark)
+   {
+	if (intThisMark < 50)
+		return "Failed this test";
+	else
+		return "Passed this test";
+   }	
+
+   public String TestSymbol(int intThisMark)
+   {
+	if (intThisMark >= 80)
+		return "A";
+	else
+		if (intThisMark >= 70)
+			return "B";
+		else
+			if (intThisMark >= 60)
+				return "C";
+			else
+				if (intThisMark >= 50)
+					return "D";
+				else
+					return "F";
+   }
+   //===================================================================================
+   
+   }
+}
+
+//*********************************************************************************************************
+public class ThisProgram 
+{
+	public static Student stud1 = new Student();
+
+	public static void main (String[] args)
+	{
+		String strName, strIDNum, strAge, strMark;  
+
+		//reading in values from the user 
+		strName = JOptionPane.showInputDialog(null,"Please enter the name");
+		stud1.setName(strName);
+						
+		strIDNum = JOptionPane.showInputDialog(null,"Please enter the ID Number");
+		stud1.setIdNum(strIDNum);
+
+		strAge = JOptionPane.showInputDialog(null,"Please enter the Age");
+		stud1.setAge(Integer.parseInt(strAge));		
+
+		strMark = JOptionPane.showInputDialog(null,"Please enter the mark for the test");
+		stud1.setMark(Integer.parseInt(strMark));		
+				
+		//Say if I need to now print the values I just saved to the object 'stud1'
+		PrintStudentDetails();
+		
+		//So the following idea is allowing me to pass the object as a parameter into the method called
+		//PrintAnyStudentDetails and take note of the parameter/declaration below 
+
+		public static Student stud2 = new Student("Jack","123456",23,90);
+		PrintAnyStudentDetails(stud2);
+
+	}
+		
+	public static void PrintStudentDetails()
+	{
+		//This method only refers to "stud1" .. 
+		//so if I created another object - calling this method doesn't really help to display that other objects content
+		System.out.println("Student Name  :\t" + stud1.getName());
+		System.out.println("Student IDNum :\t" + stud1.getIdNum());
+		System.out.println("Student Age   :\t" + stud1.getAge());
+		System.out.println("Student Mark  :\t" + stud1.getMark());
+		System.out.println("Passed or Not :\t" + stud1.PassOrNot(stud1.getMark())); //see how I passed the value ?
+		System.out.println("Symbol	  :\t" + stud1.TestSymbol(stud1.getMark()));	
+	}
+	
+	public static void PrintAnyStudentDetails(Student ThisStudent)
+	{
+		System.out.println("Student Name  :\t" + ThisStudent.getName());
+		System.out.println("Student IDNum :\t" + ThisStudent.getIdNum());
+		System.out.println("Student Age   :\t" + ThisStudent.getAge());
+		System.out.println("Student Mark  :\t" + ThisStudent.getMark());
+		System.out.println("Passed or Not :\t" + ThisStudent.PassOrNot(ThisStudent.getMark())); 					System.out.println("Symbol	  :\t" + ThisStudent.TestSymbol(ThisStudent.getMark()));
+	}
+}
+
+/*
+	Set is to place a value into a property
+	Get is to retrieve a value from a property
+*/

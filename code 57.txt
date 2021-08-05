@@ -1,0 +1,39 @@
+package studentarrays;
+
+public class StudentArrays{
+	
+	public static void main(String[] args){
+		String[] strStudents = new String[]{"Jack","Joe","Jane","Jenny","Johan"};
+		int[] intTest1 = new int[]{45,56,67,78,89};
+		int[] intAssign = new int[]{87,65,43,31,12};
+
+		double[] dblSemester = new double[5]; 
+		int intCount; 
+		for (intCount = 0; intCount <= 4; intCount++)
+			dblSemester[intCount] = (intTest1[intCount] * 0.35) + (intAssign[intCount] * 0.15);
+	
+		for (intCount = 0; intCount <= 4; intCount++)
+			System.out.println(strStudents[intCount] + " : " + dblSemester[intCount]);
+		
+	}
+}
+
+-----------------------------------------------
+String[] strStudents = new String[5];
+int[] intTest1 = new int[5];
+int[] intAssign = new int[5];
+double[] dblSemester = new double[5]; 
+
+int intCount; 
+
+for (intCount = 0; intCount <= 4; intCount++){
+	strStudents[intCount] = JOptionPane(null, "Please enter name " + intCount + 1);
+	intTest1[intCount] = Integer.parseInt(JOptionPane(null, "Please enter test1 " + intCount + 1));
+ 	intAssign[intCount] = Integer.parseInt(JOptionPane(null, "Please enter Assign1 " + intCount + 1));
+}
+
+
+for (intCount = 0; intCount <= 4; intCount++)
+	dblSemester[intCount] = (intTest1[intCount] * 0.35) + (intAssign[intCount] * 0.15);
+for (intCount = 0; intCount <= 4; intCount++)
+	System.out.println(strStudents[intCount] + " : " + dblSemester[intCount]);

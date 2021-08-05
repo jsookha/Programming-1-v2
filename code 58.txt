@@ -1,0 +1,63 @@
+package arrayspart1; 
+
+import javax.swing.JOptionPane; 
+
+public class ArraysPart1{
+
+	static String[] strNames = new String[5]; 
+	static int intCounter; 
+	
+	public static void main(String[] args){
+
+		int[] intMarks = new int[]{11,22,33,44,55,66,77,88,99,100};		
+ 		
+		int intNumberofMarks = intMarks.length; 
+		
+		int[] intNumbers = new int[5]; // 5 is how many elements (index is from 0 to 4)
+		//------------------------------------------------------------------------------------------------
+		intNumbers[0] = 1; 
+		intNumbers[1] = 2; 
+		intNumbers[2] = 3; 
+		intNumbers[3] = 4; 
+		intNumbers[4] = 5; 
+
+		//intNumbers[5] = 6; //error - index out of bounds exception will occur - cell 5 does not exist 
+		//------------------------------------------------------------------------------------------------
+		double dblSum, dblAvg; 
+		int intCount; 
+
+		dblSum = 0; 
+
+		// intNumbers[0] inNumbers[intCount]
+  
+		for (intCount = 0; intCount <= 4; intCount++){
+			dblSum = dblSum + intNumbers[intCount];
+		}
+
+		dblAvg = dblSum / 5; 
+		System.out.println("The sum is " + dblSum + " and the average is " + dblAvg);
+		//------------------------------------------------------------------------------------------------		
+		for (intCount = 0; intCount <= 4; intCount++){
+			System.out.println("Cell " + intCount  + " : " + intNumbers[intCount]);
+		}
+		//------------------------------------------------------------------------------------------------
+		ReadFromUser();
+		PrintFromUser();
+	}
+
+	public static void ReadFromUser(){
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+			strNames[intCounter] = JOptionPane.showInputDialog(null, "Enter name " + (intCounter + 1));
+		}
+	}
+	
+	public static void PrintFromUser(){	
+		String strDisplay; 
+		strDisplay = ""; 	
+		for (intCounter = 0; intCounter <= 4; intCounter++){
+			strDisplay = strDisplay + "Cell " + intCounter + " : " + strNames[intCounter] + "\n"; 
+		}
+		
+		JOptionPane.showMessageDialog(null, strDisplay);
+	}
+}

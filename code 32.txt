@@ -1,0 +1,45 @@
+
+for (j = 1; j <= 3; j++)
+
+for i = 1 to 3 
+	for j = 1 to 3 
+		print i,j 
+	next j 
+next i
+
+i	j	print
+----------------------
+1	1	11
+	2	12
+	3	13
+	4 
+2	1	21
+	2	22
+	3	23
+	4
+3	1	31
+	2	32
+	3	33
+	4
+4
+
+package multiplicationtables;
+
+public class multiplicationtables{
+
+	public static void main (String[] args){
+		
+		// 2 x 2 = 4 
+		// 2 x 3 = 8 
+
+		int intCount1, intCount2; 
+
+		for (intCount1 = 1; intCount1 <= 3; intCount1++)
+		{
+			for (intCount2 = 1; intCount2 <= 12; intCount2++)
+			{
+				System.out.println(intCount1 + " X " + intCount2 + " = " + (intCount1 * intCount2)); 
+			}
+		}		
+	}
+} 

@@ -1,0 +1,60 @@
+package factors; 
+
+import java.util.Scanner; 
+
+public class factors{
+	public static void main(String[] args){
+		
+		int intCount; 
+		int intNumber; 
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter number: ");
+		intNumber = sc.nextInt();
+		 
+		int intNewNumber = intNumber / 2; 
+		 
+		for (intCount = 1; intCount <= intNewNumber; intCount++){
+			if (intNumber % intCount == 0)
+				System.out.println(intCount);		
+		}
+		System.out.println(intNumber);		
+	}
+}
+//******************************************************************************
+
+package factors; 
+
+import java.util.Scanner; 
+
+public class factors{
+	public static void main(String[] args){
+		
+		int intCount, intCount2, intFactor; 
+		int intNumber; 
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number: ");
+		intNumber = sc.nextInt();
+		 
+		//intCount2 = 0; 
+		intFactor = 0; 
+
+		int intNewNumber = intNumber / 2; 
+		 
+		for ( intCount = 1; intCount <= intNewNumber; intCount++){
+			if (intNumber % intCount == 0)
+				intFactor = intCount; //intCount2 = intCount2 + 1; 
+		}
+		//(intCount2 == 1)
+		
+		if (intFactor == 1){
+			System.out.println("Prime Number");
+		}
+		else{
+			System.out.println("NOT A Prime Number");	
+		} 
+		
+	}
+}

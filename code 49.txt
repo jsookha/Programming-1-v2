@@ -1,0 +1,54 @@
+package studentstuff; 
+
+public class Student{
+	private String strName;
+	private String strStudentNum;
+	private String strCourse; 
+	private double dblAmount; 
+
+	// properties get and set methods for each of the 3 above 
+
+	public String getName(){
+		strFullName = strName + " " + strSurname; 
+		return strFullName ; 
+	}
+	public void setName(String strNewName){
+		strName = strNewName;
+		 
+	}
+
+	public void setAmount(double dblNewAmount){
+		dblAmount = dblNewAmount; 
+	}
+
+	public double getAmount(){
+		dblAmount = dblAmount - (dblAmount * 0.25);
+		return dblAmount; 
+	}
+	// constructors 
+	
+	public Student(){
+	}
+
+	public Student(String strNewName, String strNewNum, String strNewCourse){
+		strName = strNewName; 
+		strStudentNum = ... 
+		strCourse = ... 
+	}
+	// methods 	
+	
+}
+
+
+//----------------------------------------------------------------------------------------
+package studentstuff; 
+
+public class StudentStuff{
+	public static void main(String[] args){
+		Student stud1 = new Student();
+
+		String strName; 
+		strName = JOptionPane.showInputDialog(null, "Please enter the students name: ");
+		stud1.setName(strName);	
+	}
+}

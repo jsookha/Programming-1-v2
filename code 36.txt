@@ -1,0 +1,27 @@
+package perfectnumber; 
+
+
+public class perfectnumber{
+	public static void main(String[] args){
+
+		int intCount1, intCount2; 
+		int intAnswer; 
+
+		for (intCount1 = 1; intCount1 <= 1000; intCount1++){
+			intAnswer = 1; 
+
+			for (intCount2 = 1; intCount2 <= (intCount1 / 2); intCount2++){
+				if (intCount1 % intCount2 == 0){
+					intAnswer = intAnswer + intCount2;
+				}
+			}
+	
+			if (intAnswer == intCount1){
+				System.out.println(intCount1 + " is a perfect number");
+			}
+		}
+	}
+}
+
+
+// something might be wrong with my logic in this program 

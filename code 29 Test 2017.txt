@@ -1,0 +1,50 @@
+package practicetest2017; 
+
+import java.util.Scanner; 
+
+public class practicetest2017
+{
+	public static void main(String[] args)
+	{
+		int intNumberofStudents; 
+		Scanner sc = new Scanner(System.in);
+		
+		//number of students
+		System.out.print("Please enter the amount of students to be analysed >> ");
+		intNumberofStudents = sc.nextInt();
+
+		int intCount; 
+		intCount = 1;  //initializing the count to 1 to start counting the number of students 
+
+		//sc.next();
+		
+		String strName; 
+		int intMark; 
+
+		String strLowestName; 
+		strLowestName = "";
+		int intLowestMark; 		
+		intLowestMark = 999; 
+
+		while (intCount <= intNumberofStudents)
+		{	
+			//details for each of those students - name and mark 
+		
+			System.out.print("Enter student name " + intCount + " >> ");
+			strName = sc.next();
+			System.out.print("Please enter the result for: " + strName + " >> ");
+			intMark = sc.nextInt();
+		
+			if (intMark < intLowestMark) //deciding if this student entered has the lowest mark 
+			{
+				strLowestName = strName;
+				intLowestMark = intMark; 
+			}
+			intCount = intCount + 1; 	
+		}
+		//display the student with the lowest result
+		System.out.println("STUDENT WITH THE LOWEST RESULT:");
+		System.out.println("");
+		System.out.println(strLowestName + " - " + intLowestMark + "%");
+	}
+}

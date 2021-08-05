@@ -1,0 +1,73 @@
+/*
+Program: 	Array - enter values - another one 
+Programmer:	J.Sookha
+Description:	Once again - reading values into an array and if the 
+		data type is not correct - how can we handle this? 
+		how do we deal with the error?  
+*/
+
+package validateinput;
+
+import java.util.Scanner;
+
+public class ValidateInput 
+{
+    int[] intNumbers = new int[10]; 
+    int intCounter; 
+
+    public static void main(String[] args) 
+    {
+       validatePositiveNumber();
+    }
+
+    private void validatePositiveNumber() 
+    {
+       Scanner sc = new Scanner(System.in);
+
+       int number;
+       do 
+       {
+          System.out.print("Please enter a positive number: ");
+          while (!scanner.hasNextInt()) 
+	  {
+             String strInput = scanner.next();
+             System.out.println(String.format("\"%s\" is not a valid number.\n", strInput));
+          }
+          number = scanner.nextInt();
+        } while (number < 0);
+
+        System.out.printf("You have entered a positive number %d.\n", number);
+    }
+
+    private void validateLetter() {
+    String secretWord = "Hello";
+    Scanner scanner = new Scanner(System.in);
+
+    int length = 0;
+    StringBuilder guess = new StringBuilder();
+    do {
+        System.out.print("Enter a letter to guess: ");
+        char letter = scanner.next().charAt(0);
+        if (Character.isLetter(letter)) {
+            guess.append(letter);
+            length++;
+        }
+    } while (length < secretWord.length());
+
+    if (secretWord.equalsIgnoreCase(guess.toString())) {
+        System.out.println("You are correct!");
+    } else {
+        System.out.println("Please try again!");
+    }
+}
+}
+
+/*
+Please enter a positive number: qwerty
+"qwerty" is not a valid number.
+@@@
+"@@@" is not a valid number.
+-100
+Please enter a positive number: 99
+You have entered a positive number 99.
+*/

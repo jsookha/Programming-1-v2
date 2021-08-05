@@ -1,0 +1,39 @@
+empID, firstname, surname, salary 
+
+Details class 
+	4 private variables 
+	4 x 2 get and set methods 
+
+	getUpdatedSalary function / return 10% 
+
+	newsalary (+ 10%) - get method 
+	increasedamount (is the 10%) - get method 
+
+Main program 
+	main method 
+		read in the 4 values 
+		send it to the object 
+		call that getUpdatedSalary from the object....  
+	printDetails()
+		print 4 properties 
+		+ print the 2 new values 
+	salaryDeductions()
+		calculate those deductions 
+		print all that stuff (tax, medical, car allowance, uif)
+
+------------------------------------------------------------------------
+3 names x 3 variables 
+red blue white x 3 variables 
+123 123 123 x 3 variables 
+
+RED123 + concatenate the name of the house and the random number x 3 variables here as well 
+
+Main program 
+	main method 
+		read the 3 names 
+		get a random house 
+		get a random number 
+		join the 2 to a certain person's name 
+	random house generator 
+	
+	random number generator  

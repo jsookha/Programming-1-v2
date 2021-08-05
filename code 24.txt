@@ -1,0 +1,60 @@
+public class Student {
+   private String strName;
+   private String strIDNum;
+   private int intAge;
+	
+ 	
+   public int getAge() {
+      return intAge;
+   }
+
+   public String getName() {
+      return strName;
+   }
+
+   public String getIdNum() {
+      return strIDNum;
+   }
+
+   public void setAge( int intNewAge) {
+      intAge = intNewAge;
+   }
+
+   public void setName(String strNewName) {
+      strName = strNewName;
+   }
+
+   public void setIdNum( String strNewId) {
+      strIDNum = strNewId;
+   }
+}
+
+/*
+when the concept of Classes was discussed in class, it was mentioned as a form 
+of getting information that related to one "thing" in one place. This one place 
+ended up being a Class. Along with the idea of understanding this structure, it 
+was noted that other keywords played a part in knowing what goes into the Class,
+namely, private fields, properties, constructors and methods. 
+
+Private fields were any variables that were meant to be used for programming within
+the Class - so if the "otherside" created an Object of the Class, they would not be 
+able to see these variables. 
+
+Properties were meant to be attributes, so when I discussed the Student Class with 
+you, I mentioned the Name, Student Number and Course as an example. 
+** Now this is important, unlike other programming languages, Java does not immediately
+have a way to access these properties in a proper manner. Meaning, if I declare a variable
+inside the Class as; 
+
+public String strInformation;  
+This variable will be accessible to the "otherside" but does not truly represent the 
+concept of a property. 
+
+so in order to achieve a similar result to other programming languages, Java wants us to create methods to mimic the idea of Get and Set 
+Set means to put a value into a property 
+Get means to give the value to the "otherside" 
+
+Also - instead of now declaring public variables, the private fields will be used to handle
+the values 
+
+*/

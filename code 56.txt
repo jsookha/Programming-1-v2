@@ -1,0 +1,53 @@
+package parallelarrays;
+
+
+public class ParallelArrays{
+	public static void main(String[] args){
+		String[] strCities = new String[]{"Durban", "Cape Town", "Johannesburg", "Kimberley", "Hermanus"};	
+		int[] intRainfall = new int[]{105,201,300,432,123};
+
+		int intCount; 
+		double dblSum, dblAverage; 
+
+		int intHigh, intHighIndex, intLow, intLowIndex; 
+
+		dblSum = 0; 
+		intHigh = -1; 
+		intHighIndex = -1; 
+		intLow = 999; 
+		intLowIndex = -1; 
+
+		for (intCount = 0; intCount <= 4; intCount++){
+			dblSum = dblSum + intRainfall[intCount];
+
+			if (intRainfall[intCount] > intHigh){
+				intHigh = intRainfall[intCount]; 
+				intHighIndex = intCount;
+			}
+			if (intRainfall[intCount] < intLow){
+				intLow = intRainfall[intCount]; 
+				intLowIndex = intCount;
+			}
+		}
+		
+		dblAverage = dblSum / 5; 
+
+		System.out.println("The Average rainfall for the 5 cities is " + dblAverage);
+
+		System.out.println("The city with the highest rainfall is " + 
+					strCities[intHighIndex] + " with " + intHigh + "mm");
+
+		System.out.println("The city with the lowest rainfall is " + 
+					strCities[intLowIndex] + " with " + intLow + "mm");
+	}
+}
+
+/*
+	strCities		intRainfall
+0	Durban			105
+1	Cape Town		201
+2	Johannesburg		300
+3	Kimberley 		432
+4	Hermanus		123
+
+*/

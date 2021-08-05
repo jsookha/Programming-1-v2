@@ -1,0 +1,83 @@
+/*
+Program: 	sequential search
+Programmer: 	J.Sookha 
+Description: 	2 versions of the sequential search 
+		ver 1 - if there are duplicates 
+		ver 2 - if there is a unique value to be found 
+*/
+
+package seqsearch; 
+
+import java.util.Scanner; 
+
+public class SeqSearch
+{
+	static Scanner sc = new Scanner(System.in);
+	static int intCounter; 
+	static int[] intNumbers = new int[]{1,2,3,4,5,6,7,8,9,10};
+
+	public static void main(String[] args)
+	{
+		int intNumberToBeSearched; 
+		
+		System.out.print("Please enter the number you are looking for: ");
+		
+		intNumberToBeSearched = sc.nextInt();
+
+		SeqSearch1(intNumberToBeSearched);
+		
+		SeqSearch2(intNumberToBeSearched);
+		
+	}
+
+	public static void SeqSearch1(int intSearch)
+	{
+		// if there are duplicates to be found 
+		
+		int intFlag; 
+		intFlag = 0; 
+
+		for (intCounter = 0; intCounter <= 9; intCounter++)
+		{
+			if (intSearch == intNumbers[intCounter])
+			{
+				System.out.println("Number was found at cell " + intCounter);
+				intFlag = 1; 
+			}
+		}
+
+		if (intFlag == 0)
+		{
+			System.out.println(intSearch + " was never found in the array");
+		}
+	}
+
+	public static void SeqSearch2(int intSearch)
+	{
+		// if there is only 1 instance of the value to be found 
+
+		int intFlag, intFoundIndex; 
+
+		intFlag = 0; 
+		intFoundIndex = -1;
+ 
+		for (intCounter = 0; intCounter <= 9; intCounter++)
+		{
+			if (intSearch == intNumbers[intCounter])
+			{
+				intFoundIndex = intCounter; 
+				intFlag = 1; 
+			}
+		}
+
+		if (intFlag == 0)
+		{
+			System.out.println(intSearch + " was never found in the array");
+		}
+		else 
+		{
+			System.out.println("Number was found at cell " + intFoundIndex);
+		}
+
+	}
+}

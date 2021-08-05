@@ -1,0 +1,58 @@
+/*
+Program: 	Loop Structure - do while loop   
+Programmer: 	J.Sookha 
+Description: 	using a while loop to repeat instructions inside of it  
+*/
+
+package whileloop;
+import javax.swing.JOptionPane; 
+
+public class whileloop 
+{
+	public static void main (String[] args)
+	{
+		String strAge; 
+		int intAge; 
+		
+		int intCount; 
+		double dblSum, dblAvg; 
+
+		intCount = 0; 
+		dblSum = 0; 
+
+		// do while is interesting as it allows you to enter the loop at least once 
+		// this makes things interesting ... 
+
+		do 
+		{
+			strAge = JOptionPane.showInputDialog(null,”Please enter the age”); 
+			intAge = Integer.parseInt(strAge);
+			
+			if (intAge == 999)
+				break;
+			intCount = intCount + 1; 
+			dblSum = dblSum + intAge;
+
+		} while (intAge != 999);
+ 
+		if (intCount == 0)
+		{
+			System.out.println(“No Average calculated”);
+		}
+		else
+		{
+			dblAvg = dblSum / intCount;
+			System.out.println(“The Average is ” + dblAvg); 
+		}	
+		
+	}
+}
+//*************************************************************************************************
+
+//*************************************************************************************************
+
+
+
+
+
+

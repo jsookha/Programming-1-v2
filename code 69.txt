@@ -1,0 +1,96 @@
+/*
+Program:	2017 Past Paper - Practical
+Programmer:	J.Sookha
+Description: 	
+*/
+
+package tennisplayers; 
+
+import java.util.Scanner; 
+
+public class TennisPlayers{
+	
+	static Scanner sc = new Scanner(System.in);
+
+	static int intCount1, intCount2, intCount3; 
+	static int intMatchCount; 
+
+	static int intWhichPlayer; 
+
+	public static void main(String[] args){
+		// reading in value 
+		// increment counters 
+		// print when done 
+		
+		
+		intCount1 = 0;
+		intCount2 = 0;
+		intCount3 = 0;
+		intMatchCount = 1;
+
+		String strDisplayQuestion; 
+		
+		strDisplayQuestion = "Please enter a 1, 2 or 3 for the winning player: \n" + 
+			             "(1) Novak Djokovic \n" + 
+				     "(2) Andy Murray \n" + 
+				     "(3) Roger Federer \n"; 		
+		System.out.println(strDisplayQuestion);
+		
+		intWhichPlayer = ReadWhichPlayer();
+	
+		while(intWhichPlayer != 0){
+			
+			IncrementPlayers(intWhichPlayer); 
+
+			intMatchCount = intMatchCount + 1; 		
+			
+			intWhichPlayer = ReadWhichPlayer();	
+		}		
+		
+		PrintMatches();
+	}
+		
+	
+	public static void IncrementPlayers(int intPlayer){
+		if (intPlayer == 1)
+			intCount1 = intCount1 + 1;
+
+		if (intPlayer == 2)
+			intCount2 = intCount2 + 1;
+
+		if (intPlayer == 3)
+			intCount3 = intCount3 + 1;
+	}
+		
+	public static int ReadWhichPlayer(){
+		int intRead; 
+		System.out.println("Enter the player who won match " + intMatchCount + ":");
+		intRead = sc.nextInt();
+		
+		do{
+			// if ((intWhichPlayer >= 0) && (intWhichPlayer <= 3))
+
+			if ((intWhichPlayer != 1) || (intWhichPlayer != 2) || (intWhichPlayer != 3) || (intWhichPlayer != 0))
+				System.out.println("You have entered an invalid selection. \n" + 
+						   "Please enter selection from 1 - 3");
+			
+			System.out.println("Enter the player who won match " + intMatchCount + ":");
+			intRead = sc.nextInt();
+
+		} while (!(intWhichPlayer >= 0) && !(intWhichPlayer <= 3));
+		return intRead; 	
+	}
+
+	public static void PrintMatches(){
+		String strAnswer; 
+
+		strAnswer = "NOVAK DJOKOVIC: \t" + intCount1 + "\n" + 
+			    "ANDY MURRAY: \t" + intCount2 + "\n" + 
+			    "ROGER FEDERER: \t" + intCount3 + "\n" + 
+			    "---------------------------------------- \n" + 
+			    "GAME COUNT: " + intMatchCount;  
+
+		System.out.println(strAnswer);
+	
+	}
+}

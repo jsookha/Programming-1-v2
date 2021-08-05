@@ -1,0 +1,161 @@
+/*
+Program: 	switch structure  
+Programmer: 	J.Sookha 
+Description: 	using switch statements to allow us to 
+		use one variable's value to perform whatever code 
+		is listed in that section 
+		--
+		an interesting reason to use the switch statement is 
+		when we need a menu of choices - but think carefully 
+		- this would need a while loop to constantly to make 
+		a new/next choice 
+*/
+
+package switchstatement; 
+
+public class SwitchStatement{
+	public static void main(String[] args)
+	{
+		int intNumber; 
+		intNumber = 5; 
+
+		switch (intNumber)
+		{
+			case 1: System.out.println("Choice 1 chosen");
+				break;
+			case 2: System.out.println("Choice 2 chosen");
+				break;
+			case 3: System.out.println("Choice 3 chosen");
+				break;
+			case 4: System.out.println("Choice 4 chosen");
+				break;
+			case 5: System.out.println("Choice 5 chosen");
+				break;
+			default: System.out.println("Invalid choice");
+				 break; 
+		}
+		
+		char chrAlphabet; 
+		
+		chrAlphabet = 'B'; 
+		
+		switch (chrAlphabet)
+		{
+			case 'A': System.out.println("You chose A");
+				  break;
+			case 'B': System.out.println("You chose B");
+				  break;
+			default: System.out.println("Invalid choice");
+				 break;
+		}
+		
+		
+		switch (intNumber)
+		{
+			case 1: case 3: case 5: System.out.println("All Odd");
+					        break;
+			case 2: case 4: System.out.println("All even");
+					break; 
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int month = 8;
+        String monthString;
+        switch (month) {
+            case 1:  monthString = "January";
+                     break;
+            case 2:  monthString = "February";
+                     break;
+            case 3:  monthString = "March";
+                     break;
+            case 4:  monthString = "April";
+                     break;
+            case 5:  monthString = "May";
+                     break;
+            case 6:  monthString = "June";
+                     break;
+            case 7:  monthString = "July";
+                     break;
+            case 8:  monthString = "August";
+                     break;
+            case 9:  monthString = "September";
+                     break;
+            case 10: monthString = "October";
+                     break;
+            case 11: monthString = "November";
+                     break;
+            case 12: monthString = "December";
+                     break;
+            default: monthString = "Invalid month";
+                     break;
+        }
+        System.out.println(monthString);
+    }
+}
+//***************************************************************
+ int month = 2;
+        int year = 2000;
+        int numDays = 0;
+
+        switch (month) {
+            case 1: case 3: case 5:
+            case 7: case 8: case 10:
+            case 12:
+                numDays = 31;
+                break;
+            case 4: case 6:
+            case 9: case 11:
+                numDays = 30;
+                break;
+            case 2:
+                if (((year % 4 == 0) && 
+                     !(year % 100 == 0))
+                     || (year % 400 == 0))
+                    numDays = 29;
+                else
+                    numDays = 28;
+                break;
+            default:
+                System.out.println("Invalid month.");
+                break;
+        }
+        System.out.println("Number of Days = "
+                           + numDays);

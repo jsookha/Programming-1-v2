@@ -1,0 +1,82 @@
+import java.lang.Math; 
+import javax.swing.JOptionPane;
+import java.util.Scanner; 
+
+public class ArraysPart2;
+{
+  static Student[] arrStud = new Student[3]; // decalring the array here because I want to access it in other places
+  static int intCount;  
+  
+  public static void main(String[] args)
+  {
+    Student stud1 = new Student(); 
+    stud1.setName("John");
+    stud1.setTestMark(34);
+		
+	
+    // arrStud[0] = new Student(); 
+    // important to instantiate the object in the cell 
+    // then only can the following line load a value into the object 
+    // arrStud[0].setName("Jackie"); // so cannot access the object without ... = new Student();
+
+    loadArray();
+    CalculateAverage();
+  }
+
+//----------------------------------------------------------------------------------------------------------------------------                                  
+  public static void loadArray()
+  {
+    for (intCount = 0; intCount <= 2; intCount++)
+	{
+		arrStud[intCount] = new Student();
+		arrStud[intCount].setName(JOptionPane.showInputDialog(null, "Enter name" + (intCount + 1));
+        	arrStud[intCount].setTestMark(JOptionPane.showInputDialog(null, "Enter test mark for " + arrStud[intCount].getName());
+        /*
+        System.out.println("Enter name " + (intCount + 1));
+        arrStud[intCount].setName(sc.next());
+        System.out.println("Enter the test mark for " + arrStud[intCount].getName());
+        arrStud[intCount].setTestMark(sc.nextInt());
+        */
+	}
+  }
+
+//----------------------------------------------------------------------------------------------------------------------------
+  public static void CalculateAverage()
+  {
+    // Average mark of all the test marks 
+    double dblSum, dblAverage; 
+    dblSum = 0;
+    
+    for (intCount = 0; intCount <= 2; intCount++)
+    {
+      dblSum = dblSum + arrStud[intCount].getTestMark(); 
+    }
+    
+    dblAverage = dblSum / 3; 
+    
+    System.out.println("The average mark for the 3 students is " + dblAverage);
+  }
+}
+                                      
+//=====================================================================================
+// using a class to now represent a structure and then using an array store
+//=====================================================================================
+
+public class Student{
+	private String strName; 
+	private int intTestMark; 
+
+	public void setName(String strNewName){
+		strName = strNewName;
+	}	
+	public String getName(){
+		return strName; 
+	}
+
+	public void setTestMark(int intNewTestMark){
+		intTestMark = intNewTestMark;
+	}
+	public int getTestMark(){
+		return intTestMark;
+	}
+}

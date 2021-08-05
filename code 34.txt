@@ -1,0 +1,39 @@
+package factorials; 
+
+import java.util.Scanner; 
+
+public class factorials{
+	public static void main (String[] args){
+		int intNumber; 
+		int intAnswer; 
+		int intCount; 
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number: ");
+		intNumber = sc.nextInt();
+
+		intAnswer = 1; //what if this was = 0 - why is this a mistake?  
+
+		for (intCount = intNumber; intCount >= 1; intCount--){ // intCount = intCount - 1 - short version intCount--				intAnswer = intAnswer * intCount; 
+		}
+		System.out.println(intAnswer);
+
+	}		
+}
+//**************************************************************************************************************************
+package factorials; 
+
+public class factorials{
+	public static void main (String[] args){
+		int intAnswer; 
+		int intCount, intCount2; 
+
+		for (intCount2 = 1; intCount2 <= 10; intCount2++){
+			intAnswer = 1;   
+			for (intCount = intCount2; intCount >= 1; intCount--){
+				intAnswer = intAnswer * intCount; 
+			}
+			System.out.println(intAnswer);
+		}
+	}		
+}

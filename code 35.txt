@@ -1,0 +1,56 @@
+package factorials; 
+
+
+public class factorials{
+	public static void main(String[] args){
+		
+		int intAnswer; 
+		int intCount; 
+		int intCount2; 
+		
+		for (intCount2 = 1; intCount2 <= 10; intCount2++){		
+			intAnswer = 1; 
+	
+			for(intCount = intCount2; intCount >= 1; intCount--){
+				intAnswer = intAnswer * intCount; 
+			}
+			
+			System.out.println(intAnswer);
+		} 
+	}
+}
+
+//**********************************************************************************************
+/*
+package factorials; 
+
+import java.util.Scanner; 
+
+
+public class factorials{
+	public static void main(String[] args){
+		
+		int intNumber; 
+		int intAnswer; 
+		int intCount; 
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number: ");
+		intNumber = sc.nextInt();
+		
+		intAnswer = 1; //0; 
+
+		//4 - 4 * 3 * 2 * 1 = 24
+		//6 - 6 * 5 * 4 * 3 * 2 * 1 = 720
+		//intAnswer = intNumber * (intNumber - 1) * (intNumber - 2) * (intNumber  ...
+		
+		// for(intCount = 1; intCount <= intNumber; intCount++){
+		
+		for(intCount = intNumber; intCount >= 1; intCount--){
+			intAnswer = intAnswer * intCount; 
+		}
+			
+		System.out.println(intAnswer); 
+	}
+}
+*/

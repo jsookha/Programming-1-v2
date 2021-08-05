@@ -1,0 +1,57 @@
+package testscorestatistics;
+
+import javax.swing.JOptionPane; 
+
+public class TestScoreStatistics{
+	public static void main (String[] args){
+		
+		int intScore; 
+		
+		int intSum;
+		int intCount; 
+		double dblAverage; 
+
+		int intHigh, intLow; 
+
+		String strScore; 
+
+		intSum = 0;
+		intCount = 0;  
+		intHigh = -1; 
+		intLow = 200; 
+
+		strScore = JOptionPane.showInputDialog(null, "Enter score (999 to exit)");
+		intScore = Integer.parseInt(strScore);
+
+		while (intScore != 999){
+			if ((intScore < 0) || (intScore > 100)){
+				JOptionPane.showMessageDialog(null, "Invalid score entered");
+			}
+			else{
+				// average stuff
+				
+				intSum = intSum + intScore; 
+				intCount = intCount + 1; 
+
+				// high 
+
+				if (intScore > intHigh)
+					intHigh = intScore; 
+
+				// low 
+				
+				if (intScore < intLow)
+					intLow = intScore; 
+			}
+			
+			strScore = JOptionPane.showInputDialog(null, "Enter score (999 to exit)");
+			intScore = Integer.parseInt(strScore);
+		}
+		dblAverage = intSum / intCount; 
+		
+		JOptionPane.showMessageDialog(null, "The average score of " + intCount + " students is " + dblAverage + "\n" + 
+						    "The highest score is " + intHigh + "\n" + 
+						    "The lowest score is " + intLow );
+	}
+}	
+

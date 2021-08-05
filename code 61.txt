@@ -1,0 +1,54 @@
+
+import java.util.Scanner; 
+import javax.swing.JOptionPane; 
+
+public class SearchingAnArray
+{
+  static int[] intNumbers = new int[10]; 
+  
+  public static void main(String[] args)
+  {
+    loadArray();
+  	
+    int intSearch; 
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.print("Please enter the number you are searching for : ");
+    intSearch = sc.nextInt();
+    
+    searchArray(intSearch); 
+    
+    printArray();
+  }
+  
+  public static void searchArray(int intSearchNumber)
+  {
+  	for (int intCount = 0; intCount <= 9; intCount++)
+    {
+      if (intSearchNumber == intNumbers[intCount])
+      {
+        System.out.println("Number was found at cell " + intCount);
+      }
+    }
+  }
+  
+  //----------------------------------------------------------------------------------------
+  public static void loadArray()
+  {
+    for (int intCount = 0; intCount <= 9; intCount++)
+    {
+      intNumbers[intCount] = intCount + 1 * 2;  // just placing some numbers in the array 
+    }
+  }
+
+  //----------------------------------------------------------------------------------------  
+  public static void printArray()
+  {
+    for (int intCount = 0; intCount <= 9; intCount++)
+    {
+      System.out.println("Cell " + intCount + " is - " + intNumbers[intCount]);
+    }
+  }
+}
+
+

@@ -1,0 +1,42 @@
+package passingarrays; 
+
+public class PassingArrays{
+	
+	static int[] intNumbers = new int[5]; 
+
+	public static void main(String[] args){
+		
+		intNumbers[0] = 1;
+		intNumbers[1] = 2;
+		intNumbers[2] = 3;
+		intNumbers[3] = 4;
+		intNumbers[4] = 5;
+
+		PrintDetails();
+		
+		int[] intNumbers2 = new int[5]; 
+		intNumbers2[0] = 1;
+		intNumbers2[1] = 2;
+		intNumbers2[2] = 3;
+		intNumbers2[3] = 4;
+		intNumbers2[4] = 5;
+		
+		PrintOtherArray(intNumbers2);	
+			
+	}
+
+	public static void PrintDetails(){		
+		for (int intCount = 0; intCount <= 4; intCount++){
+			System.out.println(intNumbers[intCount]);
+		}
+		 
+	}
+
+	public static void PrintOtherArray(int[] intOtherArray){
+
+		for (int intCount = 0; intCount <= 4; intCount++){
+			System.out.println(intOtherArray[intCount]);
+		}		
+	}
+
+}
