@@ -1,0 +1,62 @@
+/*
+Program: 	Using JOptionPane to print a value 
+Programmer: 	J.Sookha 
+Description: 	using another class to print strings in a window
+*/
+
+package inputandoutput; 
+
+//import java.util.Scanner; // allowed us to input via the output window
+//import java.lang.*; // allowed us to use the Math functions min
+
+import javax.swing.JOptionPane; 
+
+
+public class InputandOutput
+{
+	public static void main(String[] args)
+	{
+		// showMessageDialog is a method to create a window to display a message  
+		
+		//System.out.println("Printing out something"); 
+		
+		int intCreditDays = 30; 
+		JOptionPane.showMessageDialog(null, "" + intCreditDays);
+
+		String strMessage;
+		strMessage = "Every bill is due in " + intCreditDays + " days"; 
+		
+		JOptionPane.showMessageDialog(null, strMessage); 
+
+		JOptionPane.showMessageDialog(null, "Every bill is due in " + intCreditDays + " days");
+
+		int intNum = -12;
+
+		boolean blnDecide; 
+
+		blnDecide = (8 > 9); 
+		JOptionPane.showMessageDialog(null, "8 > 9 = " + blnDecide); 
+
+		blnDecide = (7 <= 2);
+		JOptionPane.showMessageDialog(null, "7 <= 2 = " + blnDecide); 
+		
+		blnDecide = (7 != 7); 
+		JOptionPane.showMessageDialog(null, "7 != 7 = " + blnDecide); 
+		
+		blnDecide = ('A' > 'H'); 
+		
+		JOptionPane.showMessageDialog(null, "A > H = " + blnDecide);
+
+		System.out.println("The real \"name\" of the user is Jack");
+		
+		System.out.println("The real \'name\' of the user is Jack");
+		
+		System.out.println("The real \\name\\ of the user is Jack");		 
+		
+		System.out.println("The real name of the user is \bJack");
+		System.out.println("The real name of the user is \tJack");
+		System.out.println("The real name of the user is \nJack");
+		System.out.println("The real name of the user is \rJack");
+	}
+
+}

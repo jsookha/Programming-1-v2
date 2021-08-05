@@ -1,0 +1,47 @@
+/*
+Program: 	Using JOptionPane to print and read a value 
+Programmer: 	J.Sookha 
+Description: 	using the showMessageDialog and showInputdialog to read and print values
+*/
+
+package inputandoutput2; 
+
+import javax.swing.JOptionPane; 
+
+public class InputandOutput2
+{
+
+	public static void main (String[] args)
+	{
+		String strResult; 
+
+		strResult =  JOptionPane.showInputDialog(null, "Please enter your name");
+
+		JOptionPane.showMessageDialog(null, "Hello \n" + strResult);
+
+		String strAge; 
+		strAge = JOptionPane.showInputDialog(null, "Please enter your age");
+		int intAge; 
+		intAge = Integer.parseInt(strAge);		
+		
+		intAge = Integer.parseInt(strResult);
+
+		if (intAge > 21)
+			JOptionPane.showMessageDialog(null, "You can vote and drink ??"); 
+		
+		if (intAge >= 21)
+			//Message to say you can vote
+		else
+			//Message to say you cannot 
+
+		/*
+			Relational Expression (A >= H)
+			Mix of Mathematical and Relational  (2 + 3 <= 5)
+			Logic Expression  (blnYes && blnNo) !(not - !blnYes) &&(and) ||(or y || n)
+			An expression of a boolean data type  … if (blnChecked) // if (blnChecked == true)
+		*/
+}
+
+	}
+		
+}

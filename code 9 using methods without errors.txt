@@ -1,0 +1,64 @@
+/*
+Program: 	Methods
+Programmer: 	J.Sookha 
+Description: 	Methods used to organize the code  
+*/
+
+package icetask0; 
+
+import java.util.Scanner;
+
+public class IceTask0{
+
+	static Scanner sc = new Scanner(System.in);
+		
+	static int intHrs; 
+	static double dblRate;
+	static double dblWage = 0; //there is a reason why 0 is given to this variable!
+
+	public static void main (String[] args){
+		
+		// *** the variables were here ... see where I moved it ... to the top  
+		 
+
+		//-------------------------------------------------------------------------------------		
+		//Read in the values here ! 
+
+		ReadValues(); //calling method
+
+		//-------------------------------------------------------------------------------------		
+		// Calculation
+		
+		CalcWage(); //calling method
+
+		//-------------------------------------------------------------------------------------
+
+		// sc.Close(); //this will stay here *******
+ 			
+		//-------------------------------------------------------------------------------------
+		//Print the answer here ! 
+		
+		PrintAnswer(); //calling method
+	}
+	
+	public static void ReadValues(){
+		System.out.print("Enter the hours worked: ");
+		intHrs = sc.nextInt();
+
+		System.out.print("Enter the rate of pay: ");
+		dblRate = sc.nextDouble();
+	}
+
+	public static void CalcWage(){
+		// If then statement 
+		
+		if (intHrs <= 40)
+			dblWage = intHrs * dblRate; // standard pay less than or equal to 40 hrs
+		else 
+			dblWage = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate); //overtime pay 
+	}
+
+	public static void PrintAnswer(){
+		System.out.println("The weekly wage is R" + dblWage);
+	}
+}

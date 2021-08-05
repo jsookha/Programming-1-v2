@@ -1,0 +1,102 @@
+/*
+Program: 	Datatypes and Printing 
+Programmer: 	J.Sookha 
+Description: 	showcasing the various data types and being able to print in the Console
+		window - Compared to the textbook - we run our programs inside of Netbeans
+		- so when we run our programs - we see the execution inside of the Output 
+		window that is within Netbeans - if we followed the instructions in the textbook
+		- we would then be running our program inside what we call the "Command Prompt" 
+		window  
+*/
+
+
+public static void main()
+{	
+	// When reading about data types, we come across primitive data types 
+	// These data types define a variable to hold a value of a certain kind 
+	
+	int intNumber; // declaring a variable - the prefix is our idea inside our classes  
+	intNumber = 576; // variable assigned a value  
+ 
+
+	int intNumber2 = 235; //variable assigned a value immediately after declaration 
+
+	//float fltAmount = 25.56; //this does not work ??? 
+	
+	float fltAmount = 25; //works but is not actually a real number with a floating point 
+
+	float fltAmount2 = 25.56f; //need the f to define that this is a float type 
+
+	double dblPrice = 25.56; //this is accepted - and has no problems with it 
+
+	// ********************************************************************************************	 
+	System.out.println("Hello World!"); // Printing a string (series of characters) 
+
+	System.out.println(intNumber); //printing the value that is inside a variable 
+
+	System.out.println(intNumber + intNumber2); // teachnically we are allowed perform mathematically expressions
+	// so the above means because the 2 variables are numbers - the plus sign (+) is mathematical 
+	// but take note of what is the same + (plus) sign used below - serves another purpose ... 
+
+	double dblVat; // real number declared 
+	double dblNewAmount; 
+	
+	final double dblVat2 = 0.14; 
+	//declaring a constant - a variable that is assigned a value only once and cannot be changed
+	
+	dblVat = fltAmount2 * 0.14; 
+	dblNewAmount = fltAmount2 + dblVat; 
+
+	System.out.println("This number is " + intNumber); //concatenation (to join) string with other things  
+	//This number is 576
+
+	System.out.println(intNumber + " + " + " This number");
+	// 576 +  ThisNumber // take note of the spaces - we put them there 
+
+	System.out.println(intNumber + " + " + intNumber2 + " = " + (intNumber + intNumber2));
+
+	// 576 + 235 
+	// = ??? 
+	// take note of the above - the brackets are same like BODMAS - so the mathematical exists there as well 
+
+	System.out.print("This"); //the 'print' method is just like the 'println' method - serves a slightly different purpose
+	System.out.print("That");
+
+	//ThisThat
+	System.out.println();
+
+	short shtSmallNumber; 
+	// shtSmallNumber = 1000000; //will cause an error - why? 
+	shtSmallNumber = 32767;
+
+	long lngVeryLongNumber = 34567893;
+	
+	byte bytVerySmallNumber = 127; 
+
+	boolean blnDecision;
+	blnDecision = true; 
+	blnDecision = false; 
+
+	string strName = "John Fox";
+	char chrOneCharacter = "A";
+
+	//If I wanted to declare multiple variables of the same type, I am allowed to do the following
+	int intNum1, intNum2, intNum3, intNum4; 
+	
+}
+
+/*
+	Prefixes for datatypes 
+	byte - byt
+	short - sht 
+	integer - int 
+	long - lng 
+	char - chr 
+	string - str
+	boolean - bln 
+	float - flt 
+	double - dbl
+
+*/
+
+---------------------------------------------------------------------------

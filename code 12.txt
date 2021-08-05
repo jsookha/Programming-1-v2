@@ -1,0 +1,153 @@
+/*
+Program: 	Using Methods 
+Programmer: 	J.Sookha 
+Description: 	using a method with a parameter 
+		passing a value to a procedure from the main method
+*/
+
+package usingmethods;
+ 
+import java.util.Scanner; 
+
+public class UsingMethods{
+
+	static int intNumber; // take note of the variable declared here ... and how it is used
+	
+	public static void main (String[] args)
+	{
+		int intNum2; 
+
+		Read(intNum2); // passing a parameter value 
+		Print();
+
+		System.out.println(intNum2);
+	
+	}
+
+	// parameters are variables declared at the point of declaring a method 
+	// they are variables that are only to be used inside a method 
+
+	public static void Read(int intN2) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Please enter a number ");
+		intNumber = sc.nextInt();
+
+		System.out.print("Please enter Num2 ");
+		intN2 = sc.nextInt();
+	}
+
+	public static void Print(){
+		System.out.println(intNumber);
+		
+		// intN2 = 5; // just putting this here  
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package GradePerc; 
+import java.util.Scanner; 
+import java.lang.*; 
+
+public class GradePerc{
+
+	public static void main(String[] args){
+
+		int intH1, intH2, intH3, intH4, intH5; 
+		int intT1, intT2, intT3, intT4; 
+	
+		int intSum, intSumH, intSumT;
+	
+		int intMinH, intMinT; 
+	
+		double dblPerc; 
+
+		//Scanner - read in all your values 
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter the mark for Homework1: ");
+		intH1 = sc.nextInt();
+
+		System.out.print("Enter the mark for Homework2: ");
+		intH2 = sc.nextInt();
+
+		System.out.print("Enter the mark for Homework3: ");
+		intH3 = sc.nextInt();
+
+		System.out.print("Enter the mark for Homework4: ");
+		intH4 = sc.nextInt();
+
+		System.out.print("Enter the mark for Homework5: ");
+		intH5 = sc.nextInt();
+
+		System.out.print("Enter the mark for Test1: ");
+		intT1 = sc.nextInt();
+
+		System.out.print("Enter the mark for Test2: ");
+		intT2 = sc.nextInt();
+
+		System.out.print("Enter the mark for Test3: ");
+		intT3 = sc.nextInt();
+
+		System.out.print("Enter the mark for Test4: ");
+		intT4 = sc.nextInt();
+		//****************************************************
+		intSumH = intH1 + intH2 + intH3 +  intH4 + intH5; 
+		intSumT = intT1 + intT2 + intT3 + intT4; 
+
+		
+		intMinH = Math.min(Math.min(intH5, Math.min(intH4, Math.min(intH3, intH2)), intH1);
+
+		intSumH = intSumH - intMinH; 
+
+		intMinT = Math.min(Math.min(intT4, Math.min(intT3, intT2),intT1);
+		intSumT = intSumT - intMinT; 
+
+		dblPerc = ((intSumH + intSumT)/ 500) * 100; 
+
+		//Print out your answer 		
+		System.out.println();
+		System.out.println("The percentage the student received is " + dblPerc + "%");
+	}
+}

@@ -1,0 +1,54 @@
+/*
+Program: 	Using Methods 
+Programmer: 	J.Sookha 
+Description: 	using a method with a parameter - and - 
+		a function - take note that when a function is called 
+		- a variable is required to take the answer that is returned from the function
+	
+*/
+
+package usingmethodspart1; 
+
+import java.util.Scanner; 
+
+public class UsingMethodsPart1{
+	static int intNum1; //works here but needed to have the reserved word static
+
+	public static void main(String[] args){
+		//int intNum1; //placing the declaration here caused problems 
+
+		//Calling Methods 
+		//Read 
+		ReadValues();
+
+		//Some Calculations
+
+		// SomeCalculation(intNum1); //can't just write it like this -- need a variable to place the 'return' value in
+		int intAns = SomeCalculation(intNum1);
+
+		//Some Printing
+		//System.out.println(intNum1); //initially the variable intNum1 did not pick up // so we moved the declaration a few times
+		
+		SomePrinting();
+	}
+		
+	public static void ReadValues(){
+		//int intNum1; //initially the declaration worked here when 'no-one' else needed to use it
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter a value ");
+		intNum1 = sc.nextInt();	
+	}
+	
+	public static int SomeCalculation(int intN1){
+		int intAnswer; 
+
+		intAnswer = intN1 * intN1;
+		
+		return intAnswer;
+	}
+		
+	public static SomePrinting(){
+		System.out.println(????);
+	}
+}

@@ -1,0 +1,129 @@
+/*
+Program: 	Classes & Objects again
+Programmer: 	J.Sookha 
+Description: 	Using classes to define a structure
+		Take note the 
+*/
+
+// StudentClasses 
+//######################################################################################
+StudentClasses.java
+//######################################################################################
+
+package StudentClasses; 
+
+public class StudentClasses()
+{
+	public static void main (String[] args)
+	{
+		clsStudent Stud1 = new clsStudent("Jane","1234567","jane@world.co.za","BCAD1");
+	
+		clsStudent Stud2 = new clsStudent("Jennifer","8901234","jennifer@thatplace.com","BCAD1");
+	
+		clsStudent Stud3 = new clsStudent("Joanne","4567812","joanne@this.com","BCAD1");
+
+		//System.out.println("This 1 student is " + Stud1.PrintStudent());
+
+		//This line above won't work -- its a mistake \
+		//I thought a System.out.println can exist inside ?another? - but its not allowed 
+		//plus - because the method in the class(clsStudent) was declared with "void"
+		//it doesn't allow me to use it in the above line of code 
+	
+		// this line below will hopefully work 
+		Stud1.PrintStudent();
+
+		clsStudent Stud4 = new clsStudent();
+		Stud4.strName = "";
+		
+		//Stud2.strName
+
+		//Inheritance - overriding 
+		//Polymorphism
+
+		//Encapsulation 
+		//Abstraction 		
+
+		
+	}
+}
+
+//######################################################################################
+clsStudent.java
+//######################################################################################
+public class clsStudent
+{
+	//instance variable - private 
+
+	//properties
+
+	String strName;
+	String strStudN;
+	String strEmail; 
+	String strCourse; 
+
+	//constructors
+	public clsStudent()
+	{
+		//currently an empty constructor 
+	}
+
+	public clsStudent(String strNm, String strNu, String strE, String strC)
+	{
+		strName = strNm;
+		strStudN = strNu;
+		strEmail = strE;
+		strCourse = strC; 
+	}
+
+	//methods
+	public void PrintStudent()
+	{
+		System.out.println("Name" + strName);
+		System.out.println("Number" + strStudN);
+		System.out.println("Email" + strEmail);
+		System.out.println("Course" + strCourse);
+	}
+}
+
+
+//######################################################################################
+Below is not part of the program - but part of the story and concern
+
+//######################################################################################
+
+/*
+so think about this - if I asked you to store information about 1 student - you would 
+create something like this below ...
+	String strName, strStudNum, strEmail, strPhone, strCourse; 
+
+	strName = "John";
+	strStudNum = "999999999"; 
+	strEmail = "john@somewhere.co.za";
+	strPhone = "0725551234";
+	strCourse = "BCAD1"; 
+
+and now if I ask for another student - you would create another set of variables like so
+	String strName1, strStudNum1, strEmail1, strPhone1, strCourse1;
+
+and then follow through with entering the values for the next student 
+	strName = "Jack";
+	strStudNum = "111199999"; 
+	strEmail = "jack@somewhere.co.za";
+	strPhone = "0727891234";
+	strCourse = "BCAD1";
+but now think if I asked to store the information for the whole class ... 
+	String strName2, strStudNum2, strEmail2, strPhone2, strCourse2;
+	String strName3, strStudNum3, strEmail3, strPhone3, strCourse3;
+	String strName4, strStudNum4, strEmail4, strPhone4, strCourse4;
+	String strName5, strStudNum5, strEmail5, strPhone5, strCourse5;
+	String strName6, strStudNum6, strEmail6, strPhone6, strCourse6;
+	String strName7, strStudNum7, strEmail7, strPhone7, strCourse7;
+	String strName8, strStudNum8, strEmail8, strPhone8, strCourse8;
+
+already I see a problem with this .... 
+there are 9 "students" ????
+there is just too much to look after ... not that it doesn't make sense 
+-- it is just too much 
+-- so what would be a better way to handle this - arrays? yes - but we not learning it yet
+-- so Classes will have to do - create a structure for a student that represents 1 at a time	
+*/

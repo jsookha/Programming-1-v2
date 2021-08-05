@@ -1,0 +1,119 @@
+/*
+- Program: Using Methods - Part 2
+- Date: 14/3/2018
+- Programmer: J.Sookha
+- Description: Program demonstrating the use of methods. Ideas and implementation
+*/
+
+package usingmethodspart2;
+import java.util.Scanner; 
+
+public class UsingMethodsPart2{
+	
+	public static void main(String[] args){
+	
+	}
+}
+
+//############################################################################################################
+clsStudent
+//############################################################################################################
+
+/*
+Classes have the following access levels
+-- (package): class objects can only be declared and manipulated by code in this package
+-- public: class objects can be declared and manipulated by code in any package
+*/
+
+package usingmethodspart2;
+
+public class clsStudent{
+	
+	/*
+	Fields and methods have the follwing access levels
+	-- private: accessible only in this class
+	-- (package): accessible only in this package
+	-- protected: accessible only in this package and in all subclasses of this class
+	-- public: accessible everywhere this class is available
+	*/
+	
+	// private fields / instance variables
+
+	//properties
+	
+	//constructors - are used to initialize an instance of the class
+	
+	//methods
+	
+}
+ 
+//#########################################################################################################
+public static int sum(int intN1, int intN2, int intN3)
+  // add the three parameters together and return the result
+  {
+     int intAnswer;
+     intAnswer = intN1 + intN2 + intN3;
+     return intAnswer;
+  }
+ 
+  public static double average (double dblNu1, double dblNu2, double dblNu3)
+  // add the parameters, divide by 3, and return the result
+  {
+     return (dblNu1 + dblNu2 + dblNu3) / 3.0;
+  }
+
+  boolean InOrder(int intNum1, int intNum2, int intNum3)
+  // answers yes/no to the question "are these parameters in order,
+  //  smallest to largest?"  Returns true for yes, false for no.
+  {
+     if (intNum1 <= intNum2 && intNum2 <= intNum3)
+	return true;
+     else
+	return false;
+  }
+//#########################################################################################################
+
+public class Scope1
+{
+  public static double x;	// this has what is called "class scope"
+				//  we'll study more about this later
+
+  public static void main(String[] args)
+  {
+     double a, b, c;	// local variables to main()
+     double x, y, z;	// local variables to main()
+  			//  NOT the same x, y, z as in the average method
+			//  and NOT the same x as the class variable x
+
+     a = 1.3;   b = 2.5;   c = 6.8;
+
+     // arguments in a function call do NOT have to have the same
+     //  names as formal function parameters
+
+     x = average(a, b, c);	// local x (to main()) being used here
+     System.out.println("average = " + x);
+
+     if (x > 10)
+     {
+         int var1;		// this variable only exists in 
+				//  the body of the if statement!
+         var1 = 20;
+
+
+     }				// end of var1's scope
+
+     // var1 = 5;			// would be illegal!
+
+  }
+
+  public static double average(double x, double y, double z)
+  // the variables x, y, and z are LOCAL variables to this function
+  //  NOT the same as the global x.
+  {
+     double total;		// another LOCAL variable
+     total = x + y + z;		// local x being used here
+     return (total / 3.0);
+  }
+
+
+}

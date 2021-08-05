@@ -1,0 +1,28 @@
+True / False 
+
+1. Any class that contains an abstract method is an abstract class.
+2. The objects in any Java stream must be processed in sequence.
+3. It is not possible to define more than one outer (not inner) Java class in the same file.
+4. Java is both statically and dynamically typed.
+5. A final class field must be initialized at the point where it is declared.
+6. true || false is equal to true	
+7. A class cannot contain multiple methods with identical names.
+8. A class method can access instance fields.
+9. An instance method can access class fields.
+10. A Java if statement must always be followed by else.
+11. A Java do statement checks the condition before executing the body of the loop.
+12. A floating point variable (float or double) is a good choice for a counter.
+13. A Java method must return a single value.
+14. A Java static initializer is executed only once, when a class is first loaded.
+15. A Java interface is a contract that requires the implementer to implement certain methods.
+16. A Java constructor is executed only once, when an object is first created.
+17. A garbage collector collects all objects that the program will no longer use.
+18. A HashSet may not contain duplicate values.
+19. Elements of a Queue must always be removed in the order in which they were added ('first-in, first-out').
+20. A class that implements an interface uses the ‘extends’ keyword.
+21. An abstract class cannot be instantiated.
+22. A Java variable may be polymorphic, meaning that it may refer to an object whose type is more specific than the variable's declared type.	
+23. All Java classes can be subclassed.
+24. Subclasses must never override methods of their parent class.
+25. Java's Number classes have a space overhead compared to their unboxed counterparts
+

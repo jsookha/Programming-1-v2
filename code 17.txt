@@ -1,0 +1,234 @@
+/*
+Program: 	If..Then structure  
+Programmer: 	J.Sookha 
+Description: 	using if then statements to allow us to make a decisions
+		make note of the expression in the brackets 
+*/
+
+package ifthen; 
+
+import javax.swing.JOptionPane; 
+
+public class IfThen
+{
+	public static void main (String[] args)
+	{
+		String strResult; 
+		strResult = JOptionPane.showInputDialog(null, "Please enter your name? ");
+		JOptionPane.showMessageDialog(null, "Name is " + strResult);
+		
+		String strAge; 
+		int intAge; 
+		
+		strAge = JOptionPane.showInputDialog(null, "Please enter your age");
+
+		intAge = Integer.parseInt(strAge); 
+		// converting the string value into an 
+		// Integer and sending it to intAge
+		
+		//*************************************************************************
+		if (intAge >= 18)
+		{
+			System.out.println("You can vote");
+		}			
+		
+		//*************************************************************************
+		if (intAge >= 18)
+			System.out.println("You can vote"); 
+		
+		//*************************************************************************
+		if (intAge >= 18)
+		{
+			System.out.println("Can vote");
+		}
+		else
+		{
+			System.out.println("Cannot vote");
+		}
+		
+		//*************************************************************************
+
+		if (intAge >= 18) 
+			System.out.println("Can vote");
+
+		if (intAge >= 21)
+			System.out.println("Can drink alcohol");
+
+		//--------------------------------------------------
+		//all these statements look correct but they are logically incorrect
+
+		if (intAge >= 21)
+			System.out.println("Can drink alcohol");
+		else
+			System.out.println("Can vote");		
+		
+		// if (intAge >= 21 && >= 18) //wrong 
+
+		if ((intAge >= 21) && (intAge >= 18))
+			System.out.println("Vote and Alcohol");
+		else
+			System.out.println("NOOOOO Vote and Alcohol");
+
+		if ((intAge >= 21) && (intAge < 18))
+			System.out.println("Vote and Alcohol");
+		else
+			System.out.println("NOOOOO Vote and Alcohol");
+		//*************************************************************************
+		//Nested if then statements			
+		if (intAge >= 18)
+		{
+			System.out.println("Can Vote");
+
+			if (intAge >= 21)
+			{
+				System.out.print("Can drink");
+			}
+		}
+		else
+		{
+			System.out.println("No VOTE or DRINK");
+		}				
+		//*************************************************************************		
+		//Nested Statements 
+		// Mark 	Symbol
+		// 90 - 100	A
+		// 80 - 89	B
+		// 70 - 79 	C
+		// 60 - 69 	D
+		// 50 - 59	E
+		// < 50 	F
+
+		
+		// <50		F
+		// 50 - 59	E
+		// 60 - 69 	D
+		// 70 - 79 	C
+		// 80 - 89	B
+		// 90 - 100 	A
+
+		
+		int intMark; 
+		intMark = 45; // 95
+		
+		if ((intMark >= 90) && (intMark <= 100))
+			System.out.println("A");
+ 		
+		// THIS ONE IS WRONG TO USE THE OR OPERATOR 
+		if ((intMark >= 90) || (intMark <= 100))
+			System.out.println("A"); 
+		//--------------------------------------------------
+		
+		if (intMark >= 90)
+		{
+			System.out.println("A");
+		}
+		else
+		{
+			if (intMark >= 80)
+			{
+				System.out.println("B")
+			}
+			else
+			{	
+				if (intMark >= 70)
+				{
+					System.out.println("C");
+				}
+				else
+				{
+					if (intMark >= 60)
+					{	
+						System.out.println("D");
+					}
+					else
+					{	
+						if (intMark >= 50)
+						{
+							System.out.println("E");
+						{
+						else 
+						{	
+							System.out.println("F");
+						} 
+					}	
+				}		
+			}	
+		}
+		//*************************************************************************
+		if (intMark < 90)
+		{		
+			if (intMark < 80)
+			{
+				if (intMark < 70)
+				{		
+					if (intMark < 60)
+					{
+						if (intMark < 50)
+						{
+							System.out.println("F");
+						}
+						else
+						{	
+							System.out.println("E");
+						}
+					}
+					else 
+					{
+						System.out.println("D");
+					}
+				}	
+				else
+				{
+					System.out.println("C");
+				}
+			}
+			else
+			{
+				System.out.println("B");
+			}
+		}	
+		else
+		{		
+			System.out.println("A');
+		}
+	}
+}
+
+/*
+	Expressions for an if then statement can be one of 4 variations 
+	Relational expression - if (intAge >= 25)
+	
+	wrong if (intAge + 5)
+	
+	Mix of mathematical and relational - if (intAge + 5 >= 30)
+	
+	Logical expression - if (blnThis AND blnThat) NOT ! -- AND && -- OR || 
+
+	It is a variable of a boolean data type - if (blnChecked) //if (blnChecked == true)
+						if (blnChecked == false)
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

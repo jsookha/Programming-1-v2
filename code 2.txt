@@ -1,0 +1,73 @@
+/*
+Program: 	User Input using the Scanner 
+Programmer: 	J.Sookha 
+Description: 	Using the Scanner to read in a value from the user within the Console (Output) window 
+*/
+
+package userinput; 
+
+//any importing of classes must happen here - after the package line ... 
+
+import java.util.Scanner;  
+
+public class UserInput
+{  
+ 
+	public static void main(String args[])
+	{  
+   
+		Scanner sc = new Scanner(System.in); // sc is an instance (an object) of the Scanner class
+		  
+     
+		System.out.println("Enter your age");  // take note when the program runs
+   		int intAge = sc.nextInt();  // nextInt is a method that allows us to take what the user entered as an Integer
+   		
+		System.out.println("Enter your name");  
+   		String strName = sc.next();  
+   		
+		System.out.println("Enter an amount");  
+   		double dblAmount = sc.nextDouble();  // different methods serves a different purpose
+   		
+		System.out.println("Age: " + intAge + " name: "+ strName + " Amount: " + dblAmount);  
+		
+		sc.close(); // we are supposed to close the sc object 
+		// (but its okay if we forget this line - till now - nothing drastic has happened because of this)
+
+		//***********************************************************************************   		
+		double dblSomethingWeird; 
+
+		dblSomethingWeird = intAge / dblAmount;
+		// ^ just a calculation  
+		//***********************************************************************************
+		
+		// some basic mathematical operators 
+		// + - * / 
+		// Remember Modulus division - gives you the remainder as an answer 
+		// % - this is the symbol to use
+		//***********************************************************************************
+		
+		// intNumber = 3 + 2; 
+		// The above is known as an EQUATION - intNumber is assigned the value of the 
+		// EXPRESSION on the right hand side 
+		// Its important to remember these words 
+
+		// += - this an operator just like the usual we know - but has a little something extra 
+		
+		intAge = 10; 
+		// intAge = 10 + 5; 
+
+		intAge = intAge + 5; // adding 5 to the value of intAge (expression) and then assigning it to the left variable
+		intAge += 5; // does the same as above ... 
+
+		// -=
+		intAge -= 5; // intAge = intAge - 5; 
+		
+		int intCount = 0; 
+		intCount = intCount + 1; // know as incrementing 
+
+		intCount--; // short version to decrement a variable by one 
+		intCount++; // short version to increment a variable by one
+
+		 
+	}  
+}   

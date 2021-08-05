@@ -1,0 +1,189 @@
+One of the jobs that Joe Roberts has been given at work is to order special paper for
+a report for a board meeting. The paper comes in reams of 500 sheets. He always
+makes five more copies than the number of people that will be there. Joe wants to
+know how many reams of paper he needs for a meeting. He can order only whole,
+not partial, reams. Assume the required number of pages will not equal an exact
+number of reams. Test your solution with the following data:
+The report is 140 pages long.
+There will be 25 people at the meeting.
+
+main ... 
+	Scanner sc = new Scanner(System.in); 
+	
+	int intWholeReams, intRemaining, intTotal; 
+	int intPeople, intPages; 
+
+	System.out.print("Please enter the total number of pages for this report: ");
+	intPages = sc.nextInt();
+
+	System.out.print("Please enter the total number of people: ");
+	intPeople = sc.nextInt();
+
+	intPeople = intPeople + 5; 
+	
+	intWholeReams = intPages / 500; 
+
+	intRemaining = 1; //intPages % 500; 
+	
+	intTotal = intWholeReams + intRemaining; 
+
+	System.out.println();
+
+	System.out.println("The total number of reams needed is" + intTotal);
+}
+==================================================================================
+An instructor calculates grades by dropping the lowest homework score and the
+lowest test score and adding the remaining scores together. He then calculates the
+final points as a percentage of the total points possible. The instructor needs to
+know the final points for a given student.
+min function ???? 5 hmw marks and 4 test marks //500* 
+
+import java.lang.*;
+
+//Math.min(x, y)
+
+main {
+	int intH1, intH2, intH3, intH4, intH5; 
+	int intT1, intT2, intT3, intT4; 
+	
+	int intSum, intSumH, intSumT;
+	
+	int intMinH, intMinT; 
+	
+	double dblPerc; 
+	//Scanner - read in all your values 
+
+	intSumH = intH1 + intH2 + intH3 +  intH4 + intH5; 
+	intSumT = intT1 + intT2 + intT3 + intT4; 
+
+	//intMinH = Math.min(intH1, intH2);
+
+	//intMinH = Math.min(intMinH, intH3);		
+	
+	intMinH = Math.min(Math.min(intH5, Math.min(intH4, Math.min(intH3, intH2)), intH1);
+
+	intSumH = intSumH - intMinH; 
+
+	intMinT = Math.min(Math.min(intT4, Math.min(intT3, intT2),intT1);
+	intSumT = intSumT - intMinT; 
+
+	dblPerc = ((intSumH + intSumT)/ 500) * 100; 
+
+	//Print out your answer 		
+	
+	// intLowestH = Min (intH1, intH2, intH3, intH4, intH5)
+
+==================================================================================
+Mary Williams needs to change a Fahrenheit temperature to Celsius. Use the
+Fahrenheit temperature of 80 degrees to test your solution. 
+c = 5 /9 * (f - 32)
+
+main {
+	Read F
+	C = 5 / 9 * (F - 32);
+	Print C
+}
+==================================================================================
+Write a solution to print the number of months (use 30 days to a month) and
+remaining days given the number of days between two dates.
+
+ Calendar cal1 = new GregorianCalendar();
+     Calendar cal2 = new GregorianCalendar();
+
+     SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+
+     Date date = sdf.parse("your first date");
+     cal1.setTime(date)
+     date = sdf.parse("your second date");
+     cal2.setTime(date);
+
+    //cal1.set(2008, 8, 1); 
+    //cal2.set(2008, 9, 31);
+     
+System.out.println("Days= "+daysBetween(cal1.getTime(),cal2.getTime()));
+
+ public int daysBetween(Date d1, Date d2){
+             return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
+     }
+==================================================================================
+A sweater is on sale for 25% off the original price. The original price is $50. Write
+a solution to calculate and print the sale price.
+
+main {
+	Read the OP
+	NP = OP - (OP * 0.25)
+	Print NP 
+}
+==================================================================================
+Bob would like to know what percentage of his income his rent is. Write a solution
+that would calculate and print this percentage.
+
+main{
+	Read Rent
+	Read Inc
+	Perc = (Rent / Inc) * 100 
+	Print Perc 
+}
+==================================================================================
+An instructor calculates the grade percentage based on the highest score on a test.
+Given the highest score and one student’s score, write a solution to calculate and
+print that student’s test percentage.
+
+main {
+	Read score 
+	Read high 
+	Perc = (score / high) * 100 
+	Print Perc 	
+}
+==================================================================================
+==================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

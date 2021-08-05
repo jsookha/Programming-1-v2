@@ -1,0 +1,62 @@
+public static void main()
+{
+	int intNumber; 
+	intNumber = 576; // variable assigned a value  
+ 
+
+	int intNumber2 = 235; //variable assigned a value immediately after declaration 
+
+	//float fltAmount = 25.56; //this does not work ??? 
+	
+	float fltAmount = 25; //works but is not actually a real number with a floating point 
+
+	float fltAmount2 = 25.56f; //need the f to define that this is a float type 
+
+	double dblPrice = 25.56; //this is accepted - and has no problems with it 
+ 
+
+	System.out.println("Hello World!");
+
+	System.out.println(intNumber);
+
+	System.out.println(intNumber + intNumber2);
+
+	double dblVat; 
+	double dblNewAmount; 
+
+	dblVat = fltAmount2 * 0.14; 
+	dblNewAmount = fltAmount2 + dblVat; 
+
+	System.out.println("This number is " + intNumber); //concatenation 
+	//This number is 576
+
+	System.out.println(intNumber + " + " + " This number");
+	// 576 +  ThisNumber
+
+	System.out.println(intNumber + " + " + intNumber2 + " = " + (intNumber + intNumber2));
+
+	//576 + 235 
+	= ??? 
+	
+	System.out.print("This");
+	System.out.print("That");
+
+	//ThisThat
+	System.out.println();
+
+
+}
+
+/*
+	Prefixes for datatypes 
+	integer - int 
+	short - sht 
+	long - lng 
+	char - chr 
+	string - str
+	boolean - bln 
+	float - flt 
+	double - dbl
+*/
+
+---------------------------------------------------------------------------

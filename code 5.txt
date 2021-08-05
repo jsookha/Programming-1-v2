@@ -1,0 +1,99 @@
+/*
+Program: 	Classes & Objects & "global" Variables
+Programmer: 	J.Sookha 
+Description: 	Using classes to define a structure for a "THING" 
+		Also take note of the declaring of variables and the use of the 'static' keyword  
+*/
+
+package exampleclasses; //the package is what relates this file to the file that contains the main method for us to use
+
+public class Rectangle
+{
+	int intSide1;
+	int intSide2; 
+
+	public Rectangle()
+	{
+		// known as a constructor method - this one is empty 
+		// so when used - technically it does nothing but have an empty object 
+	}
+	
+	public Rectangle(int intS1, int intS2)
+	{
+		// also a constructor - since we are allowed to duplicate - this is known as 
+		// OVERLOADED  
+		intSide1 = intS1;
+		intSide2 = intS2;
+	}
+}
+
+int Side;
+short Side1; 
+ 
+int Number; 
+double Price; 
+
+//*******************************************************************************************************************
+//*******************************************************************************************************************
+
+package Classesv1; 
+
+public class Classesv1()
+{
+	int intNum1; //nothing wrong with this declaration ... BUT
+ 	// comment the above line - after the error you will see 
+
+	static int intNum2; //static is the reserved word needed 
+	// static allows us to use the variable in any method ... 
+	
+	public static void main()
+	{
+		// this line below - take note because of the declaration above 
+		intNum1 = 10; // see this line - looks normal - but won't work ? 
+		intNum2 = 25; 
+
+		//**************************************************************
+		clsSquare sq1 = new clsSquare(); //create an instance of the class - sq1 is called the object
+		clsSquare sq2 = new clsSqaure(4); 
+		
+		sq2.CalcArea(); //calling a method from with the class 
+		
+	}
+}
+
+//*******************************************************************************************************************
+
+package classesv1; 
+
+public class clsSquare()
+{
+	// **private fields / instance variables 
+
+	int intSide; 
+
+	// **public properties
+
+	// **constructors
+
+	public clsSquare()
+	{
+		//empty constructor - no code is here - but that is not always the case
+	} 
+
+	// another constructor - overloading 
+	public clsSquare(int intS)
+	{
+		intSide = intS;
+	}
+
+	// **methods (procedures & functions)
+	
+	public void CalcArea()
+	{
+		int intArea; 
+		intArea = intSide * intSide;
+		
+		//how do we send the answer to the other side? 
+		System.out.println("The area of the square is " + intArea);
+	}	 
+}

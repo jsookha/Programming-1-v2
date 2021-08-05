@@ -1,0 +1,100 @@
+Problem Solving - 6 steps 
+Algorithmic / Heuristic 
+Variables & Constants - v can change / const once delared - must be given a value - and cannot change 
+
+A102 
+0.15
+
+B1		C1
+=C1*$A$102	1520
+B2
+=C2*$A$102
+
+Operators ()
+Mathematical + - * / % ^
+
+intResult = (A + B) / R * 4 - 2 + (A / E)
+ 
+Relational = <= > >= < <>
+
+blnResult = (A + 3) >= C
+blnResult = A <> B 
+blnResult = 1 <> 2 
+blnResult = "John" <> "Joan"
+blnResult = "J" <> "K" 
+blnResult = "J" == "G" 
+
+Opposites
+= <>
+< >= 
+> <= 
+and vice versa 
+ 
+Logical NOT AND OR ! && ||
+blnR = NOT C 	-----if C is true - the blnR is false and vice versa 
+blnR = A AND B	-----
+blnR = A OR B 
+
+Modules ... Procedures Functions Methods 
+Parameters - call by reference - call by value 
+
+
+Sequential Logic 
+Decision Logic 
+	If then 
+	conditions - Age <> 999 
+	Multiple If then statements 
+	Nested If then statements - Positive Logic / Negative Logic 
+Loop Logic 
+	Repeat Until ... post condition (do while)
+	While do ... pre condition 
+	For loop ... automatic counter loop
+
+	flag, sentinel value, indicator  
+Case Logic 
+	Switch / Case statement 
+
+Arrays 
+	1 dimensional arrays 
+	multiple arrays - parallel arrays 
+	2 dimensional arrays 
+
+	Search - sequential search, binary search 
+	Sort - bubble sort, selection exchange, and all the other weird ones that exist 
+
+-------------------------------
+Start 
+1. Read Age
+
+2. sum = 0 
+3. count = 0  
+
+4. While Age <> 999 
+	sum = sum + Age 
+	count = count + 1 
+	Read Age 
+   End While 
+
+5. Average = sum / count 
+6. Print Average 
+
+7. End 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 

@@ -1,0 +1,65 @@
+/*
+Program: 	Ice Task - Calculate Wages
+Programmer: 	J.Sookha 
+Description: 	calculate the wages including the overtime pay 
+		BUT - an important note is that at this point - we did not learn 
+		decisions - because of this - the solution below might make sense,
+		but it is not perfect  
+*/
+
+package icetask0; 
+
+import java.util.Scanner;
+
+public class IceTask0{
+
+	public static void main (String[] args){
+		/* =====================================================
+			40hrs R10 = 400
+			hours - 40 = 0 (0 * 1.5 * 10) 0 
+
+
+			45hrs R10 = 400 + ((hours - 40) * 1.5 * 10)
+			
+			30hrs R10 = 300
+			hours - 40 = -10 (-10 * 1.5 * 10) -150
+			300 + (-150) = 150 ??   
+		===================================================== */
+
+		Scanner sc = new Scanner(System.in);
+		
+		int intHrs; 
+		double dblRate
+		double dblWage = 0; //there is a reason why 0 is given to this variable! 
+		
+		//Read in the values here ! 
+		System.out.print("Enter the hours worked: ");
+		intHrs = sc.nextInt();
+
+		System.out.print("Enter the rate of pay: ");
+		dblRate = sc.nextDouble();
+		
+		/* all this code works - but is wrong on some level 	
+		// =====================================================
+		// dblWage = (intHrs * dblRate) + ((intHours - 40) * 1.5 * dblRate); 
+		// This formula above works but is messed up - the initial hours * rate - what if the hours is 55 ???? 
+
+	
+		dblWage = (40 * dblRate) + ((intHours - 40) * 1.5 * dblRate);
+		//This formula above will work is the hours is always above 40 
+
+		dblWage = (intHrs * dblRate) + ((intHours - 40) * 1.5 * dblRate);
+		// If the hours is less than 40 then I'll be messing the answer with the "overtime" calculation 
+		// =====================================================
+		
+		// If then statement 
+		if (intHrs <= 40)
+			dblWage = intHrs * dblRate; // standard pay less than or equal to 40 hrs
+		else 
+			dblWage = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate); //overtime pay 
+
+		sc.Close();			
+		//Print the answer here ! 
+		System.out.println("The weekly wage is R" + dblWage);
+	}
+}

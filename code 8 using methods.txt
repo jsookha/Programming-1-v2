@@ -1,0 +1,68 @@
+/*
+Program: 	Methods
+Programmer: 	J.Sookha 
+Description: 	use of methods to separate the code -
+		instead of all the code in the main method - we place the code 
+		into procedures - Java calls these blocks of code methods
+		-- BUT as mentioned in our classes -  
+		methods that return a single value - known as functions
+		methods that do not return anything - known as procedures 
+*/
+package IceTask0; 
+
+import java.util.Scanner;
+
+public class IceTask0{
+
+	Scanner sc = new Scanner(System.in); //static is not here - so take note of the next program 
+		
+	int intHrs; 
+	double dblRate
+	double dblWage = 0; //there is a reason why 0 is given to this variable!
+
+	public static void main (String[] args){
+		
+		// *** the variables were here ... see where I moved it ... to the top  
+		 
+
+		//-------------------------------------------------------------------------------------		
+		//Read in the values here ! 
+
+		ReadValues(); //calling method
+
+		//-------------------------------------------------------------------------------------		
+		// Calculation
+		
+		CalcWage(); //calling method
+
+		//-------------------------------------------------------------------------------------
+
+		sc.Close(); //this will stay here
+ 			
+		//-------------------------------------------------------------------------------------
+		//Print the answer here ! 
+		
+		PrintAnswer(); //calling method
+	}
+	
+	public void ReadValues(){
+		System.out.print("Enter the hours worked: ");
+		intHrs = sc.nextInt();
+
+		System.out.print("Enter the rate of pay: ");
+		dblRate = sc.nextDouble();
+	}
+
+	public void CalcWage(){
+		// If then statement 
+		
+		if (intHrs <= 40)
+			dblWage = intHrs * dblRate; // standard pay less than or equal to 40 hrs
+		else 
+			dblWage = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate); //overtime pay 
+	}
+
+	public void PrintAnswer(){
+		System.out.println("The weekly wage is R" + dblWage);
+	}
+}
