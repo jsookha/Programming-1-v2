@@ -1,0 +1,122 @@
+package inheritanceexmaple1; 
+
+public class InheritanceExample1{
+	
+	public static void main(String[] args){
+	
+		User user1 = new User();
+		
+		Student stud1 = new Student(); 
+
+		user1.setFirstname("Jack");
+		System.out.println("The user first name is " + user1.getFirstname()); 
+
+		stud1.setFirstname("John");
+		stud1.setCourse("BCAD");
+		System.out.println("The student first name is " + stud1.getFirstname() + " and the course is " + 					
+					stud1.getCourse()); 
+
+		user1.Print();
+
+		stud1.Print();
+
+		User user2 = new User(1234,"Jenny","Grey");
+
+		Student stud2 = new Student(4567, "Jacob", "Green", "BCAD2");
+		stud2.Print();	
+	}
+}
+
+//////////////////////////////////////////////////
+package inheritanceexmaple1; 
+
+public class User{
+	
+	/*
+	private int id; 
+	private String firstname; 
+	private String surname; 
+	*/
+
+	protected int id; 
+	protected String firstname; 
+	protected String surname; 
+
+	public int getID(){
+		return id; 
+	}
+	
+	public void setID(int identification){
+		id = identification; 
+	}
+	
+	public String getFirstname(){
+		return firstname; 
+	}
+	
+	public void setFirstname(String fname){
+		firstname = fname; 
+	}
+	public String getSurname(){
+		return surname; 
+	}
+	
+	public void setSurname(String sname){
+		surname = sname; 
+	}
+
+	public void Print(){
+		System.out.println("First name is " + firstname);
+	}
+
+	public User(){
+		System.out.println("Constructing user");
+	}
+
+	public User(int intID, String strFN, String strSN){
+		id = intID;
+		firstname = strFN; 
+		surname = strSN; 		
+	}
+}
+
+
+//////////////////////////////////////////////////
+package inheritanceexmaple1; 
+
+public class Student extends User{
+	private String course;
+	
+	public String getCourse(){
+		return course; 
+	}
+	
+	public void setCourse(String crse){
+		course = crse; 
+	}
+
+	@Override
+	public void Print(){
+		System.out.println("First name is " + super.firstname + " and course is " + course);
+	}
+
+	public Student(){
+		System.out.println("Constructing student");
+	}
+
+	public Student(int intID, String strFN, String strSN, String strCourse){
+		
+		super(intID, strFN, strSN);
+		course = strCourse; 
+	}
+}
+
+//////////////
+/*
+Access Levels
+Modifier	Class		Package		Subclass	World
+public		Y		Y		Y		Y
+protected	Y		Y		Y		N
+no modifier	Y		Y		N		N
+private		Y		N		N		N
+*/

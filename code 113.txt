@@ -1,0 +1,60 @@
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+
+public class frmMenu extends JFrame implements ActionListener{
+	JMenuBar mainBar = new JMenuBar();
+	
+	JMenu mnuFile = new JMenu("File");
+	JMenu mnuTools = new JMenu("Tools");
+
+	JMenuItem mnuFileExit = new JMenuItem("Exit");
+
+	JMenuItem mnuToolsCalculate = new JMenuItem("Calculate");
+	JMenuItem mnuToolsClear = new JMenuItem("Clear");
+
+	public frmMenu(){
+		setLayout(new FlowLayout());
+		
+		setJMenuBar(mainBar);
+
+		mainBar.add(mnuFile);
+		mainBar.add(muTools);
+		
+		mnuFile.add(mnuFileExit);
+
+		mnuTools.add(mnuToolsCalculate);
+		mnuTools.add(mnuToolsClear);
+
+		mnuFileExit.addActionListener(this);
+		mnuToolsCalculate.addActionListener(this);
+		mnuToolsClear.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e){
+	
+		Object source = e.getSource();
+		
+		if (source == mnuFileExit){
+			System.exit(0);
+		}
+
+		if (source == mnuToolsCalculate){
+			Calculatecode();
+		}
+
+		if (source == mnuToolsclear){
+			Clearcode();
+		}	
+	}
+	
+}
+
+
+//-------------------------------------------------------------------
+public class usingmenus{
+	
+	public static void main(String[] args){
+	}
+}

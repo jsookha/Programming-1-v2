@@ -1,0 +1,55 @@
+package trycatchv25; 
+
+import javax.swing.JOptionPane; 
+
+public class trycatchv25{
+
+	public static void main(String[] args){
+	
+		String strHours, strRate; 
+		double dblHours, dblRate, dblAmount; 
+
+		strHours = JOptionPane.showInputDialog(null, "Please enter the hours worked:");
+		dblHours = Double.parseDouble(strHours); 
+	
+		
+		strRate = JOptionPane.showInputDialog(null, "Please enter the rate of pay per hour:");
+		dblRate = Double.parseDouble(strRate); 
+
+		dblAmount = dblHours * dblRate; 
+
+		JOptionPane.showMessageDialog(null, "The amount to be paid is R" + dblAmount);
+
+	}
+}
+
+//*********************************************************************************************************
+
+package trycatchv25; 
+
+import javax.swing.JOptionPane; 
+
+public class trycatchv25{
+
+	public static void main(String[] args){
+	
+		String strHours, strRate; 
+		double dblHours, dblRate, dblAmount; 
+
+		try {
+			strHours = JOptionPane.showInputDialog(null, "Please enter the hours worked:");
+			dblHours = Double.parseDouble(strHours); 
+		}
+		catch (Exception e){
+		
+		}
+
+		strRate = JOptionPane.showInputDialog(null, "Please enter the rate of pay per hour:");
+		dblRate = Double.parseDouble(strRate); 
+
+		dblAmount = dblHours * dblRate; 
+
+		JOptionPane.showMessageDialog(null, "The amount to be paid is R" + dblAmount);
+
+	}
+}

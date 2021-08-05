@@ -1,0 +1,45 @@
+package usingborderlayout; 
+
+import javax.swing.*; 
+import java.awt.*; 
+
+public class bl1 extends JFrame {
+
+	JLabel lblTitle = new JLabel("TITLE");
+	JLabel lblFooter = new JLabel("FOOTER");
+
+	JButton btnEast = new JButton("Right");
+	JButton btnWest = new JButton("Left");
+
+	JTextField txtSomething = new JTextField();
+
+	Container con = getContentPane();
+
+
+	public bl1(){
+		super("Using BorderLayout");
+
+		con.setLayout(new BorderLayout());
+
+		con.add(lblTitle, BorderLayout.NORTH);
+		con.add(lblFooter, BorderLayout.SOUTH);
+
+		con.add(btnEast, BorderLayout.EAST);
+		con.add(btnWest, BorderLayout.WEST);
+
+		con.add(txtSomething, BorderLayout.CENTER);
+		
+		setSize(500,600);
+		
+	}
+
+}
+
+//----------------------------------------------------------
+public class usingborderlayout{
+	public static void main(String[] args){
+		bl1 frmBorderLayout = new bl1();
+
+		frmBorderLayout.setVisible(true);
+	}
+}

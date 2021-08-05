@@ -1,0 +1,115 @@
+import java.util.Scanner; 
+
+
+public class exceptionhandling1{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		/*
+		int intNum1, intNum2; 
+
+		System.out.println("Enter a number : ");
+		intNum1 = sc.nextInt();
+
+		System.out.println("Enter another number : ");
+		intNum2 = sc.nextInt();
+		
+		int intAnswer; 
+	
+		
+		try{
+			intAnswer = intNum1 / intNum2; 
+			System.out.println(intAnswer);
+		}
+		catch(ArithmeticException mistake){
+			System.out.println("Error - cannot divide by zero");
+			System.out.println(mistake.tostring());
+			mistake.printStackTrace();
+		}
+		*/
+		int intNum3; 
+		System.out.println("Enter the 3rd Number:");
+
+		try{
+			intNum3 = sc.nextInt();
+		}
+		catch(Exception e){
+			System.out.println("Something went wrong");
+			System.out.println(e.getMessage()); // null ??? 
+			System.out.println(e.toString());
+		}
+		
+	}
+}
+
+//*************************************************************************************
+import java.util.Scanner; 
+
+
+public class exceptionhandling1{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+	
+		int intNum1, intNum2; 
+
+		//intNum1 = 5; 
+		//intNum2 = 0; 
+
+		System.out.println("Enter a number : ");
+		intNum1 = sc.nextInt();
+
+		System.out.println("Enter another number : ");
+		intNum2 = sc.nextInt();
+		
+		int intAnswer; 
+	
+		//if (intNum2 == 0){
+		//	System.out.println("Sorry, cannot divide by zero");
+		//}
+		//else{
+		//	intAnswer = intNum1 / intNum2; 
+		//	System.out.println(intAnswer); 
+		//}
+
+		try{
+			intAnswer = intNum1 / intNum2; 
+			System.out.println(intAnswer);
+		}
+		catch(ArithmeticException mistake){
+			System.out.println("Error - cannot divide by zero");
+			System.out.println(mistake.tostring());
+		}
+	}
+}
+
+//*******************************************************************************
+
+		Scanner sc = new Scanner(System.in);
+	
+		int intNum1, intNum2; 
+
+		try{
+			System.out.println("Enter a number : ");
+			intNum1 = sc.nextInt();
+
+			System.out.println("Enter another number : ");
+			intNum2 = sc.nextInt();
+		
+			int intAnswer; 
+	
+
+		
+			intAnswer = intNum1 / intNum2; 
+			System.out.println(intAnswer);
+		}
+		catch(ArithmeticException mistake){
+			System.out.println("Error - cannot divide by zero");
+			System.out.println(mistake.tostring());
+		}
+		catch(InputMismatchException mistake){
+		}
+	}
+}

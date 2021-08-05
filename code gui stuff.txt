@@ -1,0 +1,209 @@
+Enter Name	Textfield
+Enter Amount	TextField
+Choose Disc	Radio
+		Radio
+		Radio
+
+Button btnSubmit
+Button btnReset 
+
+Label to display the answer 
+
+//************************************************************
+
+package examprepdisc; 
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*; 
+... whatever other imports are needed; 
+
+public class DiscountWindow extends JFrame implements ActionListener, ItemListener {
+
+	/*
+		2 textfields 
+		3 radiobuttons 
+		2 layouts 
+		1 panel 
+		2 buttons
+		4 labels (3 for the controls - 1 for the answer) 
+	*/	
+
+	GridLayout g1 = new GridLayout(6,2);
+	
+	JLabel lblName = new JLabel("Enter Name");
+	JTextField txtName = new JTextField();
+
+	JLabel lblAmount = new JLabel("Enter Amount");
+	JTextField txtAmount = new JTextField();
+
+	JLabel lblDisc = new JLabel("Choose Disc");
+	
+	JPanel pnlDisc = new JPanel();
+	GridLayout g2 = new GridLayout(3,1);
+	JRadioButton rdoDisc1 = new JRadioButton("5%");
+	JRadioButton rdoDisc2 = new JRadioButton("10%");
+	JRadioButton rdoDisc3 = new JRadioButton("15%");
+	//------------------------------------------
+	ButtonGroup bgDiscGroup = new ButtonGroup();
+	//------------------------------------------
+	
+	JButton btnSubmit = new JButton("Submit");
+	JButton btnReset = new JButton("Reset");
+
+	JLabel lblAnswer = new JLabel();
+	
+	Container con = getContentPane();
+
+	
+	public DiscountWindow(){
+		super("Calculating Discount");
+		con.setSize(400,300);
+		con.setLayout(g1);
+		// con.setclose stuff ... 
+
+		con.add(lblName);
+		con.add(txtName);
+
+		con.add(lblAmount);
+		con.add(txtAmount);
+
+		con.add(lblDisc);
+		
+		pnlDisc.setLayout(g2);
+		pnlDisc.add(rdoDisc1);
+		pnlDisc.add(rdoDisc2);
+		pnlDisc.add(rdoDisc3);
+		//---------------------------		
+		bgDiscGroup.add(rdoDisc1);	
+		bgDiscGroup.add(rdoDisc2);
+		bgDiscGroup.add(rdoDisc3);
+		//---------------------------
+		con.add(pnlDisc);
+
+		con.add(btnSubmit);
+		con.add(btnReset);
+		
+		con.add(lblAnswer);
+
+		btnSubmit.addActionListener(this);
+		btnReset.addActionListener(this);
+
+		rdoDisc1.addItemListener(this);
+		rdoDisc2.addItemListener(this);
+		rdoDisc3.addItemListener(this);				
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae){
+			
+		Object source = ae.getScource();
+	
+		if (source == btnSubmit){
+			Calculate();
+		}
+		
+		if (source == btnReset){
+			ResetControls();
+		}
+	}
+
+	//-------------------------------------------------------------
+	@Override
+	public void itemStateChanged(ItemEvent ie){
+		Object thisSource = ie.getSource();
+	
+		if (thisSource == rdoDisc1){
+			lblAnswer.setText("0.05 discount applied");
+		}
+	
+		if (thisSource == rdoDisc2){
+			lblAnswer.setText("0.1 discount applied");
+		}
+
+		if (thisSource == rdoDisc3){
+			lblAnswer.setText("0.15 discount applied");
+		}
+	}
+
+	//-------------------------------------------------------------
+	public void Calculate(){
+		String strName, strAmount; 
+		double dblAmount, dblDisc, dblNewAmount;	
+
+		dblDisc = 0.0; // 0;  
+
+		strName = txtName.getText();
+		strAmount = txtAmount.getText();
+
+		dblAmount = Double.parseDouble(strAmount);
+	
+		if (rdoDisc1.isSelected()){
+			dblDisc = 0.05; 
+		}
+
+		if (rdoDisc2.isSelected()){
+			dblDisc = 0.1; 
+		}
+
+		if (rdoDisc3.isSelected()){
+			dblDisc = 0.15; 
+		}
+		
+		dblNewAmount = dblAmount - (dblAmount * dblDisc);
+
+		lblAnswer.setText("The discounted amount is " + dblNewAmount);		
+	}
+
+	public void ResetControls(){
+		txtName.setText("");
+		txtAmount.setText("");
+
+		//rdoDisc1.setSelected(false);
+		//rdoDisc2.setSelected(false);
+		//rdoDisc3.setSelected(false);
+
+		bgDiscGroup.clearSelection();
+
+		txtName.grabFocus();
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

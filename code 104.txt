@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class JMainWindow extends JFrame {
+	
+	public JMainWindow() {
+
+		super("Demonstrating many components");
+		setSize(300, 250);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JLabel lblHeading = new JLabel("This frame has a few controls");
+		lblHeading.setFont(new Font("Arial", Font.BOLD, 16));
+		
+		JLabel lblName = new JLabel("Enter your name:");
+
+		JTextField txtName = new JTextField(12);
+		
+		JButton btnContinue = new JButton("Click to continue");
+		btnContinue.setToolTipText("This is a tooltip when the mouse is over this button");
+
+		setLayout(new FlowLayout());
+		
+		add(lblHeading);
+		add(lblName);
+		add(txtname);
+		add(btnContinue);
+
+		
+	}
+}
+
+//*******************************************************************************
+
+public class ComponentDemo {
+
+	public static void main(String[] args) {
+		JMainWindow frmMain = new JMainWindow();
+		frmMain.setVisible(true);
+
+		// will this line below work? I wanted to print what the user typed in the textbox 
+		//System.out.println(frmMain.txtName.getText());
+	}
+}

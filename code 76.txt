@@ -1,0 +1,86 @@
+package twodimensionalarrays; 
+
+public class TwoDimensionalArrays{
+	
+	static int[][] intNumbers = new int[3][3];	
+
+	static int intCount1, intCount2; 
+
+	public static void main(String[] args){
+		
+		loadArray();
+		printArray();
+		calculateGrandTotal();
+		calculateTotalForRowsAndColumns();	
+	}
+
+	public static void calculateTotalForRowsAndColumns(){	
+		
+		int intRowTotal, intColTotal; 
+		
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			intRowTotal = 0;
+			intColTotal = 0; 
+			
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+
+				intRowTotal = intRowTotal + intNumbers[intCount1][intCount2];
+				intColTotal = intColTotal + intNumbers[intCount2][intCount1];
+			}
+			
+			System.out.println("The sum of row " + intCount1 + " is " + intRowTotal);
+			System.out.println("The sum of column " + intCount1 + " is " + intColTotal);
+
+		}		
+		
+	}
+
+	public static void calculateGrandTotal(){
+		
+		int intGrandTotal; 
+		intGrandTotal = 0; 
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				
+				intGrandTotal = intGrandTotal + intNumbers[intCount1][intCount2]; 
+			}
+		}
+		
+		System.out.println("The grand total is " + intGrandTotal);
+	}	
+
+	public static void printArray(){
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				
+				System.out.println("Cell [" + intCount1 + "][" + intCount2 + "] = " + intNumbers[intCount1][intCount2]);
+			}
+		}
+	}
+	
+	public static void loadArray(){
+		
+		int intSomething; 
+		intSomething = 1; 
+	
+		
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				
+				intNumbers[intCount1][intCount2] = intSomething; 
+				
+				intSomething = intSomething + 1; 
+				
+				// intSomething++; 
+				// intSomething += 1; 
+			}	
+	
+		}	 
+	
+	}
+}

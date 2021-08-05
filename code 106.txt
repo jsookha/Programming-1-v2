@@ -1,0 +1,197 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane; 
+
+public class CheckBoxDemo extends JFrame implements ItemListener {
+	
+	// Take note of this method to first create your controls here and then 
+	// in the constructor to set and load things into the form
+
+	// FlowLayout flayoutchosen = new FlowLayout();
+	JLabel lblTitle = new JLabel("Choose which assessment applies to the final mark:");
+
+	JCheckBox chkTest1 = new JCheckBox("Test 1", false); //false or true - unselected or selected 
+	JCheckBox chkTest2 = new JCheckBox("Test 2", false);
+	JCheckBox chkTest3 = new JCheckBox("Test 3", false);
+	JCheckBox chkAssign = new JCheckBox("Assignment", false);
+
+	public CheckBoxDemo() {
+		super("CheckBox Demo");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setSize(350, 120);
+		setLayout(new FlowLayout());
+
+		lblTitle.setFont(new Font("Arial", Font.ITALIC, 22));
+
+		chkTest1.addItemListener(this);
+		chkTest2.addItemListener(this);
+		chkTest3.addItemListener(this);
+		chkAssign.addItemListener(this);
+
+		add(lblTitle);
+		add(chkTest1);
+		add(chkTest2);
+		add(chkTest3);
+		add(chkAssign);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent check) {
+		// Actions based on choice go here
+		// How and why we do what we need to is based on 
+		// the story and its implementation
+
+		// the method we use from the checkbox is "isSelected()" 
+		// a boolean method to see if the checkbox is checked or not
+
+		if (chkTest1.isSelected()){
+			JOptionPane.showMessageDialog(null,"Test 1 checked");
+			System.out.println("Test 1 checked");
+		}
+
+		if (chkTest2.isSelected()){
+			JOptionPane.showMessageDialog(null,"Test 2 checked");
+			System.out.println("Test 2 checked");
+		}
+
+		if (chkTest3.isSelected()){
+			JOptionPane.showMessageDialog(nul,"Test 3 checked");
+			System.out.println("Test 3 checked");
+		}
+
+		if (chkAssign.isSelected()){
+			JOptionPane.showMessageDialog(null,"Assignment 1 checked");
+			System.out.println("Assignment 1 checked");
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"Assignment 1 unchecked");
+			System.out.println("Assignment 1 unchecked");
+		}
+
+		// if the checkboxes all relate to one story - why is there separate
+		// if..then statements instead of a nested set ? 
+
+		// Another thought is similar to the previous code sent to you 
+		// Remember that the Listener has a variable like what you see above
+		// "ItemEvent check" and it can used to determine which checkbox was checked/ticked
+		// and based on which one, we perform what code is needed
+
+		Object source = check.getItem();	
+		if(source == checkBox) {
+			int select = check.getStateChange();
+			if(select == ItemEvent.SELECTED)
+				// statements that execute when the box is checked
+			else
+				// statements that execute when the box is unchecked
+		}
+		else {
+			// statements that execute when the source of the event is
+			// some component other than the checkBox object
+			// REMEMBER that more than one kind of control can have the same 
+			// listener associated to it
+		}
+		
+	}
+
+}
+
+//******************************************************************************************
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class UsingCheckBoxDemo {
+	public static void main(String[] args) {
+
+		CheckBoxDemo frmChkDemo = new CheckBoxDemo();
+		frmChkDemo.setVisible(true);
+
+	}
+}
+
+//==========================================================================================
+//==========================================================================================
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane; 
+
+public class RadioButtonsDemo extends JFrame implements ItemListener {
+	
+	JLabel lblTitle = new JLabel("Choose which assessment mark do you wish to view:");
+
+	JRadioButton rdoTest1 = new JRadioButton("Test 1", true); //false or true - unselected or selected 
+	JRadioButton rdoTest2 = new JRadioButton("Test 2");
+	JRadioButton rdoTest3 = new JRadioButton("Test 3");
+	JRadioButton rdoAssign = new JRadioButton("Assignment");
+
+	public RadioButtonsDemo() {
+		super("RadioButtons Demo");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setSize(350, 120);
+		setLayout(new FlowLayout());
+
+		lblTitle.setFont(new Font("Arial", Font.ITALIC, 22));
+
+		rdoTest1.addItemListener(this);
+		rdoTest2.addItemListener(this);
+		rdoTest3.addItemListener(this);
+		rdoAssign.addItemListener(this);
+
+		ButtonGroup btngrpRadioStuff = new ButtonGroup();
+
+		btngrpRadioStuff.add(lblTitle);
+		btngrpRadioStuff.add(rdoTest1);
+		btngrpRadioStuff.add(rdoTest2);
+		btngrpRadioStuff.add(rdoTest3);
+		btngrpRadioStuff.add(rdoAssign);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent check) {
+
+		if (rdoTest1.isSelected()){
+			JOptionPane.showMessageDialog(null,"Test 1 checked");
+			System.out.println("Test 1 checked");
+		}
+
+		if (rdoTest2.isSelected()){
+			JOptionPane.showMessageDialog(null,"Test 2 checked");
+			System.out.println("Test 2 checked");
+		}
+
+		if (rdoTest3.isSelected()){
+			JOptionPane.showMessageDialog(null,"Test 3 checked");
+			System.out.println("Test 3 checked");
+		}
+
+		if (rdoAssign.isSelected()){
+			JOptionPane.showMessageDialog(null,"Assignment 1 checked");
+			System.out.println("Assignment 1 checked");
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"Assignment 1 unchecked");
+			System.out.println("Assignment 1 unchecked");
+		}
+
+		
+	}
+
+}
+
+//******************************************************************************************
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class UsingRadioButtonDemo {
+	public static void main(String[] args) {
+
+		RadioButtonsDemo frmRdoDemo = new RadioButtonsDemo();
+		frmRdoDemo.setVisible(true);
+
+	}
+}

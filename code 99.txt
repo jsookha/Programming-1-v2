@@ -1,0 +1,59 @@
+/* 
+ - Random Access Files
+ - What is the difference between this and a Sequentianl Files ? 
+ - Make sure to really think about this when reading and trying to understand this code 
+
+ - Random access files permit nonsequential, or random, access to a file's contents. 
+ - To access a file randomly, you open the file, seek a particular location, and read from or write to that file.
+
+*/ 
+
+
+	String s = "I was here!\n";
+	
+	byte data[] = s.getBytes();
+
+	ByteBuffer out = ByteBuffer.wrap(data);
+
+	ByteBuffer copy = ByteBuffer.allocate(12);
+
+	try (FileChannel fc = (FileChannel.open(file, READ, WRITE))) {
+    		// Read the first 12 bytes of the file.
+    		int nread;
+    		do {
+        		nread = fc.read(copy);
+    		} while (nread != -1 && copy.hasRemaining());
+
+    		// Write "I was here!" at the beginning of the file.
+
+    		fc.position(0);
+    		while (out.hasRemaining())
+        		fc.write(out);
+    		out.rewind();
+
+    		// Move to the end of the file.  Copy the first 12 bytes to
+		// the end of the file.  Then write "I was here!" again.
+    
+		long length = fc.size();
+    		fc.position(length-1);
+    		copy.flip();
+    	
+		while (copy.hasRemaining())
+        		fc.write(copy);
+    
+		while (out.hasRemaining())
+        		fc.write(out);
+	} 
+	catch (IOException x) {
+    		System.out.println("I/O Exception: " + x);
+	}
+
+/*
+
+FileChannel 				open(Path file, OpenOption... options) Opens or creates a file, returning a file channel to access the file
+long position() 			Returns the channel’s file position
+FileChannel position(long newPosition) 	Sets the channel’s file position
+int read(ByteBuffer buffer) 		Reads a sequence of bytes from the channel into the buffer
+long size() 				Returns the size of the channel’s file
+int write(ByteBuffer buffer) 		Writes a sequence of bytes to the channel from the buffer
+*/

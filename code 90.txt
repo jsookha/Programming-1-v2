@@ -1,0 +1,122 @@
+/*
+	John
+	123467
+	BCAD
+
+	John,12,34,55
+*/
+
+
+package filehandling2; 
+
+import java.io.IOException;
+import java.nio.file.Files; 
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.List; 
+
+public class filehandling2{
+
+	public static void main(String[] args){
+		/*
+		// to read the entire file's content
+		String strContent = new String(Files.readAllBytes(Paths.get(fileName)));		
+		
+		// to read one line at a time - we need to consider using something else 
+		// remember the Array List ... there is a generic version that is just called a List
+
+		List<String> lines = Files.readAllLines(Paths.get(fileName));
+		*/
+
+		List<String> NewLines;
+		try {
+			String strInput = readTextFile("file.txt");
+    			System.out.println(strInput);
+    		
+			writeToTextFile("copy.txt", strInput);
+
+	    		System.out.println(readTextFile("copy.txt"));
+
+	    		// readTextFileByLines("file.txt");
+			NewLines = readTextFileByLines("file.txt");
+
+			for (Iterator<String> i = NewLines.iterator(); i.hasNext();) {
+    				String item = i.next();
+    				System.out.println(item);
+			}
+    			Path path = Paths.get("file.txt");		
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+			Systen.out.println(e.getMessage());
+		}
+	}
+
+	public static String readTextFile(String fileName) throws IOException {
+	        String content = new String(Files.readAllBytes(Paths.get(fileName)));
+        	return content;
+    	}
+
+    	public static List<String> readTextFileByLines(String fileName) throws IOException {
+        	List<String> lines = Files.readAllLines(Paths.get(fileName));
+        	return lines;
+    	}
+
+    	public static void writeToTextFile(String fileName, String content) throws IOException {
+        	Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
+    	}
+}
+
+//**************************************************************************************************
+// import static java.nio.file.AccessMode.*; 
+// import java.nio.file.*;
+
+
+
+
+package filehandling2; 
+
+import java.io.IOException;
+import java.nio.file.Files; 
+import java.nio.file.Path;
+
+public class filehandling2{
+
+	public static void main(String[] args){
+		/*
+		// to read the entire file's content
+		String strContent = new String(Files.readAllBytes(Paths.get(fileName)));		
+		
+		// to read one line at a time - we need to consider using something else 
+		// remember the Array List ... there is a generic version that is just called a List
+
+		List<String> lines = Files.readAllLines(Paths.get(fileName));
+		*/
+
+			String strInput = readTextFile("file.txt");
+    			System.out.println(strInput);
+    		
+			writeToTextFile("copy.txt", strInput);
+
+	    		System.out.println(readTextFile("copy.txt"));
+
+	    		readTextFileByLines("file.txt");
+    			
+			Path path = Paths.get("file.txt");		
+	}
+
+	public static String readTextFile(String fileName) throws IOException {
+	        String content = new String(Files.readAllBytes(Paths.get(fileName)));
+        	return content;
+    	}
+
+    	public static List<String> readTextFileByLines(String fileName) throws IOException {
+        	List<String> lines = Files.readAllLines(Paths.get(fileName));
+        	return lines;
+    	}
+
+    	public static void writeToTextFile(String fileName, String content) throws IOException {
+        	Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
+    	}
+}

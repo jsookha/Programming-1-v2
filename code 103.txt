@@ -1,0 +1,27 @@
+import javax.swing.*;
+
+public class JThisWindow extends JFrame {
+	
+	public JThisWindow() {
+		super("My frame");
+		setSize(200, 300); // these methods are from the parent JFrame Class ! 
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+//****************************************************************
+
+public class ManagingWindows {
+	public static void main(String[] args) {
+		JThisWindow FirstFrame = new JThisWindow();
+		JThisWindow SecondFrame = new JThisWindow();
+
+		// take note of the placement of the windows - 
+		// could we have been a little different in the class above ? 
+
+	
+	}
+}
+
+//================================================================

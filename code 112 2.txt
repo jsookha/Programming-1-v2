@@ -1,0 +1,67 @@
+package examprep; 
+
+import javax.swing.*; 
+import java.awt.*; 
+
+public class grid1 extends JFrame {
+
+	GridLayout g1 = new GridLayout(3,2,10,10);
+	Container con = getContentPane();
+
+	JComboBox cboStudents = new JComboBox();
+	JLabel lblFinalMark = new JLabel("Final Mark");
+
+	JComboBox cboAssessments = new JComboBox();
+	JLabel lblAsAvg = new JLabel("Assessment Average");	
+	JLabel lblAsHigh = new JLabel("Highest Assessment");
+	JLabel lblAsLow = new JLabel("Lowest Assessment");
+
+	JButton btnAverage = new JButton("Averages");
+	JLabel lblAllAverages = new JLabel("All Averages");
+	JLabel lblAboveAverage = new JLabel("Above Average");
+	
+	//JPanel pnlSpace = new JPanel();
+	
+	JPanel pnlAssessDisplay = new JPanel();
+	GridLayout g2 = new GridLayout(3,1); 	
+	
+	JPanel pnlAvgDisplay = new JPanel();
+	GridLayout g3 = new GridLayout(2,1);
+
+	public grid1(){
+		super("Exam Preparation");
+		setSize(400,350);
+			
+		con.setLayout(g1);
+		
+		pnlAssessDisplay.setLayout(g2); 	
+		pnlAvgDisplay.setLayout(g3);
+
+		pnlAssessDisplay.add(lblAsAvg);
+		pnlAssessDisplay.add(lblAsHigh);
+		pnlAssessDisplay.add(lblAsLow);
+
+		pnlAvgDisplay.add(lblAllAverages);
+		pnlAvgDisplay.add(lblAboveAverage);
+
+		con.add(cboStudents);	
+		con.add(lblFinalMark);
+		
+		con.add(cboAssessments);
+		con.add(pnlAssessDisplay); 
+
+		con.add(btnAverage);
+		con.add(pnlAvgDisplay);
+	}
+
+}
+
+//----------------------------------------------------------
+public class examprep{
+	public static void main(String[] args){
+		grid1 frmGridLayout = new grid1();
+
+		frmGridLayout.setVisible(true);
+	}
+}
+

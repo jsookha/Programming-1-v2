@@ -1,0 +1,68 @@
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+
+public class frmMenu extends JFrame implements ActionListener{
+	JMenuBar mainBar = new JMenuBar();
+	
+	JMenu mnuFile = new JMenu("File");
+	JMenu mnuTools = new JMenu("Tools");
+
+	JMenuItem mnuFileExit = new JMenuItem("Exit");
+
+	JMenuItem mnuToolsCalculate = new JMenuItem("Calculate");
+	JMenuItem mnuToolsClear = new JMenuItem("Clear");
+
+	public frmMenu(){
+		super("Experimenting with the MenuBar");
+		setLayout(new FlowLayout());
+		setSize(500,300);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setJMenuBar(mainBar); //The main bar for the empty menu
+
+		mainBar.add(mnuFile); //take note of where File and Tools is added - into the mainBar
+		mainBar.add(mnuTools);
+		
+		mnuFile.add(mnuFileExit); //take note that the Exit "button" is added to File or INSIDE File
+
+		mnuTools.add(mnuToolsCalculate); //Calculate and Clear is added to Tools
+		mnuTools.add(mnuToolsClear);
+
+		mnuFileExit.addActionListener(this);
+		mnuToolsCalculate.addActionListener(this);
+		mnuToolsClear.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e){
+	
+		Object source = e.getSource();
+		
+		if (source == mnuFileExit){
+			System.exit(0);
+		}
+
+		if (source == mnuToolsCalculate){
+			System.out.println(" This will run the Calculatecode(); method");
+			//Calculatecode();
+		}
+
+		if (source == mnuToolsclear){
+			System.out.println(" This will run the Clearcode(); method");
+			//Clearcode();
+		}	
+	}
+	
+}
+
+
+//-------------------------------------------------------------------
+public class usingmenus{
+	
+	public static void main(String[] args){
+		frmMenu ThisMenuForm = new frmMenu();
+		
+		ThisMenuForm.setVisible(true);
+	}
+}

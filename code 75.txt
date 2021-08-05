@@ -1,0 +1,113 @@
+package twodimensionalarrays; 
+
+public class TwoDimensionalArrays{
+	
+	static int[][] intNumbers = new int[3][3]; 
+
+	static int intCount1, intCount2; 
+	static int intSum; 
+	static int intSumRow, intSumCol; 
+	
+	public static void main(String[] args){
+		loadArrays();
+		printArrays();
+		Calculate();
+		Calculate2();				
+	}
+
+	public static void Calculate2(){
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){	
+			
+			intSumRow = 0; 
+			intSumCol = 0; 
+	
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+			
+				intSumRow = intSumRow + intNumbers[intCount1][intCount2]; 
+				intSumCol = intSumCol + intNumbers[intCount2][intCount1]; 
+			}
+			
+			System.out.println("Row " + intCount1 + " = " + intSumRow);
+			System.out.println("Column " + intCount1 + " = " + intSumCol);
+		}		
+	}
+	
+	public static void Calculate(){
+		intSum = 0; 
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){	
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				
+				intSum = intSum + intNumbers[intCount1][intCount2];	
+			}
+		}
+
+		System.out.println("The total sum of all the values is " + intSum);
+		
+		// dblAvg = intSum / 9; 
+		// Print dblAvg 
+	
+	}
+		
+	public static void loadArrays(){
+		
+		int intCount3; 
+		intCount3 = 1; 
+
+		// row 1 - 00 01 02
+		// row 2 - 10 11 12 
+		// row 3 - 20 21 22 	
+		
+		//outside loop is handling the rows 
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			//inside loop is handling the columns 
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+			
+				intNumbers[intCount1][intCount2] = intCount3; 
+				
+				intCount3 = intCount3 + 1; 
+			}
+		}
+	}
+
+	public static void printArrays(){
+		
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				
+				System.out.println("Cell [" + intCount1 + "][" + intCount2 + "] = " + intNumbers[intCount1][intCount2]); 
+				
+				// Cell [0][1] = 1
+			}
+		}
+	
+	}
+}
+
+
+		0	1	2
+	--------------------------
+0	0|	1	2	3	6
+1	0|	4	5	6	15
+2	0|	7 	8 	9	24
+		
+		12	15	18
+
+Grand Total - 45
+Average - 5 
+int [][] intNumbers = new int[3][3]; 
+
+	
+
+
+
+
+
+
+
+
+
+

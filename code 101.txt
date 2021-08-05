@@ -1,0 +1,82 @@
+import java.nio.file.*;
+import java.io.*;
+
+public class ReadSequentialFile{
+	
+	public static void main(String[] args){
+		Path file = Paths.get("C:\\Users\\12456\\Desktop\\testpreparation.txt");
+	
+		String[] strValues = new String[5]; 
+
+		String strContent = ""; 
+		String strDelimiter = ",";
+
+		String strName;
+		double dblT1, dblT2, dblT3, dblAssign; 
+
+		try {
+			InputStream input = new BufferedInputStream(Files.newInputStream(file));
+
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+			strContent = reader.readLine();
+
+			while (strContent != null) {
+				strValues = strContent.split(strDelimiter);
+		
+				strName = strValues[0]; 
+				dblT1 = Double.parseDouble(strValues[1]);									
+				dblT2 = Double.parseDouble(strValues[2]);
+				dblT3 = Double.parseDouble(strValues[3]);
+				dblAssign = Double.parseDouble(strValues[4]);
+
+				System.out.println(strName + " - " + dblT1 + " - " + dblT2 " - " + dblT3 " - " + dblAssign + "\n");
+
+ 				strContent = reader.readLine();
+			}
+			reader.close();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+
+		
+		try{
+          		File file =new File("C://myfile.txt");
+    	 
+    	  		FileWriter fw = new FileWriter(file,true);
+    	  		BufferedWriter bw = new BufferedWriter(fw);
+    	  		PrintWriter pw = new PrintWriter(bw);
+          	
+			Read newName;
+			Read t1, t2, t3, assignment;
+
+			strContent = newName + strDelimiter + t1 + strDelimiter + t2 + strDelimiter + t3 + strDelimiter + assignment;
+    	  		pw.println(strContent);
+    	  		
+			pw.close();
+
+			System.out.println("Data successfully appended at the end of file");
+
+       		}catch(IOException ioe){
+    	   		System.out.println("Exception occurred:");
+    	   		ioe.printStackTrace();
+      		}
+	}
+}
+
+/*
+	
+				strStudents[intCounter] = strValues[0]; 
+				dblMarks[intCounter][0] = Double.parseDouble(strValues[1]);							
+				dblMarks[intCounter][1] = Double.parseDouble(strValues[2]);
+				dblMarks[intCounter][2] = Double.parseDouble(strValues[3]);
+				dblMarks[intCounter][3] = Double.parseDouble(strValues[4]);
+				
+				intCounter++; 
+*/
+
+
+
+
+

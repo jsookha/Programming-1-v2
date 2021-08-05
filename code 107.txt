@@ -1,0 +1,53 @@
+// combo box 
+
+import javax.swing.*;    
+import java.awt.*;
+
+public class ComboBoxExample {    
+	JFrame frmMain;    
+	
+	ComboBoxExample(){    
+    		frmMain = new JFrame("ComboBox Example");    
+    		String country[] = {"India","Australia","U.S.A","England","South Africa"};        
+    		JComboBox cboCountries = new JComboBox(country);    
+    
+		cboCountries.setBounds(50, 50,90,20);    
+    
+		frmMain.add(cboCountries);        
+    		frmMain.setLayout(new FlowLayout());    
+    		frmMain.setSize(400,500);    
+    		frmMain.setVisible(true);         
+	}    
+
+	public static void main(String[] args) {    
+    		new ComboBoxExample();         
+	}    
+}
+
+//**********************************************************************************************   
+
+/*
+
+	JComboBox<String> majorChoice = new JComboBox<String>();
+	majorChoice.addItem("English");
+	majorChoice.addItem("Math");
+	majorChoice.addItem("Science");
+
+*/
+
+/*
+Method 				Purpose
+void addItem(Object) 		Adds an item to the list
+void removeItem(Object) 	Removes an item from the list
+void removeAllItems() 		Removes all items from the list
+Object getItemAt(int) 		Returns the list item at the index position specified by the integer argument
+int getItemCount() 		Returns the number of items in the list
+int getMaximumRowCount() 	Returns the maximum number of items the combo box can display without a scroll bar
+int getSelectedIndex() 		Returns the position of the currently selected item
+Object getSelectedItem() 	Returns the currently selected item
+Object[] getSelectedObjects() 	Returns an array containing selected Objects
+void setEditable(boolean) 	Sets the field to be editable or not editable
+void setMaximumRowCount(int) 	Sets the number of rows in the combo box that can be displayed at one time
+void setSelectedIndex(int) 	Sets the index at the position indicated by the argument
+void setSelectedItem(Object) 	Sets the selected item in the combo box display area to be the Object argument
+*/

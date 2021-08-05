@@ -1,0 +1,43 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class PanelForm extends JFrame {
+	
+	JButton btnButton1 = new JButton("Button 1");
+	JButton btnButton2 = new JButton("Button 2");
+	
+	JPanel pnlButtons = new JPanel();
+
+	public PanelForm(){
+		super("Using Panels);
+		setSize(400, 400);
+
+		setLayout(new FlowLayout());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		pnlButtons.setBounds(40, 100, 200, 200);
+		pnlButtons.setBackground(Color.gray);
+
+		pnlButtons.add(btnButton1);		
+		pnlButtons.add(btnButton2);
+
+		add(pnlButtons);
+	}
+}
+
+//----------------------------------------------------------------
+
+public class UsingPanels{
+	public static void main(String[] args){
+
+		PanelForm frmPanel = new PanelForm();
+		frmPanel.setVisible(true);
+		
+	}
+}
+//----------------------------------------------------------------
+	btnButton1.setBounds(50,100,80,30);    
+        btnButton1.setBackground(Color.yellow);   
+        
+	btnButton2.setBounds(100,100,80,30);    
+        btnButton2.setBackground(Color.green);  

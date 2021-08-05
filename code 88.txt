@@ -1,0 +1,66 @@
+package userdefinedexceptionv1; 
+
+
+public class rangeexception1 extends Exception{
+	
+	public rangeexception1(){
+	}
+
+	public rangeexception1(String strErrorMessage){
+		
+		super(strErrorMessage);
+	}
+}
+
+//********************************************************************************************************************
+package userdefinedexceptionv1; 
+
+import java.util.Scanner; 
+
+public class userdefinedexceptionv1{
+
+	public static void main(String[] args){
+	
+		Scanner sc = new Scanner(System.in);
+
+		int intMonths; 
+
+		try{
+			System.out.println("Please enter the number of months: ");
+			intMonths = sc.nextInt();
+	
+			if ((intMonths < 1) || (intMonths > 12)){
+				
+				rangeexception1 re = new rangeexception1("Error - Number of months only between 1 and 12");
+				throw re; 
+			}
+			else{
+				System.out.println();	
+				System.out.println("The number of months entered is " + intMonths);
+			}
+		}
+		catch(rangeexception1 otherre){
+			
+			System.out.println(" ERROR X " + otherre.getMessage());
+		
+		}
+	}
+}
+//********************************************************************************************************************
+/*
+		Scanner sc = new Scanner(System.in);
+
+		int intMonths; 
+
+		System.out.println("Please enter the number of months: ");
+		intMonths = sc.nextInt();
+	
+		if ((intMonths < 1) || (intMonths > 12)){
+			System.out.println();	
+			System.out.println("Error - the number of months entered has to be between 1 and 12");	
+		}
+		else{
+			System.out.println();	
+			System.out.println("The number of months entered is " + intMonths);
+		}
+*/

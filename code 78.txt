@@ -1,0 +1,30 @@
+import java.util.*; 
+
+public class usingarrayclass
+{
+	public static void main(String[] args)
+	{	
+		int intCount; 
+		int[] intMyScores = new int[5]; 
+		
+		Arrays.fill(intMyScores, 8); // filling all the cells with 8 
+		
+		for (intCount = 0; intCount <= 4; intCount++)
+			System.out.println(intMyScores[intCount]);
+
+		intMyScores[2] = 6; //editing a specific cell value
+		intMyScores[4] = 3; 
+
+		for (intCount = 0; intCount <= 4; intCount++)
+			System.out.println(intMyScores[intCount]);
+
+		Arrays.sort(intMyScores); //sorting the array 
+	
+		for (intCount = 0; intCount <= 4; intCount++)
+			System.out.println(intMyScores[intCount]);
+
+		int intSearchLocation = Arrays.binarySearch(intMyScores,6);
+
+		System.out.println("6 was found in cell " + intSearchLocation);
+	}
+}

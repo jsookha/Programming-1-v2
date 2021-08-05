@@ -1,0 +1,96 @@
+
+
+public class Animal{
+	private int IDtag; 
+	private String species; 
+
+	public void setIDtag(int intID){
+		IDtag = intID;
+	}
+
+	public int getIDtag(){
+		return IDtag;
+	}
+
+	public void setSpecies(String strSpecies){
+		species = strSpecies;
+	}
+
+	public String getSpecies(){
+		return species;
+	}
+}
+
+//--------------------------------------------------------------------------------
+
+public class Bird extends Animal{
+	private int colour;
+	
+	public void setColour(int intColour){
+		colour = intColour;
+	}
+
+	public int getColour(){
+		return colour;
+	}
+
+	public Bird(int intIDTag, String strSpecies, int intColour){
+		super.setIDtag(intIDTag);
+		super.setSpecies(strSpecies);
+	
+		colour = intColour;
+	}
+
+	// this is in the textbook - we override the original version of toString()
+	@Override
+	public String toString(){
+
+		String strColour; 
+		//can use a switch statement, if you'd like to 
+
+		if (colour == 1)
+			strColour = "Grey";
+		
+		if (colour == 2)
+			strColour = "White";
+
+		if (colour == 3)
+			strColour = "Black";
+
+		System.out.println("Bird \n" + 
+				   "ID tag:  	    " + super.getIDtag() + "\n" +
+				   "Species: 	    " + super.getSpecies() + "\n" +
+				   "Feather colour: " + getColour() + strColour);	
+	} 	
+	
+}
+
+//--------------------------------------------------------------------------------
+
+public class Reptile extends Animal{
+	private double bloodTemp; 
+	
+	public void setBloodTemp(double dblBloodTemp){
+		bloodTemp = dblBloodTemp;
+	}
+
+	public double getBloodTemp(){
+		return bloodTemp;
+	}
+
+	public Reptile(int intIDTag, String strSpecies, double dblBlood){
+		super.setIDtag(intIDTag);
+		super.setSpecies(strSpecies);
+		
+		bloodTemp = dblBlood; 
+	}
+
+	// this is in the textbook - we override the original version of toString()
+	@Override
+	public String toString(){
+		System.out.println("Reptile \n" + 
+				   "ID tag:  	    " + super.getIDtag() + "\n" +
+				   "Species: 	    " + super.getSpecies() + "\n" +
+				   "Blood Temp:     " + getBloodTemp());	
+	}
+}

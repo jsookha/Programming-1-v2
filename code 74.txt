@@ -1,0 +1,59 @@
+package sortparallelarrays; 
+
+public class SortParallelArrays{
+	
+	static String[] strEmpNames = new String[5]; 
+
+	static double[] dblSalary = new double[5]; 
+
+	static int intCount1, intCount2; 
+
+	static double dblTemp; 
+	static String strTemp; 
+	
+	
+	public static void main(String[] args){
+		loadArrays();
+		BubbleSort(); //Sort 
+		printArrays();
+	}
+		
+	public static void loadArrays(){
+		strEmpNames[0] = "John"; 
+		strEmpNames[1] = "Jane";
+		strEmpNames[2] = "Jennifer";
+		strEmpNames[3] = "Joe";
+		strEmpNames[4] = "Jackie";		
+			
+		dblSalary[0] = 34444;
+		dblSalary[1] = 35000;
+		dblSalary[2] = 64000;
+		dblSalary[3] = 10000;
+		dblSalary[4] = 55678;		
+	}
+
+	public static void printArrays(){
+		// you can do this yourself - you've done it a million times before
+	}
+
+	public static void BubbleSort(){
+		
+		for(intCount1 = 0; intCount1 < 4; intCount1++){
+			
+			for (intCount2 = 0; intCount2 < (4 - intCount1 - 1); intCount2++){
+				
+				if (dblSalary[intCount2] > dblSalary[intCount2 + 1){
+					dblTemp = dblSalary[intCount2]; 
+					dblSalary[intCount2] = dblSalary[intCount2 + 1]; 
+					dblSalary[intCount2 + 1] = dblTemp; 
+
+					strTemp = strEmpNames[intCount2]; 
+					strEmpNames[intCount2] = strEmpNames[intCount2 + 1];
+					strEmpNames[intCount2 + 1] = strTemp; 
+				}
+			}
+		}
+	}
+
+	
+}

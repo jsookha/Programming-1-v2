@@ -1,0 +1,94 @@
+public class PremierLeague{									
+										
+	static String[] strTeams;							
+	static String[] strStats;  							
+									
+  	static int[] intPoints = new int[10]; 							
+									
+	static int[][] intScores; 
+
+	static int intCount1, intCount2; 	
+
+	public static void main(String[] arg)
+	{
+		loadArrays();
+		CalcPoints();
+		printTable();	
+		HighLowPoints();	
+	}
+	
+	public static void HighLowPoints(){
+		int intHigh, intHIndex; 
+		int intLow, intLIndex; 
+
+		intHigh = -1; 
+		intLow = 999; 
+		
+		intHIndex = -1; 
+		intLIndex = -1; 
+
+		for (intCount1 = 0; intCount1 <= 9; intCount++){
+			if (intPoints[intCount1] > intHigh){
+				intHigh = intPoints[intCount1];
+				intHIndex = intCount1;
+			}
+
+			if (intPoints[intCount1] < intLow){
+				intLow = intPoints[intCount1];
+				intLIndex = intCount1;
+			}
+		}
+
+		System.out.println("The team with the highest points is " + strTeams[intHIndex] + " with " + intHigh + " points");
+		System.out.println("The team with the lowest points is " + strTeams[intLIndex] + " with " + intLow + " points");
+	}		
+
+
+	public static void printTable(){
+
+		for (intCount1 = 0; intCount1 <= 9; intCount++){
+			System.out.print(strTeams[intCount1] + "\t" + intScores[intCount1][0] + "\t" + intScores[intCount1][1] + "\t" +
+								      intScores[intCount1][2] + "\t" + intScores[intCount1][3] + "\t" +
+								      intScores[intCount1][4] + "\t" + intScores[intCount1][5] + "\t" +
+								intPoints[intCount1] + "\n");
+		}
+
+		for (intCount1 = 0; intCount1 <= 9; intCount1++){
+			System.out.print(strTeams[intCount1] + "\t");
+
+			for (intCount2 = 0; intCount2 <= 5; intCount2++){
+				System.out.print(intScores[intCount1][intCount2] + "\t");
+			}
+			System.out.print(intPoints[intCount1] + "\n");
+		}
+	}
+	
+	public static void CalcPoints(){
+		for (intCount1 = 0; intCount1 <= 9; intCount1++){
+		    
+			intPoints[intCount1] = (intScores[intCount1][1] * 3) + (intScores[intCount1][2] * 0) + (intScores[intCount1][3] * 1);
+		}
+	}	
+
+	public static void loadArrays(){							
+									
+		strTeams = new String[]{"Everton","Liverpool","Manchester United","Arsenal","Chelsea",						
+				      "Leicester","Stoke","Westham","Tottenham","Manchester City"};				
+										
+		strStats = new String[]{"Played","Won","Lost","Draw","GF","GA"};						
+										
+		intScores = new int[][]{ {18,3,4,5,4,5},
+					 {18,4,5,9,12,4},
+					 {18,10,2,6,20,3},
+					 {18,11,1,7,16,5},
+					 {18,16,1,1,10,1},
+					 {18,17,0,1,16,2},
+					 {18,12,0,6,19,7},
+					 {18,10,8,0,20,6},
+					 {18,13,5,0,21,5},
+					 {18,18,0,0,30,4}
+					};
+	 									
+	}
+}
+		

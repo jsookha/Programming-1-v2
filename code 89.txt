@@ -1,0 +1,51 @@
+package filehandling1; 
+
+import java.nio.file.*;
+import static java.nio.file.AccessMode.*; 
+ 
+
+import java.io.IOException;
+
+public class filehandling1{
+
+	public static void main(String[] args){
+		
+		
+	
+		Path filePath = Paths.get("C:\\Users\\Jessel\\Desktop\\Data.txt");
+
+		for (int intX = 0; intX <= 3; intX++)
+			System.out.println("Element " + intX + " is " + filePath.getName(intX));
+
+		
+		//filePath.getFileSystem().provider().checkAccess(filePath, READ, EXECUTE);
+
+
+		try
+		{
+			filePath.getFileSystem().provider().checkAccess(filePath, READ, EXECUTE);
+			System.out.println("File is accessible");
+		}
+		catch(IOException e) // (Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+		if (Files.exists(filePath) == false){
+			System.out.println("File doesn't exist");
+			throw 
+		}
+		else{ 
+			System.out.println("File does exist"); 	//do whatever work with the file 	
+		}
+		
+
+	}
+}
+
+/* 
+	C:\Users\Jessel\Desktop
+*/
+
+// import java.nio.file.AccessMode.READ;
+// import java.nio.file.AccessMode.WRITE;

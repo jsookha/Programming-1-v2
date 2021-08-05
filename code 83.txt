@@ -1,0 +1,90 @@
+package usingabstractclasses23; 
+
+public class UsingAbstractClasses23{
+
+	
+	public static void main(String[] args){
+			
+		//User user1 = new User();
+		// above line won't work - cannot instantiate abstract class as object 
+
+		//Student stud1 = new Student();
+		// stud1.setName("Jack");
+		// stud1.setCourse("BCAD");
+		// stud1.Print();
+
+		Student stud2 = new Student("John", "BCOM");
+		stud2.Print;
+
+		User user2; 
+		
+		user2 = new Student("Jane", "BSC");
+		user2.Print();
+		
+
+		PrintDetails(stud2); 
+
+		PrintDetails(user2); 
+		
+	}
+
+	public static void PrintDetails(User userX){
+		
+		// Maybe perform a decision 
+		// Maybe calculate some stuff based on the kind of user 
+		
+		userX.Print();
+	}
+}
+
+//*******************************************************
+
+package usingabstractclasses; 
+
+public abstract class User{
+	
+	private String name; 
+
+	public String getName(){
+		return name; 
+	}
+	
+	public void setName(String strN){
+		name = strN; 
+	}
+
+	public abstract void Print();
+
+	public User(String strName){
+		name = strName; 
+	}
+}
+
+//*******************************************************
+
+package usingabstractclasses; 
+
+public class Student extends User{
+	
+	private String course; 
+
+	public String getCourse(){
+		return course; 
+	}
+
+	public void setCourse(String strC){
+		course = strC; 
+	}
+
+	@Override
+	public void Print(){
+		// System.out.println("Name   - " + super.name);
+		System.out.println("Name   - " + super.getName());
+		System.out.println("Course - " + course);
+	}
+
+	public Student(String strName, String strCourse){
+		super(strName);
+		course = strCourse;	
+	}
+}

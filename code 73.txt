@@ -1,0 +1,50 @@
+package insertionsort; 
+
+
+public InsertionSort{
+	
+	static int[] intNumbers = new int[5]; 
+
+	public static void main(String[] args){
+		
+		LoadArray();
+		InsertionSort();
+		PrintArray();
+			
+	}
+
+	public static void InsertionSort(){
+		int intCount1, intCount2, intNumberofElements, intSomething2; 
+		// j, i, N, x 
+
+		intNumberofElements = 4; // because from 0 to 4 
+		
+		for (intCount2 = 0; intCount2 <= intNumberofElements; intCount2++){
+
+			intCount1 = intCount2; //might have to be different 
+
+			intSomething2 = intNumbers[intCount2];
+
+			while (intCount1 >= 0){
+				if (intNumbers[intCount1 - 1) > intSomething2){
+					intNumbers[intCount1] = intNumbers[intCount1 - 1]; 
+					intCount1 = intCount - 1; 
+				}
+			}
+			intNumbers[intCount1] = intSomething2;
+		}
+	}
+	public static void LoadArray(){
+		intNumbers[0] = 25; 
+		intNumbers[1] =	5;
+		intNumbers[2] = 67;
+		intNumbers[3] = 43;
+		intNumbers[4] = 10;
+	}
+		
+	public static void PrintArray(){
+		for (int intCount3 = 0; intCount3 <= 4; intCount3++){
+			System.out.print(intNumbers[intCount3] + "    ");
+		}
+	}
+}

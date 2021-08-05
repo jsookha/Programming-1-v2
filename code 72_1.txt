@@ -1,0 +1,81 @@
+package sorting; 
+
+
+public class Sorting{
+	
+	static int[] intNumbers = new int[5]; 
+
+	public static void main(String[] args){
+		
+		//loadArray();
+		//SelectionExchangeSort();
+		//printArray();
+
+		loadArray();
+		BubbleSort();
+		printArray(); 		
+	
+	}
+	
+
+	public static void BubbleSort(){
+		int intCount1, intCount2, intFlag, intTemp; 
+
+		intFlag = 1; 
+		intCount1 = 3; 
+
+		while(intFlag == 1){
+			intFlag = 0; 
+
+			for (intCount2 = 0; intCount2 <= intCount1; intCount2++){
+				if (intNumbers[intCount2] > intNumbers[intCount2 + 1){
+					
+					intTemp = intNumbers[intCount2];
+					intNumbers[intCount2] = intNumbers[intCount2 + 1];
+					intNumbers[intCount2 + 1] = intTemp;
+				
+					intFlag = 1;  
+				}
+			}
+		
+			intCount1 = intCount1 - 1; 
+		}
+	}
+	
+	public static void SelectionExchangeSort(){
+		int intCount1, intCount2, intTemp, intMin; 
+		
+		for (intCount1 = 0; intCount1 <= 3; intCount1++){
+			intMin = intCount1; 
+
+			for (intCount2 = intCount1 + 1; intCount2 <= 4; intCount2++){
+					
+				if (intNumbers[intMin] > intNumbers[intCount2]
+				
+					intMin = intCount2; 
+			}
+			
+			if (intCount1 < intMin){
+				intTemp = intNumbers[intMin];
+				intNumbers[intMin] = intNumbers[intCount1];
+				intNumbers[intCount1] = intTemp; 
+			}
+		}	
+	}
+
+	public static void loadArray(){
+		intNumbers[0] = 25; 
+		intNumbers[1] = 5;
+		intNumbers[2] = 52;
+		intNumbers[3] = 40;
+		intNumbers[4] = 10;
+	}
+
+	public static void printArray(){
+		for (int intCount4 = 0; intCount4 <= 4; intCount4++){
+	
+			System.out.print(intNumbers[intCount4] + "\t");
+		}
+		System.out.println();
+	}
+}

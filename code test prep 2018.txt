@@ -1,0 +1,136 @@
+public class TestPrep2018{
+
+	static String[] strAssessments = new String[3]; 
+	static String[] strStudent = new String[3]; 
+
+	static int[][] intMarks = new int[3][3]; 
+
+	static double[] dblFinalMark = new double[3];
+	static double[] dblAvgAssessment = new double[3];
+	
+	static int intC1, intC2; 
+
+	public static void main(){
+	
+		loadArrays();
+		CalcFinalMark();
+		CalcAvgAssess();	
+		DisplayAboveAverage();
+		DisplayHighLow();
+	}
+
+	public static void CalcFinalMark(){
+		
+		System.out.println("Final Marks");
+
+		for (intC1 = 0; intC1 <= 2; intC1++){
+			dblFinalMark[intC1] = (intMarks[intC1][0] * 0.3) + (intMarks[intC1][1] * 0.3) + (intMarks[intC1][2] * 0.4);
+			System.out.println(strStudent[intC1] + " : " + dblFinalMark[intC1] + "%");
+		}
+	}
+	
+	public static void CalcAvgAssess(){
+		double dblSum; 		
+		
+		System.out.println("Average for each Assessment");
+
+		for (intC1 = 0; intC1 <= 2; intC1++){
+			dblSumSum = 0; 
+			for (intC2 = 0; intC2 <= 2; intC2++){
+				dblSum = dblSum + intMarks[intC2][intC1]; 
+			}
+			dblAvgAssessment[intC1] = dblSum / 3; 
+			System.out.println(strAssessments[intC1] + " : " + dblAvg[intC1] + "% \n"); 
+		}
+	}
+
+	public static void DisplayAboveAverage(){
+
+		System.out.println("Students who got above average");
+
+		for (intC1 = 0; intC1 <= 2; intC1++){
+			System.out.println("Average for " + strAssessments[intC1]); 
+			for (intC2 = 0; intC2 <= 2; intC2++){
+				if (intMarks[intC2][intC1] > dblAvgAssessment[intC1]){
+					System.out.println(strStudent[intC1] + " : " + intMarks[intC2][intC1] + "%");
+				}
+			}
+		}
+
+	}
+
+	public static void DisplayHighLow(){				
+		int intHigh, intHIndex; 
+		int intLow, intLIndex; 
+
+		int intHighFinal, intHFIndex;
+		int intLowFinal, intLFIndex;
+
+		System.out.println("High and Low Test Marks");
+
+		for (intC1 = 0; intC1 <= 2; intC1++){
+			intHigh = -1;
+			intLow = 999;  
+			System.out.println(strAssessments[intC1]);
+			for (intC2 = 0; intC2 <= 2; intC2++){
+				if (intMarks[intC2][intC1] > intHigh){
+					intHigh = intMarks[intC2][intC1];
+					intHIndex = intC2;
+				}
+				
+				if (intMarks[intC2][intC1] < intLow){
+					intLow = intMarks[intC2][intC1];
+					intLIndex = intC2;
+				}
+			} 
+			System.out.println("High " + strStudent[intHindex] + " : " + intMarks[intHIndex][intC1] + "% \n"); 
+			System.out.println("Low  " + strStudent[intLindex] + " : " + intMarks[intLIndex][intC1] + "% \n"); 
+		}
+
+		System.out.println("High and Low Final Marks");
+		
+		intHighFinal = -1;
+		intLowFinal = 999; 
+
+		for (intC1 = 0; intC1 <= 2; intC1++){
+			if (dblFinalMark[intC1] > intHighFinal){
+				intHighFinal = dblFinalMark[intC1];
+				intHFIndex = intC1;
+			}
+				
+			if (dblFinalMark[intC1] < intLowFinal){
+				intLowFinal = dblFinalMark[intC1];
+				intLFIndex = intC1;
+			}
+		}
+
+		System.out.println("High " + strStudent[intHFIndex] + " : " + dblFinalMark[intHFIndex] + "% \n"); 
+		System.out.println("Low  " + strStudent[intLFIndex] + " : " + dblFinalMark[intHFIndex] + "% \n"); 
+
+	}
+
+
+	public static void loadArrays(){
+		strAssessment[0] = "Test 1"; 
+		strAssessment[1] = "Test 2";
+		strAssessment[2] = "Test 3";
+
+		strStudent[0] = "John"; 
+		strStudent[1] = "Jake"; 
+		strStudent[2] = "Jennifer"; 
+
+		intMarks[0][0] = 1; 
+		intMarks[0][1] = 2;
+		intMarks[0][2] = 3;
+
+		intMarks[1][0] = 4; 
+		intMarks[1][1] = 5;
+		intMarks[1][2] = 6;
+
+		intMarks[2][0] = 7;
+		intMarks[2][1] = 8;
+		intMarks[2][2] = 9;
+
+	}
+}
+

@@ -1,0 +1,209 @@
+public abstract class Employee {
+   private String name;
+   private String address;
+   private String number;
+
+   //constructor
+
+   public Employee() {
+   }
+
+   public Employee(String name, String address, String number) {
+      
+      name = name;
+      address = address;
+      number = number;
+   }
+   
+   // get and set 'properties'   
+   public String getName() {
+      return name;
+   }
+ 
+   public void setName(String newName) {
+      name = newName;
+   }
+ 
+   public String getAddress() {
+      return address;
+   }
+   
+   public void setAddress(String newAddress) {
+      address = newAddress;
+   }
+ 
+   public String getNumber() {
+      return number;
+   }
+
+   public void setNumber(String newNumber) {
+      number = newNumber;
+   }
+
+   //methods 
+   //public double calculatePay() {
+   //  return 0.0;
+   //}
+	
+     
+   //public void mailPayment() {
+   //   System.out.println("Mailing a payment to " + this.name + " " + this.address);
+   //}
+
+   //-------------------------------------------------
+   public abstract double calculatePay();
+   public abstract void mailPayment(); 
+
+   public String toString() {
+      return name + " " + address + " " + number;
+   }
+
+}
+
+//************************************************************************************
+public class Salary extends Employee {
+   private double salary;   // Annual salary
+   
+   public Salary(String name, String address, String number, double newsalary) {
+      super(name, address, number);
+      salary = newsalary;
+   }
+
+   @Override   
+   public void mailPayment() {
+      System.out.println("Mailing payment to " + super.getName() + " address " + super.getAddress() + " with salary " + salary);
+   }
+ 
+   public double getSalary() {
+      return salary;
+   }
+   
+   public void setSalary(double newSalary) {
+      if(newSalary >= 0.0) {
+         salary = newSalary;
+      }
+   }
+   
+   @Override
+   public double calculatePay() {
+      //System.out.println("Calculating salary pay for " + super.getName());
+      return salary/52;
+   }
+}
+
+
+//************************************************************************************
+public class Hourly extends Employee {
+   private int hours; 
+   private double rateofpay; 
+  
+
+   public Hourly(String name, String address, String number, int newhours, double newrate) {
+      super (name, address, number); 
+      hours = newhours; 
+      rateofpay = newrate;   
+   }
+   
+   @Override
+   public void mailPayment() {
+       System.out.println("Mailing payment to " + super.getName() + " address " + super.getAddress() + " with wages " + calculatePay()); 
+   }
+  
+   @Override
+   public double calculatePay() {
+      double dblPay; 
+
+      if (hours > 40) {
+         dblPay = (40 * rateofpay) + ((hours - 40) * rateofpay * 1.5);  
+      }     
+      else {
+         dblPay = hours * rateofpay; 
+      }
+
+      return dblPay; 
+   }
+}
+
+//************************************************************************************
+public class AbstractEmployees{
+
+   public static void main(String[] args) {
+
+	// Salary salEmp1 = new Salary();
+	// Hourly hrsEmp2 = new Hourly();
+	// Remember the constructors we created for both the Salary and Hourly classes - there are no empty constructors! 
+
+	// Create variables and read in the values for name, address, number and the amount (hourly or salary)
+
+	Salary salEmp3 = new Salary("Joe", "123 The Good Place", "011 555 1234", 250000.00);
+	salEmp3.mailPayment();
+
+	Hourly hrsEmp4 = new Hourly("Jackie", "123 Not The Good Place", "011 555 5678", 55, 250);	
+        hrsEmp4.mailPayment();
+	
+	// consider the Dynamic method binding
+	Employee empX; 
+
+	empX = new Salary("Jen", "45 Someother Place", "011 555 7623", 310000.00);
+	empX.mailPayment();
+	System.out.println("Weekly pay for " + empx.getName() + " is " + empx.calculatePay());
+
+	empX = new Hourly("John", "99 This Place", "011 555 8908", 40, 300);
+	empX.mailPayment();
+
+	/*
+		1D Arr - Cell is either Sal or Hrs - employee
+		2D Arr - 1st row S or H - char or String 
+			 2nd row is Sal Hrs employee ? 
+	*/
+
+	Salary[] salArr = new Salary[5]; 
+	salArr[0] = new Salary(....
+	salArr[1] = new Salary(......
+
+
+	Hourly[] hrsArr = new Hourly[5]; 
+
+	Employee[] empArr = new Employee[10]; 
+	
+	empArr[0] = new Salary(.....
+	empArr[1] = new Hourly(.......
+
+	
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

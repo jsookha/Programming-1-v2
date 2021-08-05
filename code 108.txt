@@ -1,0 +1,40 @@
+//  Pane 
+// As mentioned in the Chapter - JFrame, JDialog and JApplet are Java's 3 top-level container
+
+// So being able to understand the need for a pane allows us to consider placing controls 
+// in a slightly better manner than what we have been doing so far ... 
+
+// diagram 15.1 on page 792 shows the various panes and the hierarchy
+
+import java.awt.*;  
+import javax.swing.*;
+  
+public class PanelExample {  
+     PanelExample() {  
+        JFrame frmMain = new JFrame("Panel Example");    
+        JPanel pnlButtons = new JPanel();  
+        
+	pnlButtons.setBounds(40,80,200,200);    
+        pnlButtons.setBackground(Color.gray);  
+        
+	JButton btnButton1 = new JButton("Button 1");     
+        btnButton1.setBounds(50,100,80,30);    
+        btnButton1.setBackground(Color.yellow);   
+        
+	JButton btnButton2 = new JButton("Button 2");   
+        btnButton2.setBounds(100,100,80,30);    
+        btnButton2.setBackground(Color.green);   
+        
+	pnlButtons.add(btnButton1); 
+	pnlButtons.add(btnButton2);
+  
+        frmMain.add(pnlButtons);  
+        frmMain.setSize(400,400);    
+        frmMain.setLayout(null);    
+        frmMain.setVisible(true);    
+     }
+  
+     public static void main(String args[]){  
+        new PanelExample();  
+     }  
+}

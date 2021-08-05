@@ -1,0 +1,57 @@
+package examprep; 
+
+import javax.swing.*; 
+import java.awt.*; 
+
+public class grid1 extends JFrame {
+
+	GridLayout g1 = new GridLayout(6,2,10,10);
+	Container con = getContentPane();
+
+	JComboBox cboStudents = new JComboBox();
+	JLabel lblFinalMark = new JLabel("Final Mark");
+
+	JComboBox cboAssessments = new JComboBox();
+	JLabel lblAsAvg = new JLabel("Assessment Average");	
+	JLabel lblAsHigh = new JLabel("Highest Assessment");
+	JLabel lblAsLow = new JLabel("Lowest Assessment");
+
+	JButton btnAverage = new JButton("Averages");
+	JLabel lblAllAverages = new JLabel("All Averages");
+	JLabel lblAboveAverage = new JLabel("Above Average");
+	
+	JPanel pnlSpace = new JPanel();
+	
+	public grid1(){
+		super("Exam Preparation");
+		setSize(400,350);
+			
+		con.setLayout(g1);
+		
+		con.add(cboStudents);	
+		con.add(lblFinalMark);
+		
+		con.add(cboAssessments);
+		con.add(lblAsAvg);
+		con.add(pnlSpace);	
+		con.add(lblAsHigh);
+		con.add(pnlSpace);
+		con.add(lblAsLow);
+
+		con.add(btnAverage);
+		con.add(lblAllAverages);
+		con.add(pnlSpace); //space
+		con.add(lblAboveAverage);
+	}
+
+}
+
+//----------------------------------------------------------
+public class examprep{
+	public static void main(String[] args){
+		grid1 frmGridLayout = new grid1();
+
+		frmGridLayout.setVisible(true);
+	}
+}
+

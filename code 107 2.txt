@@ -1,0 +1,54 @@
+import javax.swing.*;
+import java.awt.*; 
+import java.awt.event.*; 
+
+
+public class ComboBoxDemo extends JFrame implements ActionListener{
+	JLabel lblTitle - new JLabel("Combobox Example");
+
+	String strCountries[] = {"India", "Australia","USA", "England","South Africa"};
+	JComboBox cboCountries = new JComboBox(strCountries);
+
+	JComboBox<String> cboCountries2 = new JComboBox<String>();
+
+	JButton btnSubmit = new JButton("Submit");
+
+	public ComboBoxDemo(){
+		super("This is the ComboxBox Example");
+		setSize(400,500);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setLayout(new FlowLayout());
+
+		btnSubmit.addActionListener(this); 
+
+		add(lblTitle);
+		add(cboCountries);
+		add(btnSubmit);
+
+		
+	
+		cboCountries2.addItem("Egypt");
+		cboCountries2.addItem("France");
+		cboCountries2.addItem("China");
+		cboCountries2.addItem("Russia");
+
+		add(cboCountries2);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println(cboCountries.getSelectedItem()); 
+	}
+}
+
+//---------------------------------------------------------------------------------
+public class ComboBoxExample{
+	
+	public static void main(String[] args){
+	
+		ComboBoxDemo frmComboBox = new ComboBoxDemo();
+		frmComboBox.setVisible(true);
+	}
+}

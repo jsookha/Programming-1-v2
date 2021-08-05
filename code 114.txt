@@ -1,0 +1,71 @@
+import swing awt awt.event 
+
+public class ???? extends JFrame implements ActionList, ItemList, .. , .. 
+	
+	*variables
+	controls 
+		menubar, menu, menuItem, textfield, buttons, combo boxes, labels, Color Font
+		some controls - in their respective constructors - you are going to load values / names / display whatever 
+	
+		Container con = getContentPane...
+
+		Layouts ???? Grid and Border most likely 
+		???? how many layouts depends on your design 
+		also Panels ???? how many is up to you 
+ 
+	*variables for the file information - including arrays needed / bufferedreader 
+
+	*if you are told to write info into the file 
+		bufferedwriter 
+	*if you are told to write - but also append 
+		printwriter as well  
+
+	*constructor()
+		super 
+		setSize 
+		setDefaultCloseOperation 
+	
+		menubar
+		menus
+		menuitems
+
+		menuitems.addActions .... 
+
+		
+		setLayout - for the main container con 
+
+		call a method for reading the file 
+		cboStudents.addItem(....) add stufff from the arrays // use a for loop
+
+		con.add start adding your controls
+		con.add(panels)
+		
+		panels.setlayout 
+		panels.add
+
+		add any other listeners accordingly 		
+		
+		
+
+	*methods()
+	@override
+	void ActionPerformed.... 
+		source = e.getsource()
+		
+		if (source == mnuFileExit)
+			System.Exit(0);
+
+		if (source == btnAverage)
+			Call the method for the Average work 
+		
+	readingfile()
+		open the file 
+		reader.read()
+		while 
+			split 
+			load your variables 
+			maintain a counter to count how many records you read in 
+//---------------------------------------------------------------
+	Main method
+		instantiate form 
+		setvisible true  

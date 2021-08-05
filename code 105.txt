@@ -1,0 +1,93 @@
+/*
+	Having a form with controls is one thing 
+	- Now we need to consider how to react to a user actually interacting 
+	- with the form - respond to EVENTS ...
+	- We will use something called a listener ... Java uses this term and other languages have other words 
+	- for the same thing ... 
+
+	- another phrase that also is important is event-driven programming - because our program 
+	- must react to the events that are coded for using the listeners 
+
+	- Also many 'things' happen when you as a user are intereacting with a form 
+	- Only if you the developer have "registered" listeners to listen for an event and you have code 
+	- associated to that event - then will only something happen ... 
+
+	- Saying many 'things' is referencing the many listeners we have available to the controls 
+	
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class JHelloFrame extends JFrame implements ActionListener {
+
+	JLabel lblQuestion = new JLabel("What is your name?");
+	Font bigFont = new Font("Arial", Font.BOLD, 16);
+
+	JTextField txtAnswer = new JTextField(10);
+	
+	JButton btnSubmit = new JButton("Press me");
+	
+	JLabel lblGreeting = new JLabel("");
+	
+
+	public JHelloFrame() {
+		super("Greeting Frame");
+		setSize(250, 250);
+		
+		setLayout(new FlowLayout());
+
+		lblQuestion.setFont(bigFont);
+		lblGreeting.setFont(bigFont);
+		
+		add(lbllblQuestion);
+		add(txtAnswer);
+		add(btnSubmit);
+		add(lblGreeting);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// TheSourceOfTheEvent.addListenerMethod(TheClassThatShouldRespond); //format of the line below
+
+		btnSubmit.addActionListener(this);
+		// txtAnswer.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String strName = txtAnswer.getText();
+		String strGreet = "Hello, " + strName;
+		lblGreeting.setText(strGreet);
+	}
+
+	// Page 760 speaks of the idea that is 2 controls are attached to the same listener and in-turn
+	// is going to access the same code - how would you diffrentiate between the 2 
+	// the following code would help 
+	
+	/*
+	@Override
+	void actionPerformed(ActionEvent e) {
+		Object source = e.getSource(); // get the control that activated this code
+
+		if(source instanceof JTextField) {
+			// execute these statements when any JTextField
+			// generates the event
+			// but not when a JButton or other Component does
+		}
+	}
+	*/
+
+	// See the table on Page 765 for some of the other common listeners we might make use of 
+	// See the table on Page 766 for the listeners associated to their controls 
+}
+
+//**************************************************************************************************************
+
+public class GreetingProgram {
+
+	public static void main(String[] args) {
+		JHelloFrame frmHello = new JHelloFrame();	
+		frmHello.setVisible(true);
+	}
+}

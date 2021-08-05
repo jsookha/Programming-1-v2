@@ -1,0 +1,94 @@
+import java.nio.file.*;
+import java.io.*;
+
+public class ReadEmployeeFile{
+	public static void main(String[] args){
+		Path file = Paths.get("C:\\Whatever\\Location\\Employees.txt");
+
+		String s = "";
+		
+		try{
+			InputStream input = new BufferedInputStream(Files.newInputStream(file));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+			s = reader.readLine();
+			
+			while(s != null){
+				System.out.println(s);
+				s = reader.readLine();
+			}
+			reader.close();
+		}
+		catch(Exception e){
+			System.out.println("Message: " + e);
+		}
+	}
+}
+
+/*
+- Take note of the printout - it prints the entire line - no separation of data - even though the comma is 
+- used as a delimiter 
+
+- So going back to the Chapter about Strings - we know that there are methods that can help us, namely; split()
+- But remember that everything is still a String and would need to be converted if required for any calculations 
+
+-- links 
+https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#split(java.lang.String)
+https://beginnersbook.com/2013/12/java-string-split-method-example/
+https://www.geeksforgeeks.org/split-string-java-examples/
+
+*/
+
+//****************************************************************************************************************
+
+import java.nio.file.*;
+import java.io.*;
+public class ReadEmployeeFile2{
+	public static void main(String[] args){
+		Path file = Paths.get("C:\\Whatever\\Location\\Employees.txt");
+		
+		String[] array = new String[3]; // What is this for?
+
+		String s = "";
+		String delimiter = ",";
+
+		int id;
+		String name;
+		double payRate;
+		double gross;
+
+		final double HRS_IN_WEEK = 40;
+		
+		double total = 0;
+
+		try{
+			InputStream input = new BufferedInputStream(Files.newInputStream(file));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+			System.out.println();
+			s = reader.readLine();
+			
+			while(s != null){
+				array = s.split(delimiter);
+
+				id = Integer.parseInt(array[0]);
+				name = array[1];
+				payRate = Double.parseDouble(array[2]);
+
+				gross = payRate * HRS_IN_WEEK;
+
+				System.out.println("ID#" + id + " " + name + " $" + payRate + " $" + gross);
+
+				total += gross;
+
+				s = reader.readLine();
+			}
+			reader.close();
+		}
+		catch(Exception e){
+			System.out.println("Message: " + e);
+		}
+
+		System.out.println(" Total gross payroll is $" + total);
+	}
+}
